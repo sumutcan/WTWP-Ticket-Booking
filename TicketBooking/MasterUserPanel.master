@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterUserPanel.master.cs" Inherits="MasterUserPanel" %>
+
+<%@ Register src="loginControl.ascx" tagname="loginControl" tagprefix="uc1" %>
+
+<%@ Register src="headerHaberControl.ascx" tagname="headerHaberControl" tagprefix="uc2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Broadway Sinemaları</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+    <script type="text/javascript" src="jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="jquery.poptrox-0.1.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="header" class="container" 
+        
+        style="border-bottom-style: dotted; border-width: thin; border-color: #FFFFFF">
+	<div id="logo">
+		<h1><a href="#">broadway </a></h1>
+		<p>sinemaları...</p>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="current_page_item"><a href="#">Anasayfa</a></li>
+			<li><a href="#">Rezervasyon</a></li>
+			<li><a href="#">Filmler</a></li>
+			<li><a href="#">Salonlar</a></li>
+            <li><a href="#">Hakkında</a></li>
+		</ul>
+	</div>
+</div>
+<!-- end #header -->
+<div id="poptrox">
+	<!-- start -->
+    <p></p>
+    <h1>Vizyondakiler...</h1>
+	<ul id="gallery">
+		<li><asp:Image ID="Image1" runat="server" Height="280px" Width="210px" /></li>
+        <li><asp:Image ID="Image2" runat="server" Height="280px" Width="210px" /></li>
+        <li><asp:Image ID="Image3" runat="server" Height="280px" Width="210px" /></li>
+        <li><asp:Image ID="Image4" runat="server" Height="280px" Width="210px" /></li>
+	</ul>
+    <h1>Çok yakında...</h1>
+	<ul id="gallery">
+		<li><asp:Image ID="Image5" runat="server" Height="280px" Width="210px" /></li>
+        <li><asp:Image ID="Image6" runat="server" Height="280px" Width="210px" /></li>
+        <li><asp:Image ID="Image7" runat="server" Height="280px" Width="210px" /></li>
+        <li><asp:Image ID="Image8" runat="server" Height="280px" Width="210px" /></li>
+	</ul>
+    	    <uc2:headerHaberControl ID="headerHaberControl1" runat="server" />
+	<br class="clear" />
+	<script type="text/javascript">
+	    $('#gallery').poptrox();
+		</script>
+	<!-- end -->
+</div>
+<div id="page">
+	<div id="bg1">
+		<div id="bg2">
+			<div id="bg3">
+				<div id="content">
+                        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                        </asp:ContentPlaceHolder>
+					</div>
+				<div id="sidebar" 
+                    style="border-right-style: solid; border-right-width: thin; border-right-color: #FFFFFF">
+					<h2>Kullanıcı Girişi</h2>
+					<uc1:loginControl ID="loginControl1" runat="server" />
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<p>Copyright (c) 2011</p>
+</div>
+<!-- end #footer -->
+    </form>
+</body>
+</html>
