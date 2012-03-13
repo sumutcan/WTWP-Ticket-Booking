@@ -3,6 +3,7 @@
 <%@ Register src="loginControl.ascx" tagname="loginControl" tagprefix="uc1" %>
 
 <%@ Register src="headerHaberControl.ascx" tagname="headerHaberControl" tagprefix="uc2" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="act" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -18,10 +19,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="header" class="container" 
-        
-        style="border-bottom-style: dotted; border-width: thin; border-color: #FFFFFF">
-	<div id="logo">
+    <act:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></act:ToolkitScriptManager>
+    <div id="header" class="container" style="border-bottom-style: dotted; border-width: thin; border-color: #FFFFFF">
+	                
+    <div id="logo">
 		<h1><a href="#">broadway </a></h1>
 		<p>sinemaları...</p>
 	</div>
@@ -39,13 +40,21 @@
 <div id="poptrox">
 	<!-- start -->
     <p></p>
-    <h1>Vizyondakiler...</h1>
-	<ul id="gallery">
+    <asp:Panel ID="pnlVizyondekilerHeader" runat="server">
+    <h1>Vizyondakiler... | <asp:Label ID="lblAc" runat="server" Text="Aç"></asp:Label></h1>
+    </asp:Panel>
+   
+	
+       <asp:Panel ID="pnlVizyondakiler" runat="server" >
+    
+    <ul id="gallery">
 		<li><asp:Image ID="Image1" runat="server" Height="280px" Width="210px" /></li>
         <li><asp:Image ID="Image2" runat="server" Height="280px" Width="210px" /></li>
         <li><asp:Image ID="Image3" runat="server" Height="280px" Width="210px" /></li>
         <li><asp:Image ID="Image4" runat="server" Height="280px" Width="210px" /></li>
 	</ul>
+    </asp:Panel>
+     <act:CollapsiblePanelExtender ID="pnlVizyondakilerCollapse" runat="server" TargetControlID="pnlVizyondakiler" CollapsedText="Aç" ExpandedText="Kapat" EnableViewState="True" CollapseControlID="pnlVizyondekilerHeader" ExpandControlID="pnlVizyondekilerHeader" TextLabelID="lblAc"> </act:CollapsiblePanelExtender>
     <h1>Çok yakında...</h1>
 	<ul id="gallery">
 		<li><asp:Image ID="Image5" runat="server" Height="280px" Width="210px" /></li>
@@ -65,6 +74,7 @@
 		<div id="bg2">
 			<div id="bg3">
 				<div id="content">
+
                         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
                         </asp:ContentPlaceHolder>

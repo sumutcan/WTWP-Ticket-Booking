@@ -74,12 +74,15 @@
     </Compile>
     <Compile Include="headerHaberControl.ascx.cs">
       <DependentUpon>headerHaberControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="loginControl.ascx.cs">
       <DependentUpon>loginControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MasterUserPanel.master.cs">
       <DependentUpon>MasterUserPanel.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
