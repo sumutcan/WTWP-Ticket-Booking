@@ -28,8 +28,8 @@
 	</div>
 	<div id="menu">
 		<ul>
-			<li class="current_page_item"><a href="#">Anasayfa</a></li>
-			<li><a href="#">Rezervasyon</a></li>
+			<li class="current_page_item"><a href="Default.aspx">Anasayfa</a></li>
+			<li><a href="rezervasyon.aspx">Rezervasyon</a></li>
 			<li><a href="#">Filmler</a></li>
 			<li><a href="#">Salonlar</a></li>
             <li><a href="#">Hakkında</a></li>
