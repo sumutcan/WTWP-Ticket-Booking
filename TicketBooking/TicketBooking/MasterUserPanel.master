@@ -55,13 +55,18 @@
 	</ul>
     </asp:Panel>
      <act:CollapsiblePanelExtender ID="pnlVizyondakilerCollapse" runat="server" TargetControlID="pnlVizyondakiler" CollapsedText="Aç" ExpandedText="Kapat" EnableViewState="True" CollapseControlID="pnlVizyondekilerHeader" ExpandControlID="pnlVizyondekilerHeader" TextLabelID="lblAc"> </act:CollapsiblePanelExtender>
-    <h1>Çok yakında...</h1>
+    <asp:Panel ID="pnlCokYakindaHeader" runat="server">
+    <h1>Çok yakında... | <asp:Label ID="lblYakinda" runat="server" Text="Aç"></asp:Label></h1>
+    </asp:Panel>
+     <asp:Panel ID="pnlCokYakinda" runat="server" >
 	<ul id="gallery">
 		<li><asp:Image ID="Image5" runat="server" Height="280px" Width="210px" /></li>
         <li><asp:Image ID="Image6" runat="server" Height="280px" Width="210px" /></li>
         <li><asp:Image ID="Image7" runat="server" Height="280px" Width="210px" /></li>
         <li><asp:Image ID="Image8" runat="server" Height="280px" Width="210px" /></li>
 	</ul>
+    </asp:Panel>
+    <act:CollapsiblePanelExtender ID="pnlCokYakindaCollapse" runat="server" TargetControlID="pnlCokYakinda" CollapsedText="Aç" ExpandedText="Kapat" EnableViewState="True" ExpandControlID="pnlCokYakindaHeader" TextLabelID="lblYakinda" CollapseControlID="pnlCokYakindaHeader"> </act:CollapsiblePanelExtender>
     	    <uc2:headerHaberControl ID="headerHaberControl1" runat="server" />
 	<br class="clear" />
 	<script type="text/javascript">
