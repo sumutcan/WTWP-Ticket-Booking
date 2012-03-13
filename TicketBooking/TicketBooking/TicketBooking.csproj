@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="headerHaberControl.ascx.cs">
       <DependentUpon>headerHaberControl.ascx</DependentUpon>
