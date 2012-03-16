@@ -58,6 +58,7 @@
     <Content Include="Default.aspx" />
     <Content Include="headerHaberControl.ascx" />
     <Content Include="loginControl.ascx" />
+    <Content Include="style.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -283,14 +283,14 @@ a:hover {
   Poptrox
 *****************************************************/
 
-.poptrox_popup
+#poptrox_popup
 {
 	position: relative;
 	padding: 1em 1em 3em 1em;
 	background: #ffffff;
 }
 
-.poptrox_popup .loader
+#poptrox_popup .loader
 {
 	display: block;
 	margin: 55px 0 0 0;
@@ -298,18 +298,22 @@ a:hover {
 	background: url('loader.gif') top center no-repeat;
 }
 
-.poptrox_popup .caption
+#poptrox_popup .caption
 {
 	position: absolute;
 	bottom: 1em;
 	left: 1em;
 }
 
-.poptrox_popup .closer
+#poptrox_popup .closer
 {
 	position: absolute;
 	bottom: 1em;
 	right: 1em;
+}
+#poptrox h1
+{
+    color:#ffffff;
 }
 
 #footer {
