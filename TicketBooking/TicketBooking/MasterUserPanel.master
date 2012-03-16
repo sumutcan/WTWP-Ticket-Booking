@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterUserPanel.master.cs" Inherits="MasterUserPanel" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="MasterUserPanel" Codebehind="MasterUserPanel.master.cs" %>
 
 <%@ Register src="loginControl.ascx" tagname="loginControl" tagprefix="uc1" %>
 

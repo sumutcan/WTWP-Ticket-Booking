@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="loginControl.ascx.cs" Inherits="loginControl" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="loginControl" Codebehind="loginControl.ascx.cs" %>
 <div style="border-width: thin; border-color: #C0C0C0; width: 150px; ">
 
     <asp:Label ID="Label1" runat="server" Text="E-posta: " Font-Bold="True" 

@@ -7,9 +7,10 @@
     <WizardSteps>
         <asp:WizardStep runat="server" StepType="Start" title="Başlangıç">
         </asp:WizardStep>
-        <asp:WizardStep runat="server" title="Tarih Seçimi">
-        </asp:WizardStep>
+
         <asp:WizardStep runat="server" Title="Film Seçimi">
+        </asp:WizardStep>
+        <asp:WizardStep runat="server" title="Tarih Seçimi">
         </asp:WizardStep>
         <asp:WizardStep runat="server" Title="Seans Seçimi">
         </asp:WizardStep>

@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="headerHaberControl.ascx.cs" Inherits="headerHaberControl" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="headerHaberControl" Codebehind="headerHaberControl.ascx.cs" %>
 
 <div style:"h2">
     <asp:Label ID="Label1" runat="server" Text="Film: "></asp:Label>
