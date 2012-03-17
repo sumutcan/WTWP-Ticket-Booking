@@ -34,6 +34,7 @@ h2 {
 
 h3 {
 	font-size: 1.6em;
+	color:#ffffff;
 }
 
 p, ul, ol {
@@ -328,4 +329,17 @@ a:hover {
 	padding: 40px 0px 0px 0px;
 	text-align: center;
 	font-size: 12px;
+}
+.lnk
+{
+    font-family:Calibri;
+    font-weight:bold;
+    color:White;
+    text-decoration:underline;
+}
+.btn
+{
+    font-family:Calibri;
+    font-weight:bold;
+    font-size:small;    
 }

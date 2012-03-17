@@ -12,6 +12,24 @@
 public partial class loginControl {
     
     /// <summary>
+    /// multiviewLoginControl control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.MultiView multiviewLoginControl;
+    
+    /// <summary>
+    /// viewLogin control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.View viewLogin;
+    
+    /// <summary>
     /// Label1 control.
     /// </summary>
     /// <remarks>
@@ -48,6 +66,15 @@ public partial class loginControl {
     protected global::System.Web.UI.WebControls.TextBox TextBox2;
     
     /// <summary>
+    /// lnkSifremiUnuttum control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.LinkButton lnkSifremiUnuttum;
+    
+    /// <summary>
     /// button_submit control.
     /// </summary>
     /// <remarks>
@@ -55,4 +82,67 @@ public partial class loginControl {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Button button_submit;
+    
+    /// <summary>
+    /// viewHosgeldin control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.View viewHosgeldin;
+    
+    /// <summary>
+    /// lblAdSoyad control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblAdSoyad;
+    
+    /// <summary>
+    /// lnkProfil control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.LinkButton lnkProfil;
+    
+    /// <summary>
+    /// lnkCikisYap control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.LinkButton lnkCikisYap;
+    
+    /// <summary>
+    /// viewSifremiUnuttum control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.View viewSifremiUnuttum;
+    
+    /// <summary>
+    /// txtEpostaSifremiUnuttum control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtEpostaSifremiUnuttum;
+    
+    /// <summary>
+    /// btnSifreGonder control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button btnSifreGonder;
 }

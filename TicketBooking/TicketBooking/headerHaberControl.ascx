@@ -1,6 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="headerHaberControl" Codebehind="headerHaberControl.ascx.cs" %>
 
-<div style:"h2">
+<div>
+    <h3>
     <asp:Label ID="Label1" runat="server" Text="Film: "></asp:Label>
     <asp:Label ID="film" runat="server" Text="#film"></asp:Label>
     <asp:Label ID="paraf" runat="server" Text="-|-"></asp:Label>
@@ -12,4 +13,5 @@
     <asp:Label ID="Label8" runat="server" Text="-|-"></asp:Label>
     <asp:Label ID="Label9" runat="server" Text="Doluluk: "></asp:Label>
     <asp:Label ID="doluluk" runat="server" Text="#doluluk"></asp:Label>
+    </h3>
     </div>
