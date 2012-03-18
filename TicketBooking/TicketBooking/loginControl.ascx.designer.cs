@@ -39,13 +39,13 @@ public partial class loginControl {
     protected global::System.Web.UI.WebControls.Label Label1;
     
     /// <summary>
-    /// TextBox1 control.
+    /// txtEPosta control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox TextBox1;
+    protected global::System.Web.UI.WebControls.TextBox txtEPosta;
     
     /// <summary>
     /// Label2 control.
@@ -57,13 +57,13 @@ public partial class loginControl {
     protected global::System.Web.UI.WebControls.Label Label2;
     
     /// <summary>
-    /// TextBox2 control.
+    /// txtSifre control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox TextBox2;
+    protected global::System.Web.UI.WebControls.TextBox txtSifre;
     
     /// <summary>
     /// lnkSifremiUnuttum control.
@@ -75,13 +75,13 @@ public partial class loginControl {
     protected global::System.Web.UI.WebControls.LinkButton lnkSifremiUnuttum;
     
     /// <summary>
-    /// button_submit control.
+    /// btnGirisYap control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Button button_submit;
+    protected global::System.Web.UI.WebControls.Button btnGirisYap;
     
     /// <summary>
     /// viewHosgeldin control.

@@ -343,3 +343,15 @@ a:hover {
     font-weight:bold;
     font-size:small;    
 }
+.hata
+{
+    background-color:#F5A6C6;
+    height:25px;
+    font-family:Calibri;
+    color: Maroon;
+    font-weight:bold;
+    width:auto;
+    text-align:center;
+    vertical-align:middle;
+    font-size:medium;
+}

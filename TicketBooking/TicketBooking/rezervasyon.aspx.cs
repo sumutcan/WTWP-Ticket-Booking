@@ -11,7 +11,26 @@ namespace TicketBooking
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                if (Session["LoggedUser"] == null)
+                    throw new Exception("Bu işlem için önce giriş yapmalısınız.");
+                else
+                { 
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                pnlHata.Visible = true;
+                spanHata.InnerHtml = ex.Message;
+                wizardRezervasyon.Enabled = false;
+            }
+        }
 
+        protected void wizardRezervasyon_FinishButtonClick(object sender, WizardNavigationEventArgs e)
+        {
+            
         }
     }
 }

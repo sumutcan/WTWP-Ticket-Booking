@@ -38,6 +38,19 @@ namespace TicketBooking.ClassLayer
             get { return kullanici; }
             set { kullanici = value; }
         }
+
+        private int puan;
+
+        public int Puan
+        {
+            get { return puan; }
+        }
+
+        public void puanHesapla()
+        {
+            puan = 10;
+        }
+
         ArrayList koltuklar;
 
         public ArrayList Koltuklar

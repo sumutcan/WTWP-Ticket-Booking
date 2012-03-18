@@ -75,6 +75,7 @@
     <Compile Include="ClassLayer\FilmTuru.cs" />
     <Compile Include="ClassLayer\Koltuk.cs" />
     <Compile Include="ClassLayer\Kullanici.cs" />
+    <Compile Include="ClassLayer\Misc.cs" />
     <Compile Include="ClassLayer\Rezervasyon.cs" />
     <Compile Include="ClassLayer\Salon.cs" />
     <Compile Include="ClassLayer\Seans.cs" />

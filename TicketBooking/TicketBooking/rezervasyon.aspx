@@ -1,9 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterUserPanel.master" AutoEventWireup="true" CodeBehind="rezervasyon.aspx.cs" Inherits="TicketBooking.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Wizard ID="Wizard1" runat="server" Height="172px" Width="560px" 
+    <asp:Panel ID="pnlHata" runat="server" Visible="False">
+    <div runat="server" class="hata">
+    <span id="spanHata" runat="server"></span>
+    </div>
+    </asp:Panel>
+    <asp:Wizard ID="wizardRezervasyon" runat="server" Height="172px" Width="560px" 
         ActiveStepIndex="0" FinishCompleteButtonText="Bitir" 
         FinishPreviousButtonText="Önceki" StartNextButtonText="Rezervasyona Başla" 
-        StepNextButtonText="Devam" StepPreviousButtonText="Önceki">
+        StepNextButtonText="Devam" StepPreviousButtonText="Önceki" 
+        onfinishbuttonclick="wizardRezervasyon_FinishButtonClick">
     <WizardSteps>
         <asp:WizardStep runat="server" StepType="Start" title="Başlangıç">
         </asp:WizardStep>
