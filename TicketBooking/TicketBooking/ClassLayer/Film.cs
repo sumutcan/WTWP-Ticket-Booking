@@ -72,6 +72,15 @@ namespace TicketBooking.ClassLayer
         }
 
         private DateTime vizyonTarihi;
+        private int p;
+        private string p_2;
+
+        public Film(int Id, string filmAdiTR)
+        {
+            // TODO: Complete member initialization
+            this.FilmAdiTR = filmAdiTR;
+            this.Id = Id;
+        }
 
         public DateTime VizyonTarihi
         {

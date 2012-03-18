@@ -21,14 +21,29 @@ namespace TicketBooking.ClassLayer
             get { return kapasite; }
             set { kapasite = value; }
         }
-        private int no;
+        private string ad;
 
-        public int No
+        public string Ad
         {
-            get { return no; }
-            set { no = value; }
+            get { return ad; }
+            set { ad = value; }
         }
-        
 
+        private string aciklama;
+
+
+        public string Aciklama
+        {
+            get { return aciklama; }
+            set { aciklama = value; }
+        }
+
+        public Salon(int id, string ad, int kapasite)
+        {
+            // TODO: Complete member initialization
+            this.id = id;
+            this.ad = ad;
+            this.kapasite = kapasite;
+        }
     }
 }
