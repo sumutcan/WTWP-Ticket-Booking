@@ -13,7 +13,10 @@ public partial class loginControl : System.Web.UI.UserControl
         if (Session["LoggedUser"] == null)
             multiviewLoginControl.ActiveViewIndex = 0;
         else
+        {
+            lblAdSoyad.Text = (Session["LoggedUser"] as Kullanici).AdSoyad;
             multiviewLoginControl.ActiveViewIndex = 1;
+        }
     }
 
     protected void btnGirisYap_Click(object sender, EventArgs e)
@@ -22,10 +25,7 @@ public partial class loginControl : System.Web.UI.UserControl
         k.Eposta = txtEPosta.Text;
         k.Sifre = txtSifre.Text;
         Session["LoggedUser"] = k.girisYap();
-
-        multiviewLoginControl.ActiveViewIndex = 1;
-
-        lblAdSoyad.Text = (Session["LoggedUser"] as Kullanici).AdSoyad;
+        
         Response.Redirect("~/Default.aspx", false);
 
     }

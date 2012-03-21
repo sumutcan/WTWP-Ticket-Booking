@@ -46,5 +46,10 @@ namespace TicketBooking
             yeniRezarvasyon.puanHesapla();
 
         }
+
+        protected void calenderTarih_SelectionChanged(object sender, EventArgs e)
+        {
+            lblSeciliTarih.Text = calenderTarih.SelectedDate.ToShortDateString();
+        }
     }
 }
