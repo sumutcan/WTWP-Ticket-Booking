@@ -25,3 +25,8 @@ C:\Users\umutcan\WTWP-Ticket-Booking\TicketBooking\TicketBooking\bin\TicketBooki
 C:\Users\umutcan\WTWP-Ticket-Booking\TicketBooking\TicketBooking\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\umutcan\WTWP-Ticket-Booking\TicketBooking\TicketBooking\obj\Debug\TicketBooking.dll
 C:\Users\umutcan\WTWP-Ticket-Booking\TicketBooking\TicketBooking\obj\Debug\TicketBooking.pdb
+C:\WTWP-Ticket-Booking\TicketBooking\TicketBooking\bin\TicketBooking.dll
+C:\WTWP-Ticket-Booking\TicketBooking\TicketBooking\bin\TicketBooking.pdb
+C:\WTWP-Ticket-Booking\TicketBooking\TicketBooking\obj\Debug\ResolveAssemblyReference.cache
+C:\WTWP-Ticket-Booking\TicketBooking\TicketBooking\obj\Debug\TicketBooking.dll
+C:\WTWP-Ticket-Booking\TicketBooking\TicketBooking\obj\Debug\TicketBooking.pdb
