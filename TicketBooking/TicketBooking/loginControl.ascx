@@ -1,6 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="loginControl" Codebehind="loginControl.ascx.cs" %>
 <div style="border-width: thin; border-color: #C0C0C0; width: 189px; ">
     <asp:MultiView ID="multiviewLoginControl" runat="server" ActiveViewIndex="0">
+        <asp:View ID="View1" runat="server">
+        </asp:View>
     <asp:View ID="viewLogin" runat="server">
         <asp:Label ID="Label1" runat="server" Text="E-posta: " Font-Bold="True" 
         Font-Names="Calibri" Font-Size="Small" ForeColor="#CCCCCC"></asp:Label>
@@ -13,7 +15,10 @@
         TextMode="Password" Width="130px"></asp:TextBox></center>
     <div style="text-align: right">
         <br />
-        <div style="float:left; margin-bottom:0px;"><asp:LinkButton ID="lnkSifremiUnuttum" CssClass="lnk" runat="server">Şifremi Unuttum</asp:LinkButton></div>
+        <div style="float:left; margin-bottom:0px; text-align: left;"><asp:LinkButton ID="lnkSifremiUnuttum" CssClass="lnk" runat="server">Şifremi Unuttum</asp:LinkButton>
+            <br />
+            <asp:LinkButton ID="lnkSifremiUnuttum0" runat="server" CssClass="lnk">Kaydol !</asp:LinkButton>
+        </div>
     <asp:Button ID="btnGirisYap" runat="server" Text="Giriş" CssClass="btn" 
             Width="62px" onclick="btnGirisYap_Click" />
         </div>

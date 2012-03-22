@@ -21,6 +21,15 @@ public partial class loginControl {
     protected global::System.Web.UI.WebControls.MultiView multiviewLoginControl;
     
     /// <summary>
+    /// View1 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.View View1;
+    
+    /// <summary>
     /// viewLogin control.
     /// </summary>
     /// <remarks>
@@ -73,6 +82,15 @@ public partial class loginControl {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.LinkButton lnkSifremiUnuttum;
+    
+    /// <summary>
+    /// lnkSifremiUnuttum0 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.LinkButton lnkSifremiUnuttum0;
     
     /// <summary>
     /// btnGirisYap control.
