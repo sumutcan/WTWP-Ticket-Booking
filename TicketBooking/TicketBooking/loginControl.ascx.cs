@@ -11,11 +11,11 @@ public partial class loginControl : System.Web.UI.UserControl
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["LoggedUser"] == null)
-            multiviewLoginControl.ActiveViewIndex = 0;
+            multiviewLoginControl.ActiveViewIndex = Convert.ToInt32(Session["loginViewState"]);
         else
         {
-            lblAdSoyad.Text = (Session["LoggedUser"] as Kullanici).AdSoyad;
-            multiviewLoginControl.ActiveViewIndex = 1;
+            lblAdSoyad.Text = (Session["LoggedUser"] as Kullanici).Ad + " " + (Session["LoggedUser"] as Kullanici).Soyad;
+            multiviewLoginControl.ActiveViewIndex = Convert.ToInt32(Session["loginViewState"]);
         }
     }
 
@@ -25,15 +25,55 @@ public partial class loginControl : System.Web.UI.UserControl
         k.Eposta = txtEPosta.Text;
         k.Sifre = txtSifre.Text;
         Session["LoggedUser"] = k.girisYap();
+
+        if (Session["LoggedUser"] == null)
+        {
+            Response.Write("<script>alert('Giriş başarısız ! \n Kullanıcı adı veya parola yanlış.')</script>");
+        }
+        else
+        Session["loginViewState"] = 1;
         
         Response.Redirect("~/Default.aspx", false);
 
     }
 
-    protected void lnkCikisYap_Click(object sender, EventArgs e)
+
+    public void basaDon()
     {
         Session["LoggedUser"] = null;
-        multiviewLoginControl.ActiveViewIndex = 0;
-        Response.Redirect("~/Default.aspx",false);
+        Session["loginViewState"] = 0;
+        Response.Redirect("~/Default.aspx", false);
+    }
+
+    protected void lnkCikisYap_Click(object sender, EventArgs e)
+    {
+        basaDon();
+    }
+
+    protected void lnkSifremiUnuttum0_Click(object sender, EventArgs e)
+    {
+        Session["loginViewState"] = 3;
+        Response.Redirect("~/Default.aspx", false);
+    }
+
+    protected void lnkSifremiUnuttum_Click(object sender, EventArgs e)
+    {
+        Session["loginViewState"] = 2;
+        Response.Redirect("~/Default.aspx", false);
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Kullanici yeni = new Kullanici();
+
+        yeni.Ad = txtAd.Text;
+        yeni.Soyad = txtSoyad.Text;
+        yeni.Eposta = txtMail.Text;
+        yeni.Sifre = txtPass.Text;
+        yeni.Tip = false;
+
+        Response.Write("<script>alert('"+ yeni.Kaydol() +"')</script>");
+
+        basaDon();
     }
 }

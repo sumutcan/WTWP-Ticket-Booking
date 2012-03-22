@@ -43,7 +43,7 @@ namespace DataLayer
             entityBuilder.ProviderConnectionString = providerString;
 
             // Set the Metadata location.
-            entityBuilder.Metadata = @"metadata=res://*/CINECLUP.csdl|res://*/CINECLUP.ssdl|res://*/CINECLUP.msl";
+            entityBuilder.Metadata =@"res://*/CINECLUP.csdl|res://*/CINECLUP.ssdl|res://*/CINECLUP.msl";
 
 
 

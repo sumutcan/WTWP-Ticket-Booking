@@ -1,0 +1,109 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Collections;
+using DataLayer;
+using TicketBooking.ClassLayer;
+
+namespace TicketBooking.DataAccessLayer
+{
+    public class KullaniciDB
+    {
+
+        public static ArrayList TumKullanicilariCek(string aranan, int kriter)
+        {
+            DBConnection cn = new DBConnection();
+            IEnumerator<KULLANICI> num = cn.ConnectDB.TumKullanicilariCek().GetEnumerator();
+
+            ArrayList kullanicilar = new ArrayList();
+
+            while (num.MoveNext())
+            {
+                Kullanici kullanici = new Kullanici();
+                kullanici.Id = num.Current.Kullanici_ID;
+                kullanici.Ad = num.Current.Ad;
+                kullanici.Soyad = num.Current.Soyad;
+                kullanici.Sifre = num.Current.Sifre;
+                kullanici.Tip = num.Current.Kullanici_Tipi;
+                kullanicilar.Add(kullanici);
+            }
+
+            return kullanicilar;
+        }
+
+        public static Kullanici GirisSorgula(string eposta, string sifre)
+        {
+            DBConnection cn = new DBConnection();
+            IEnumerator<KULLANICI> num = cn.ConnectDB.KullaniciSorgula(eposta, sifre).GetEnumerator();
+
+            ArrayList kullanicilar = new ArrayList();
+
+            while (num.MoveNext())
+            {
+                Kullanici kullanici = new Kullanici();
+                kullanici.Id = num.Current.Kullanici_ID;
+                kullanici.Ad = num.Current.Ad;
+                kullanici.Soyad = num.Current.Soyad;
+                kullanici.Sifre = num.Current.Sifre;
+                kullanici.Tip = num.Current.Kullanici_Tipi;
+                kullanicilar.Add(kullanici);
+            }
+
+            if (kullanicilar.Count == 0)
+                return null;
+
+            Kullanici k = kullanicilar[0] as Kullanici;
+            return k;
+        }
+
+        public static string KullaniciEkle(Kullanici k)
+        {
+            DBConnection cn = new DBConnection();
+
+            try
+            {
+                cn.ConnectDB.KullaniciEkle(k.Tip, k.Eposta, k.Sifre, k.Ad, k.Soyad);
+            }
+            catch (Exception e)
+            {
+                return e.Message.ToString();
+            }
+
+            return "Sisteme kaydınız yapılmıştır.";
+        }
+
+        public static string KullaniciSil(int kID)
+        {
+            DBConnection cn = new DBConnection();
+
+            try
+            {
+                cn.ConnectDB.KullaniciSil(kID);
+            }
+            catch (Exception e)
+            {
+                return e.Message.ToString();
+            }
+
+            return kID +" id'li kullanıcı sistemden tamamen silinmiştir.";
+        }
+
+        public static string KullaniciGuncelle(int kID,bool tip,string eposta,string sifre)
+        {
+            DBConnection cn = new DBConnection();
+
+            try
+            {
+                cn.ConnectDB.KullaniciGuncelle(kID,tip,eposta,sifre);
+            }
+            catch (Exception e)
+            {
+                return e.Message.ToString();
+            }
+
+            return "Güncelleme işlemi başarıyla gerçekleşti.";
+        }
+
+    }
+}

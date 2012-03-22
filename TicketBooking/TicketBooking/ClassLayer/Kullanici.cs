@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using TicketBooking.DataAccessLayer;
 
 namespace TicketBooking.ClassLayer
 {
@@ -16,13 +17,22 @@ namespace TicketBooking.ClassLayer
             set { id = value; }
         }
 
-        private string adSoyad;
+        private string ad;
 
-        public string AdSoyad
+        public string Ad
         {
-            get { return adSoyad; }
-            set { adSoyad = value; }
+            get { return ad; }
+            set { ad = value; }
         }
+
+        private string soyad;
+
+        public string Soyad
+        {
+            get { return soyad; }
+            set { soyad = value; }
+        }
+
         private string eposta;
 
         public string Eposta
@@ -45,16 +55,12 @@ namespace TicketBooking.ClassLayer
             get { return tip; }
             set { tip = value; }
         }
-        public Kullanici girisYap()
-        { 
-            //buraya veritabanından kontrol komutları gelecek
-            //hata olursa exception fırlat
 
-            this.AdSoyad = "Umutcan Şimşek";
-            this.Tip = false;
-            
-            return this;
+        public Kullanici girisYap()
+        {
+            return KullaniciDB.GirisSorgula(this.eposta, this.sifre);
         }
+
         public void sifremiUnuttum(string eposta)
         {
             string yeniSifre = FormsAuthentication.HashPasswordForStoringInConfigFile(DateTime.Now.Ticks.ToString(),"md5").Substring(0,6);
@@ -68,6 +74,10 @@ namespace TicketBooking.ClassLayer
             Misc.getInstance().mailgonder(eposta,"Yeni şifre",mesaj);
         }
 
+        public string Kaydol()
+        {
+            return KullaniciDB.KullaniciEkle(this);
+        }
  
 
 
