@@ -5,6 +5,7 @@ using System.Web;
 using System.Collections;
 using TicketBooking.ClassLayer;
 using DataLayer;
+using System.Data.Objects;
 
 namespace TicketBooking.DataAccessLayer
 {
@@ -25,6 +26,11 @@ namespace TicketBooking.DataAccessLayer
                 dict.Add(f.FilmID,new Film(f.FilmID,f.Film_Adı,f.Ekleme_Tarihi,f.Bitis_Tarihi));
 
             return dict;
+        }
+
+        public static ObjectResult<FilminSeanslariniGoster_Result> filminSeanslariniGetir(int filmID)
+        {
+            return new DBConnection().ConnectDB.FilminSeanslariniGoster(filmID);
         }
     }
 }

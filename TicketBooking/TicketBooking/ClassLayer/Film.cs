@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Collections;
+using TicketBooking.DataAccessLayer;
 
 namespace TicketBooking.ClassLayer
 {
@@ -96,6 +97,17 @@ namespace TicketBooking.ClassLayer
             this.filmAdiTR = ad;
             this.vizyonTarihi = vizyonTarihi;
             this.bitisTarihi = bitisTarihi;
+        }
+
+        
+
+        public Dictionary<int, Seans> tumSeanslariGetir()
+        {
+            Dictionary<int, Seans> tumSeanslar = new Dictionary<int, Seans>();
+
+            foreach (FilminSeanslariniGoster_Result fsg in RezervasyonDB.filminSeanslariniGetir(this.id))
+                tumSeanslar.Add(fsg.Seans_ID,new Seans(fsg.Seans_ID,fsg.Saat,new Salon(fsg.Salon_ID,fsg.Salon_Adı)));
+            return tumSeanslar;
         }
 
         public DateTime VizyonTarihi

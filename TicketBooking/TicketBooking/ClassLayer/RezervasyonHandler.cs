@@ -45,7 +45,7 @@ namespace TicketBooking.ClassLayer
             yeniRezervasyon.RezervasyonTarihi = seciliTarih;
         }
 
-        public void seansBelirle(int id, string saat)
+        public void seansBelirle(int id,TimeSpan saat)
         {
             yeniRezervasyon.Seans = new Seans(id,saat);
             yeniRezervasyon.Seans.filmEkle(secilenFilm);

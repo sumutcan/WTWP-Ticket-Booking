@@ -84,9 +84,17 @@ namespace TicketBooking
                             }
 
                             rHandler.tarihBelirle(Convert.ToDateTime(calenderTarih.SelectedDate));
+                            
+                            //filmin seanslarini cek
+
+                            Dictionary<int, Seans> tumSeanslar = rHandler.SecilenFilm.tumSeanslariGetir();
+                            foreach (int k in tumSeanslar.Keys)
+                                ddlSeanslar.Items.Add(new ListItem(tumSeanslar[k].Saat.ToString(), tumSeanslar[k].Id.ToString()));
+
                             break;
                         case 3:
-                            rHandler.seansBelirle(Convert.ToInt32(ddlSeanslar.SelectedValue), ddlSeanslar.SelectedItem.Text);
+                            rHandler.seansBelirle(Convert.ToInt32(ddlSeanslar.SelectedValue),TimeSpan.Parse(ddlSeanslar.SelectedItem.Text));
+                            
                             break;
                         case 4:
                             rHandler.salonBelirle(Convert.ToInt32(ddlSalonlar.SelectedValue), ddlSalonlar.SelectedItem.Text);

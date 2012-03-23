@@ -25,14 +25,16 @@ namespace TicketBooking.ClassLayer
         }
         
 
-        string saat;
+        TimeSpan saat;
 
-        public string Saat
+        public TimeSpan Saat
         {
             get { return saat; }
             set { saat = value; }
         }
         Film film;
+        
+        
 
         public Film Film
         {
@@ -42,11 +44,19 @@ namespace TicketBooking.ClassLayer
 
 
 
-        public Seans(int id, string saat)
+        public Seans(int id, TimeSpan saat)
         {
             // TODO: Complete member initialization
             this.id = id;
             this.saat = saat;
+        }
+
+        public Seans(int id, TimeSpan saat, Salon salon)
+        {
+            // TODO: Complete member initialization
+            this.id = id;
+            this.saat = saat;
+            this.salon = salon;
         }
 
         public void filmEkle(Film secilenFilm)
