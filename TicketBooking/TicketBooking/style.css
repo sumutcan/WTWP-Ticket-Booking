@@ -42,7 +42,7 @@ p, ul, ol {
 	line-height: 200%;
 }
 
-p, ol {
+p, ol {    text-align: center;
 }
 
 ul, ol {
@@ -50,6 +50,7 @@ ul, ol {
 
 a {
 	color: #8A8A8A;
+    text-align: right;
 }
 
 a:hover {

@@ -1,0 +1,25 @@
+﻿<Advertisements>
+  <Ad>
+    <ImageUrl>reklamlar/globalkariyer.jpg</ImageUrl>
+    <NavigateUrl>http://www.globalkariyer.com.tr/egitimler/27/28/tum-kurslar/web-tasarim-kursu.aspx?gclid=COKHge_x_K4CFUld3wodWXop2w</NavigateUrl>
+    <AlternateText>Arama Motoru</AlternateText>
+    <Keyword>
+      İnternet
+      </Keyword>
+      <Impressions>60</Impressions>
+  </Ad>
+  <Ad>
+    <ImageUrl>reklamlar/vizyonnettr.jpg</ImageUrl>
+    <NavigateUrl>https://www.vizyon.net.tr/</NavigateUrl>
+    <AlternateText>Alışveriş</AlternateText>
+    <Keyword>Alışveriş</Keyword>
+    <Impressions>20</Impressions>
+  </Ad>
+  <Ad>
+    <ImageUrl>reklamlar/westwing.gif</ImageUrl>
+    <NavigateUrl>https://www.westwing.com.tr/</NavigateUrl>
+    <AlternateText>Müzik</AlternateText>
+    <Keyword>Müzik</Keyword>
+    <Impressions>5</Impressions>
+  </Ad>
+</Advertisements>

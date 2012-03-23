@@ -39,7 +39,8 @@
 <!-- end #header -->
 <div id="poptrox">
 	<!-- start -->
-    <p></p>
+    <p>
+        &nbsp;</p>
     <asp:Panel ID="pnlVizyondekilerHeader" runat="server">
     <h1>Vizyondakiler... | <asp:Label ID="lblAc" runat="server" Text="Aç"></asp:Label></h1>
     </asp:Panel>
@@ -83,12 +84,30 @@
                         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
                         </asp:ContentPlaceHolder>
+                        <div style="text-align: right">
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+        <asp:AdRotator ID="AdRotator1" runat="server" DataSourceID="XmlDataSource1" />
+        <asp:XmlDataSource ID="XmlDataSource1" runat="server" 
+            DataFile="~/reklamlar.xml"></asp:XmlDataSource>
+					</div>
 					</div>
 				<div id="sidebar" 
                     style="border-right-style: solid; border-right-width: thin; border-right-color: #FFFFFF">
 					<h2>Kullanıcı Girişi</h2>
 					<uc1:loginControl ID="loginControl1" runat="server" />
 					
+				    <br />
+                    <br />
+                    
 				</div>
 			</div>
 		</div>
