@@ -72,14 +72,30 @@ namespace TicketBooking.ClassLayer
         }
 
         private DateTime vizyonTarihi;
-        private int p;
-        private string p_2;
+
+
+        private DateTime bitisTarihi;
+
+        public DateTime BitisTarihi
+        {
+            get { return bitisTarihi; }
+            set { bitisTarihi = value; }
+        }
 
         public Film(int Id, string filmAdiTR)
         {
             // TODO: Complete member initialization
             this.FilmAdiTR = filmAdiTR;
             this.Id = Id;
+        }
+
+        public Film(int id, string ad, DateTime vizyonTarihi, DateTime bitisTarihi)
+        {
+            // TODO: Complete member initialization
+            this.id = id;
+            this.filmAdiTR = ad;
+            this.vizyonTarihi = vizyonTarihi;
+            this.bitisTarihi = bitisTarihi;
         }
 
         public DateTime VizyonTarihi

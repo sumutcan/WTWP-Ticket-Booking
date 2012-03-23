@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterUserPanel.master" AutoEventWireup="true" CodeBehind="rezervasyon.aspx.cs" Inherits="TicketBooking.WebForm1" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="act" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Panel ID="pnlHata" runat="server" Visible="False">
+    <asp:Panel ID="pnlHata" runat="server" Visible="False" EnableViewState="False">
     <div runat="server" class="hata">
     <span id="spanHata" runat="server"></span>
     </div>
@@ -27,35 +28,20 @@
         </asp:WizardStep>
 
         <asp:WizardStep runat="server" title="Tarih Seçimi">
+                   <table>
+                   <tr>
+                   <th>
                    <asp:Label ID="Label4" runat="server" ForeColor="#FF9999" 
-                Text="Rezervasyon tarihini seçiniz:"></asp:Label>
-            <asp:Calendar ID="calenderTarih" runat="server" BackColor="White" 
-                BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" 
-                DayNameFormat="Shortest" FirstDayOfWeek="Monday" Font-Names="Verdana" 
-                Font-Size="8pt" ForeColor="#003399" Height="200px" ShowGridLines="True" 
-                Width="220px" OnSelectionChanged="calenderTarih_SelectionChanged">
-                <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
-                <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
-                <OtherMonthDayStyle ForeColor="#999999" />
-                <SelectedDayStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
-                <SelectorStyle BackColor="#99CCCC" ForeColor="#336666" />
-                <TitleStyle BackColor="#003399" BorderColor="#3366CC" BorderWidth="1px" 
-                    Font-Bold="True" Font-Size="10pt" ForeColor="#CCCCFF" Height="25px" />
-                <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
-                <WeekendDayStyle BackColor="#CCCCFF" />
-                
-                
-            </asp:Calendar>
-            <br />
-            <asp:Label ID="Label5" runat="server" ForeColor="#FF9999" Text="Seçili Tarih: "></asp:Label>
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-            <ContentTemplate>
-            <asp:Label ID="lblSeciliTarih" runat="server" ForeColor="#CCCCCC" Text=" "></asp:Label>
-            </ContentTemplate>
-            <Triggers>
-            <asp:AsyncPostBackTrigger EventName="SelectionChanged" ControlID="calenderTarih" />
-            </Triggers>
-            </asp:UpdatePanel>
+                Text="Rezervasyon tarihi:"></asp:Label>
+                </th>
+                <td style="background-color:Yellow">
+                <asp:TextBox BackColor="Wheat" runat="server" ID="txtTarih" Enabled="true" ReadOnly="false"></asp:TextBox>
+                <act:CalendarExtender ID="calenderTarih" TargetControlID="txtTarih" runat="server" 
+                       FirstDayOfWeek="Monday" TodaysDateFormat="d.MMMM.yyyy"></act:CalendarExtender>
+                       </td>
+                       </tr>
+                       </table>
+
         </asp:WizardStep>
         <asp:WizardStep runat="server" Title="Seans Seçimi">
                     <asp:Label ID="Label6" runat="server" ForeColor="#FF9999" 
@@ -72,7 +58,9 @@
                 Text="Salon seçiniz: "></asp:Label></th>
             
             <td>
-            <asp:DropDownList ID="ddlSalonlar" runat="server">
+            <asp:DropDownList ID="ddlSalonlar" runat="server" 
+                    OnSelectedIndexChanged="ddlSalonlar_SelectedIndexChanged" 
+                    AutoPostBack="True">
             </asp:DropDownList></td>
             </tr>
             <tr>
@@ -81,8 +69,15 @@
                 Text="Seçili salon için mevcut seansta boş olan koltuklar: "></asp:Label>
             </th>
             <td>
+            <asp:UpdatePanel runat="server">
+            <ContentTemplate>
             <asp:DropDownList ID="ddlBosKoltuklar" runat="server">
             </asp:DropDownList>
+            </ContentTemplate>
+            <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="ddlSalonlar" EventName="SelectedIndexChanged" />
+            </Triggers>
+            </asp:UpdatePanel>
             </td>
                 </tr>
             </table>
@@ -118,5 +113,14 @@
                 Text=" Biletinize ait barkodun çıktısı ile veya gişede kimliğiniz ile biletlerinizi temin edebilirsiniz."></asp:Label>
         </asp:WizardStep>
     </WizardSteps>
+        <SideBarTemplate>
+        <asp:DataList ID="SideBarList" runat="server" OnItemDataBound="SideBarList_ItemDataBound">
+          <ItemTemplate>
+            <!-- Return false when linkbutton is clicked -->
+             <asp:LinkButton  ID="SideBarButton" OnClientClick="return false" ForeColor="White" runat="server"></asp:LinkButton>
+          </ItemTemplate>
+          <SelectedItemStyle Font-Bold="true"/>
+        </asp:DataList>
+        </SideBarTemplate>
 </asp:Wizard>
 </asp:Content>

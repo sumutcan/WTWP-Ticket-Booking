@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Collections;
+using TicketBooking.DataAccessLayer;
 
 namespace TicketBooking.ClassLayer
 {
@@ -10,12 +11,20 @@ namespace TicketBooking.ClassLayer
     {
         Rezervasyon yeniRezervasyon;
         Film secilenFilm;
+
+        public Film SecilenFilm
+        {
+            get { return secilenFilm; }
+          
+        }
         Seans secilenSeans;
         //DateTime secilenTarih;
         Salon secilenSalon;
+        Dictionary<int,Film> tumFilmler;
 
         public RezervasyonHandler()
         {
+            tumFilmler = RezervasyonDB.tumFilmleriGetir();
             
         }
 
@@ -26,10 +35,10 @@ namespace TicketBooking.ClassLayer
                 yeniRezervasyon = new Rezervasyon();
         }
 
-        public void filmYarat(int filmID, string filmAdiTR)
+        public void filmYarat(int filmID)
         {
-            if (secilenFilm == null)
-                secilenFilm =  new Film(filmID,filmAdiTR);
+            if (tumFilmler.ContainsKey(filmID))
+                secilenFilm = tumFilmler[filmID];
         }
         public void tarihBelirle(DateTime seciliTarih)
         {
@@ -42,10 +51,18 @@ namespace TicketBooking.ClassLayer
             yeniRezervasyon.Seans.filmEkle(secilenFilm);
         }
 
-        public ArrayList salonBelirle(int id, string ad)
+        public void salonBelirle(int id, string ad)
         {
             yeniRezervasyon.Seans.Salon = new Salon(id,ad);
+            
+        }
+        public ArrayList boskoltuklariGetir()
+        {
             return yeniRezervasyon.Seans.Salon.bosKoltuklariGetir(yeniRezervasyon.Seans.Id);
+        }
+        public Dictionary<int,Film> tumFilmleriGetir()
+        {
+            return tumFilmler;
         }
     }
 }

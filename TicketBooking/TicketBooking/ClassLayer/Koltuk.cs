@@ -38,6 +38,11 @@ namespace TicketBooking.ClassLayer
             set { y = value; }
         }
 
+        public override string ToString()
+        {
+            return X + Y.ToString();
+        }
+
 
     }
 }
