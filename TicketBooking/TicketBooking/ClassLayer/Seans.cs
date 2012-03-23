@@ -23,13 +23,8 @@ namespace TicketBooking.ClassLayer
             get { return salon; }
             set { salon = value; }
         }
-        DateTime tarih;
+        
 
-        public DateTime Tarih
-        {
-            get { return tarih; }
-            set { tarih = value; }
-        }
         string saat;
 
         public string Saat
@@ -46,5 +41,17 @@ namespace TicketBooking.ClassLayer
         }
 
 
+
+        public Seans(int id, string saat)
+        {
+            // TODO: Complete member initialization
+            this.id = id;
+            this.saat = saat;
+        }
+
+        public void filmEkle(Film secilenFilm)
+        {
+            Film = secilenFilm;
+        }
     }
 }

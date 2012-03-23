@@ -173,22 +173,6 @@ namespace TicketBooking
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<sysdiagram> sysdiagrams
-        {
-            get
-            {
-                if ((_sysdiagrams == null))
-                {
-                    _sysdiagrams = base.CreateObjectSet<sysdiagram>("sysdiagrams");
-                }
-                return _sysdiagrams;
-            }
-        }
-        private ObjectSet<sysdiagram> _sysdiagrams;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<YORUM> YORUMs
         {
             get
@@ -254,14 +238,6 @@ namespace TicketBooking
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the sysdiagrams EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTosysdiagrams(sysdiagram sysdiagram)
-        {
-            base.AddObject("sysdiagrams", sysdiagram);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the YORUMs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToYORUMs(YORUM yORUM)
@@ -275,260 +251,17 @@ namespace TicketBooking
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectResult<REZERVASYON> BugunRezervasyonListele()
+        public ObjectResult<KULLANICI> TumKullanicilariCek()
         {
-            return base.ExecuteFunction<REZERVASYON>("BugunRezervasyonListele");
+            return base.ExecuteFunction<KULLANICI>("TumKullanicilariCek");
         }
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         /// <param name="mergeOption"></param>
-        public ObjectResult<REZERVASYON> BugunRezervasyonListele(MergeOption mergeOption)
+        public ObjectResult<KULLANICI> TumKullanicilariCek(MergeOption mergeOption)
         {
-            return base.ExecuteFunction<REZERVASYON>("BugunRezervasyonListele", mergeOption);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="film_ID">No Metadata Documentation available.</param>
-        public ObjectResult<FilminSeanslariniGoster_Result> FilminSeanslariniGoster(Nullable<global::System.Int32> film_ID)
-        {
-            ObjectParameter film_IDParameter;
-            if (film_ID.HasValue)
-            {
-                film_IDParameter = new ObjectParameter("Film_ID", film_ID);
-            }
-            else
-            {
-                film_IDParameter = new ObjectParameter("Film_ID", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<FilminSeanslariniGoster_Result>("FilminSeanslariniGoster", film_IDParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="islem_turu">No Metadata Documentation available.</param>
-        /// <param name="parametre">No Metadata Documentation available.</param>
-        public ObjectResult<KULLANICI> KullaniciAra(Nullable<global::System.Int32> islem_turu, global::System.String parametre)
-        {
-            ObjectParameter islem_turuParameter;
-            if (islem_turu.HasValue)
-            {
-                islem_turuParameter = new ObjectParameter("islem_turu", islem_turu);
-            }
-            else
-            {
-                islem_turuParameter = new ObjectParameter("islem_turu", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter parametreParameter;
-            if (parametre != null)
-            {
-                parametreParameter = new ObjectParameter("parametre", parametre);
-            }
-            else
-            {
-                parametreParameter = new ObjectParameter("parametre", typeof(global::System.String));
-            }
-    
-            return base.ExecuteFunction<KULLANICI>("KullaniciAra", islem_turuParameter, parametreParameter);
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="mergeOption"></param>
-        /// <param name="islem_turu">No Metadata Documentation available.</param>
-        /// <param name="parametre">No Metadata Documentation available.</param>
-        public ObjectResult<KULLANICI> KullaniciAra(Nullable<global::System.Int32> islem_turu, global::System.String parametre, MergeOption mergeOption)
-        {
-            ObjectParameter islem_turuParameter;
-            if (islem_turu.HasValue)
-            {
-                islem_turuParameter = new ObjectParameter("islem_turu", islem_turu);
-            }
-            else
-            {
-                islem_turuParameter = new ObjectParameter("islem_turu", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter parametreParameter;
-            if (parametre != null)
-            {
-                parametreParameter = new ObjectParameter("parametre", parametre);
-            }
-            else
-            {
-                parametreParameter = new ObjectParameter("parametre", typeof(global::System.String));
-            }
-    
-            return base.ExecuteFunction<KULLANICI>("KullaniciAra", mergeOption, islem_turuParameter, parametreParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="k_tipi">No Metadata Documentation available.</param>
-        /// <param name="e_posta">No Metadata Documentation available.</param>
-        /// <param name="sifre">No Metadata Documentation available.</param>
-        /// <param name="k_adi">No Metadata Documentation available.</param>
-        /// <param name="k_soyadi">No Metadata Documentation available.</param>
-        public int KullaniciEkle(Nullable<global::System.Int32> k_tipi, global::System.String e_posta, global::System.String sifre, global::System.String k_adi, global::System.String k_soyadi)
-        {
-            ObjectParameter k_tipiParameter;
-            if (k_tipi.HasValue)
-            {
-                k_tipiParameter = new ObjectParameter("K_tipi", k_tipi);
-            }
-            else
-            {
-                k_tipiParameter = new ObjectParameter("K_tipi", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter e_postaParameter;
-            if (e_posta != null)
-            {
-                e_postaParameter = new ObjectParameter("E_posta", e_posta);
-            }
-            else
-            {
-                e_postaParameter = new ObjectParameter("E_posta", typeof(global::System.String));
-            }
-    
-            ObjectParameter sifreParameter;
-            if (sifre != null)
-            {
-                sifreParameter = new ObjectParameter("Sifre", sifre);
-            }
-            else
-            {
-                sifreParameter = new ObjectParameter("Sifre", typeof(global::System.String));
-            }
-    
-            ObjectParameter k_adiParameter;
-            if (k_adi != null)
-            {
-                k_adiParameter = new ObjectParameter("K_adi", k_adi);
-            }
-            else
-            {
-                k_adiParameter = new ObjectParameter("K_adi", typeof(global::System.String));
-            }
-    
-            ObjectParameter k_soyadiParameter;
-            if (k_soyadi != null)
-            {
-                k_soyadiParameter = new ObjectParameter("K_soyadi", k_soyadi);
-            }
-            else
-            {
-                k_soyadiParameter = new ObjectParameter("K_soyadi", typeof(global::System.String));
-            }
-    
-            return base.ExecuteFunction("KullaniciEkle", k_tipiParameter, e_postaParameter, sifreParameter, k_adiParameter, k_soyadiParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="k_ID">No Metadata Documentation available.</param>
-        /// <param name="tip">No Metadata Documentation available.</param>
-        /// <param name="mail">No Metadata Documentation available.</param>
-        /// <param name="sifre">No Metadata Documentation available.</param>
-        public int KullaniciGuncelle(Nullable<global::System.Int32> k_ID, Nullable<global::System.Int32> tip, global::System.String mail, global::System.String sifre)
-        {
-            ObjectParameter k_IDParameter;
-            if (k_ID.HasValue)
-            {
-                k_IDParameter = new ObjectParameter("K_ID", k_ID);
-            }
-            else
-            {
-                k_IDParameter = new ObjectParameter("K_ID", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter tipParameter;
-            if (tip.HasValue)
-            {
-                tipParameter = new ObjectParameter("tip", tip);
-            }
-            else
-            {
-                tipParameter = new ObjectParameter("tip", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter mailParameter;
-            if (mail != null)
-            {
-                mailParameter = new ObjectParameter("mail", mail);
-            }
-            else
-            {
-                mailParameter = new ObjectParameter("mail", typeof(global::System.String));
-            }
-    
-            ObjectParameter sifreParameter;
-            if (sifre != null)
-            {
-                sifreParameter = new ObjectParameter("sifre", sifre);
-            }
-            else
-            {
-                sifreParameter = new ObjectParameter("sifre", typeof(global::System.String));
-            }
-    
-            return base.ExecuteFunction("KullaniciGuncelle", k_IDParameter, tipParameter, mailParameter, sifreParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="k_ID">No Metadata Documentation available.</param>
-        /// <param name="artis">No Metadata Documentation available.</param>
-        public int KullaniciPuaniArttir(Nullable<global::System.Int32> k_ID, Nullable<global::System.Int32> artis)
-        {
-            ObjectParameter k_IDParameter;
-            if (k_ID.HasValue)
-            {
-                k_IDParameter = new ObjectParameter("K_ID", k_ID);
-            }
-            else
-            {
-                k_IDParameter = new ObjectParameter("K_ID", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter artisParameter;
-            if (artis.HasValue)
-            {
-                artisParameter = new ObjectParameter("artis", artis);
-            }
-            else
-            {
-                artisParameter = new ObjectParameter("artis", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction("KullaniciPuaniArttir", k_IDParameter, artisParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="k_ID">No Metadata Documentation available.</param>
-        public int KullaniciSil(Nullable<global::System.Int32> k_ID)
-        {
-            ObjectParameter k_IDParameter;
-            if (k_ID.HasValue)
-            {
-                k_IDParameter = new ObjectParameter("K_ID", k_ID);
-            }
-            else
-            {
-                k_IDParameter = new ObjectParameter("K_ID", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction("KullaniciSil", k_IDParameter);
+            return base.ExecuteFunction<KULLANICI>("TumKullanicilariCek", mergeOption);
         }
     
         /// <summary>
@@ -594,350 +327,135 @@ namespace TicketBooking
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        /// <param name="islem">No Metadata Documentation available.</param>
-        /// <param name="parametre_ID">No Metadata Documentation available.</param>
-        /// <param name="parametre_Text">No Metadata Documentation available.</param>
-        public ObjectResult<REZERVASYON> RezervasyonAra(Nullable<global::System.Int32> islem, Nullable<global::System.Int32> parametre_ID, global::System.String parametre_Text)
+        /// <param name="k_tipi">No Metadata Documentation available.</param>
+        /// <param name="e_posta">No Metadata Documentation available.</param>
+        /// <param name="sifre">No Metadata Documentation available.</param>
+        /// <param name="k_adi">No Metadata Documentation available.</param>
+        /// <param name="k_soyadi">No Metadata Documentation available.</param>
+        public int KullaniciEkle(Nullable<global::System.Boolean> k_tipi, global::System.String e_posta, global::System.String sifre, global::System.String k_adi, global::System.String k_soyadi)
         {
-            ObjectParameter islemParameter;
-            if (islem.HasValue)
+            ObjectParameter k_tipiParameter;
+            if (k_tipi.HasValue)
             {
-                islemParameter = new ObjectParameter("islem", islem);
+                k_tipiParameter = new ObjectParameter("K_tipi", k_tipi);
             }
             else
             {
-                islemParameter = new ObjectParameter("islem", typeof(global::System.Int32));
+                k_tipiParameter = new ObjectParameter("K_tipi", typeof(global::System.Boolean));
             }
     
-            ObjectParameter parametre_IDParameter;
-            if (parametre_ID.HasValue)
+            ObjectParameter e_postaParameter;
+            if (e_posta != null)
             {
-                parametre_IDParameter = new ObjectParameter("parametre_ID", parametre_ID);
+                e_postaParameter = new ObjectParameter("E_posta", e_posta);
             }
             else
             {
-                parametre_IDParameter = new ObjectParameter("parametre_ID", typeof(global::System.Int32));
+                e_postaParameter = new ObjectParameter("E_posta", typeof(global::System.String));
             }
     
-            ObjectParameter parametre_TextParameter;
-            if (parametre_Text != null)
+            ObjectParameter sifreParameter;
+            if (sifre != null)
             {
-                parametre_TextParameter = new ObjectParameter("parametre_Text", parametre_Text);
+                sifreParameter = new ObjectParameter("Sifre", sifre);
             }
             else
             {
-                parametre_TextParameter = new ObjectParameter("parametre_Text", typeof(global::System.String));
+                sifreParameter = new ObjectParameter("Sifre", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction<REZERVASYON>("RezervasyonAra", islemParameter, parametre_IDParameter, parametre_TextParameter);
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="mergeOption"></param>
-        /// <param name="islem">No Metadata Documentation available.</param>
-        /// <param name="parametre_ID">No Metadata Documentation available.</param>
-        /// <param name="parametre_Text">No Metadata Documentation available.</param>
-        public ObjectResult<REZERVASYON> RezervasyonAra(Nullable<global::System.Int32> islem, Nullable<global::System.Int32> parametre_ID, global::System.String parametre_Text, MergeOption mergeOption)
-        {
-            ObjectParameter islemParameter;
-            if (islem.HasValue)
+            ObjectParameter k_adiParameter;
+            if (k_adi != null)
             {
-                islemParameter = new ObjectParameter("islem", islem);
+                k_adiParameter = new ObjectParameter("K_adi", k_adi);
             }
             else
             {
-                islemParameter = new ObjectParameter("islem", typeof(global::System.Int32));
+                k_adiParameter = new ObjectParameter("K_adi", typeof(global::System.String));
             }
     
-            ObjectParameter parametre_IDParameter;
-            if (parametre_ID.HasValue)
+            ObjectParameter k_soyadiParameter;
+            if (k_soyadi != null)
             {
-                parametre_IDParameter = new ObjectParameter("parametre_ID", parametre_ID);
+                k_soyadiParameter = new ObjectParameter("K_soyadi", k_soyadi);
             }
             else
             {
-                parametre_IDParameter = new ObjectParameter("parametre_ID", typeof(global::System.Int32));
+                k_soyadiParameter = new ObjectParameter("K_soyadi", typeof(global::System.String));
             }
     
-            ObjectParameter parametre_TextParameter;
-            if (parametre_Text != null)
-            {
-                parametre_TextParameter = new ObjectParameter("parametre_Text", parametre_Text);
-            }
-            else
-            {
-                parametre_TextParameter = new ObjectParameter("parametre_Text", typeof(global::System.String));
-            }
-    
-            return base.ExecuteFunction<REZERVASYON>("RezervasyonAra", mergeOption, islemParameter, parametre_IDParameter, parametre_TextParameter);
+            return base.ExecuteFunction("KullaniciEkle", k_tipiParameter, e_postaParameter, sifreParameter, k_adiParameter, k_soyadiParameter);
         }
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        /// <param name="kullanici_ID">No Metadata Documentation available.</param>
-        /// <param name="seans_ID">No Metadata Documentation available.</param>
-        /// <param name="koltuk_ID">No Metadata Documentation available.</param>
-        /// <param name="tarih">No Metadata Documentation available.</param>
-        public int RezervasyonEkle(Nullable<global::System.Int32> kullanici_ID, Nullable<global::System.Int32> seans_ID, Nullable<global::System.Int32> koltuk_ID, Nullable<global::System.DateTime> tarih)
+        /// <param name="k_ID">No Metadata Documentation available.</param>
+        public int KullaniciSil(Nullable<global::System.Int32> k_ID)
         {
-            ObjectParameter kullanici_IDParameter;
-            if (kullanici_ID.HasValue)
+            ObjectParameter k_IDParameter;
+            if (k_ID.HasValue)
             {
-                kullanici_IDParameter = new ObjectParameter("Kullanici_ID", kullanici_ID);
+                k_IDParameter = new ObjectParameter("K_ID", k_ID);
             }
             else
             {
-                kullanici_IDParameter = new ObjectParameter("Kullanici_ID", typeof(global::System.Int32));
+                k_IDParameter = new ObjectParameter("K_ID", typeof(global::System.Int32));
             }
     
-            ObjectParameter seans_IDParameter;
-            if (seans_ID.HasValue)
-            {
-                seans_IDParameter = new ObjectParameter("Seans_ID", seans_ID);
-            }
-            else
-            {
-                seans_IDParameter = new ObjectParameter("Seans_ID", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter koltuk_IDParameter;
-            if (koltuk_ID.HasValue)
-            {
-                koltuk_IDParameter = new ObjectParameter("Koltuk_ID", koltuk_ID);
-            }
-            else
-            {
-                koltuk_IDParameter = new ObjectParameter("Koltuk_ID", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter tarihParameter;
-            if (tarih.HasValue)
-            {
-                tarihParameter = new ObjectParameter("Tarih", tarih);
-            }
-            else
-            {
-                tarihParameter = new ObjectParameter("Tarih", typeof(global::System.DateTime));
-            }
-    
-            return base.ExecuteFunction("RezervasyonEkle", kullanici_IDParameter, seans_IDParameter, koltuk_IDParameter, tarihParameter);
+            return base.ExecuteFunction("KullaniciSil", k_IDParameter);
         }
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        /// <param name="rez_ID">No Metadata Documentation available.</param>
-        /// <param name="kullanici_ID">No Metadata Documentation available.</param>
-        /// <param name="seans_ID">No Metadata Documentation available.</param>
-        /// <param name="koltuk_ID">No Metadata Documentation available.</param>
-        public int RezervasyonGuncelle(Nullable<global::System.Int32> rez_ID, Nullable<global::System.Int32> kullanici_ID, Nullable<global::System.Int32> seans_ID, Nullable<global::System.Int32> koltuk_ID)
+        /// <param name="k_ID">No Metadata Documentation available.</param>
+        /// <param name="tip">No Metadata Documentation available.</param>
+        /// <param name="mail">No Metadata Documentation available.</param>
+        /// <param name="sifre">No Metadata Documentation available.</param>
+        public int KullaniciGuncelle(Nullable<global::System.Int32> k_ID, Nullable<global::System.Boolean> tip, global::System.String mail, global::System.String sifre)
         {
-            ObjectParameter rez_IDParameter;
-            if (rez_ID.HasValue)
+            ObjectParameter k_IDParameter;
+            if (k_ID.HasValue)
             {
-                rez_IDParameter = new ObjectParameter("Rez_ID", rez_ID);
+                k_IDParameter = new ObjectParameter("K_ID", k_ID);
             }
             else
             {
-                rez_IDParameter = new ObjectParameter("Rez_ID", typeof(global::System.Int32));
+                k_IDParameter = new ObjectParameter("K_ID", typeof(global::System.Int32));
             }
     
-            ObjectParameter kullanici_IDParameter;
-            if (kullanici_ID.HasValue)
+            ObjectParameter tipParameter;
+            if (tip.HasValue)
             {
-                kullanici_IDParameter = new ObjectParameter("Kullanici_ID", kullanici_ID);
+                tipParameter = new ObjectParameter("tip", tip);
             }
             else
             {
-                kullanici_IDParameter = new ObjectParameter("Kullanici_ID", typeof(global::System.Int32));
+                tipParameter = new ObjectParameter("tip", typeof(global::System.Boolean));
             }
     
-            ObjectParameter seans_IDParameter;
-            if (seans_ID.HasValue)
+            ObjectParameter mailParameter;
+            if (mail != null)
             {
-                seans_IDParameter = new ObjectParameter("Seans_ID", seans_ID);
+                mailParameter = new ObjectParameter("mail", mail);
             }
             else
             {
-                seans_IDParameter = new ObjectParameter("Seans_ID", typeof(global::System.Int32));
+                mailParameter = new ObjectParameter("mail", typeof(global::System.String));
             }
     
-            ObjectParameter koltuk_IDParameter;
-            if (koltuk_ID.HasValue)
+            ObjectParameter sifreParameter;
+            if (sifre != null)
             {
-                koltuk_IDParameter = new ObjectParameter("Koltuk_ID", koltuk_ID);
+                sifreParameter = new ObjectParameter("sifre", sifre);
             }
             else
             {
-                koltuk_IDParameter = new ObjectParameter("Koltuk_ID", typeof(global::System.Int32));
+                sifreParameter = new ObjectParameter("sifre", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction("RezervasyonGuncelle", rez_IDParameter, kullanici_IDParameter, seans_IDParameter, koltuk_IDParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="kullanici_ID">No Metadata Documentation available.</param>
-        /// <param name="seans_ID">No Metadata Documentation available.</param>
-        /// <param name="koltuk_ID">No Metadata Documentation available.</param>
-        public int RezervasyonSil(Nullable<global::System.Int32> kullanici_ID, Nullable<global::System.Int32> seans_ID, Nullable<global::System.Int32> koltuk_ID)
-        {
-            ObjectParameter kullanici_IDParameter;
-            if (kullanici_ID.HasValue)
-            {
-                kullanici_IDParameter = new ObjectParameter("Kullanici_ID", kullanici_ID);
-            }
-            else
-            {
-                kullanici_IDParameter = new ObjectParameter("Kullanici_ID", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter seans_IDParameter;
-            if (seans_ID.HasValue)
-            {
-                seans_IDParameter = new ObjectParameter("Seans_ID", seans_ID);
-            }
-            else
-            {
-                seans_IDParameter = new ObjectParameter("Seans_ID", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter koltuk_IDParameter;
-            if (koltuk_ID.HasValue)
-            {
-                koltuk_IDParameter = new ObjectParameter("Koltuk_ID", koltuk_ID);
-            }
-            else
-            {
-                koltuk_IDParameter = new ObjectParameter("Koltuk_ID", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction("RezervasyonSil", kullanici_IDParameter, seans_IDParameter, koltuk_IDParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="seans_ID">No Metadata Documentation available.</param>
-        public ObjectResult<KOLTUK> SeansaGoreBosKoltuklar(Nullable<global::System.Int32> seans_ID)
-        {
-            ObjectParameter seans_IDParameter;
-            if (seans_ID.HasValue)
-            {
-                seans_IDParameter = new ObjectParameter("Seans_ID", seans_ID);
-            }
-            else
-            {
-                seans_IDParameter = new ObjectParameter("Seans_ID", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<KOLTUK>("SeansaGoreBosKoltuklar", seans_IDParameter);
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="mergeOption"></param>
-        /// <param name="seans_ID">No Metadata Documentation available.</param>
-        public ObjectResult<KOLTUK> SeansaGoreBosKoltuklar(Nullable<global::System.Int32> seans_ID, MergeOption mergeOption)
-        {
-            ObjectParameter seans_IDParameter;
-            if (seans_ID.HasValue)
-            {
-                seans_IDParameter = new ObjectParameter("Seans_ID", seans_ID);
-            }
-            else
-            {
-                seans_IDParameter = new ObjectParameter("Seans_ID", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<KOLTUK>("SeansaGoreBosKoltuklar", mergeOption, seans_IDParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="seans_ID">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Int32>> SeansaGoreToplamRezerveBiletSayisi(Nullable<global::System.Int32> seans_ID)
-        {
-            ObjectParameter seans_IDParameter;
-            if (seans_ID.HasValue)
-            {
-                seans_IDParameter = new ObjectParameter("Seans_ID", seans_ID);
-            }
-            else
-            {
-                seans_IDParameter = new ObjectParameter("Seans_ID", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<Nullable<global::System.Int32>>("SeansaGoreToplamRezerveBiletSayisi", seans_IDParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="seans_ID">No Metadata Documentation available.</param>
-        public ObjectResult<Nullable<global::System.Int32>> SeansaGoreToplamSatilanBiletSayisi(Nullable<global::System.Int32> seans_ID)
-        {
-            ObjectParameter seans_IDParameter;
-            if (seans_ID.HasValue)
-            {
-                seans_IDParameter = new ObjectParameter("Seans_ID", seans_ID);
-            }
-            else
-            {
-                seans_IDParameter = new ObjectParameter("Seans_ID", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<Nullable<global::System.Int32>>("SeansaGoreToplamSatilanBiletSayisi", seans_IDParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="islem_ID">No Metadata Documentation available.</param>
-        /// <param name="nesne_ID">No Metadata Documentation available.</param>
-        public int TekParametreRezervasyonSil(Nullable<global::System.Int32> islem_ID, Nullable<global::System.Int32> nesne_ID)
-        {
-            ObjectParameter islem_IDParameter;
-            if (islem_ID.HasValue)
-            {
-                islem_IDParameter = new ObjectParameter("islem_ID", islem_ID);
-            }
-            else
-            {
-                islem_IDParameter = new ObjectParameter("islem_ID", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter nesne_IDParameter;
-            if (nesne_ID.HasValue)
-            {
-                nesne_IDParameter = new ObjectParameter("nesne_ID", nesne_ID);
-            }
-            else
-            {
-                nesne_IDParameter = new ObjectParameter("nesne_ID", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction("TekParametreRezervasyonSil", islem_IDParameter, nesne_IDParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectResult<Nullable<global::System.Int32>> ToplamRezerveBiletSayisi()
-        {
-            return base.ExecuteFunction<Nullable<global::System.Int32>>("ToplamRezerveBiletSayisi");
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectResult<Nullable<global::System.Int32>> ToplamSatilanBiletSayisi()
-        {
-            return base.ExecuteFunction<Nullable<global::System.Int32>>("ToplamSatilanBiletSayisi");
+            return base.ExecuteFunction("KullaniciGuncelle", k_IDParameter, tipParameter, mailParameter, sifreParameter);
         }
 
         #endregion
@@ -2403,161 +1921,6 @@ namespace TicketBooking
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="CINECLUPModel", Name="sysdiagram")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class sysdiagram : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new sysdiagram object.
-        /// </summary>
-        /// <param name="name">Initial value of the name property.</param>
-        /// <param name="principal_id">Initial value of the principal_id property.</param>
-        /// <param name="diagram_id">Initial value of the diagram_id property.</param>
-        public static sysdiagram Createsysdiagram(global::System.String name, global::System.Int32 principal_id, global::System.Int32 diagram_id)
-        {
-            sysdiagram sysdiagram = new sysdiagram();
-            sysdiagram.name = name;
-            sysdiagram.principal_id = principal_id;
-            sysdiagram.diagram_id = diagram_id;
-            return sysdiagram;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                OnnameChanging(value);
-                ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("name");
-                OnnameChanged();
-            }
-        }
-        private global::System.String _name;
-        partial void OnnameChanging(global::System.String value);
-        partial void OnnameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 principal_id
-        {
-            get
-            {
-                return _principal_id;
-            }
-            set
-            {
-                Onprincipal_idChanging(value);
-                ReportPropertyChanging("principal_id");
-                _principal_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("principal_id");
-                Onprincipal_idChanged();
-            }
-        }
-        private global::System.Int32 _principal_id;
-        partial void Onprincipal_idChanging(global::System.Int32 value);
-        partial void Onprincipal_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 diagram_id
-        {
-            get
-            {
-                return _diagram_id;
-            }
-            set
-            {
-                if (_diagram_id != value)
-                {
-                    Ondiagram_idChanging(value);
-                    ReportPropertyChanging("diagram_id");
-                    _diagram_id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("diagram_id");
-                    Ondiagram_idChanged();
-                }
-            }
-        }
-        private global::System.Int32 _diagram_id;
-        partial void Ondiagram_idChanging(global::System.Int32 value);
-        partial void Ondiagram_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> version
-        {
-            get
-            {
-                return _version;
-            }
-            set
-            {
-                OnversionChanging(value);
-                ReportPropertyChanging("version");
-                _version = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("version");
-                OnversionChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _version;
-        partial void OnversionChanging(Nullable<global::System.Int32> value);
-        partial void OnversionChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.Byte[] definition
-        {
-            get
-            {
-                return StructuralObject.GetValidValue(_definition);
-            }
-            set
-            {
-                OndefinitionChanging(value);
-                ReportPropertyChanging("definition");
-                _definition = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("definition");
-                OndefinitionChanged();
-            }
-        }
-        private global::System.Byte[] _definition;
-        partial void OndefinitionChanging(global::System.Byte[] value);
-        partial void OndefinitionChanged();
-
-        #endregion
-    
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="CINECLUPModel", Name="YORUM")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -2738,164 +2101,6 @@ namespace TicketBooking
 
         #endregion
     
-    }
-
-    #endregion
-    #region ComplexTypes
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmComplexTypeAttribute(NamespaceName="CINECLUPModel", Name="FilminSeanslariniGoster_Result")]
-    [DataContractAttribute(IsReference=true)]
-    [Serializable()]
-    public partial class FilminSeanslariniGoster_Result : ComplexObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new FilminSeanslariniGoster_Result object.
-        /// </summary>
-        /// <param name="seans_ID">Initial value of the Seans_ID property.</param>
-        /// <param name="film_ID">Initial value of the Film_ID property.</param>
-        /// <param name="salon_ID">Initial value of the Salon_ID property.</param>
-        /// <param name="saat">Initial value of the Saat property.</param>
-        /// <param name="salon_Adı">Initial value of the Salon_Adı property.</param>
-        public static FilminSeanslariniGoster_Result CreateFilminSeanslariniGoster_Result(global::System.Int32 seans_ID, global::System.Int32 film_ID, global::System.Int32 salon_ID, global::System.TimeSpan saat, global::System.String salon_Adı)
-        {
-            FilminSeanslariniGoster_Result filminSeanslariniGoster_Result = new FilminSeanslariniGoster_Result();
-            filminSeanslariniGoster_Result.Seans_ID = seans_ID;
-            filminSeanslariniGoster_Result.Film_ID = film_ID;
-            filminSeanslariniGoster_Result.Salon_ID = salon_ID;
-            filminSeanslariniGoster_Result.Saat = saat;
-            filminSeanslariniGoster_Result.Salon_Adı = salon_Adı;
-            return filminSeanslariniGoster_Result;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Seans_ID
-        {
-            get
-            {
-                return _Seans_ID;
-            }
-            set
-            {
-                OnSeans_IDChanging(value);
-                ReportPropertyChanging("Seans_ID");
-                _Seans_ID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Seans_ID");
-                OnSeans_IDChanged();
-            }
-        }
-        private global::System.Int32 _Seans_ID;
-        partial void OnSeans_IDChanging(global::System.Int32 value);
-        partial void OnSeans_IDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Film_ID
-        {
-            get
-            {
-                return _Film_ID;
-            }
-            set
-            {
-                OnFilm_IDChanging(value);
-                ReportPropertyChanging("Film_ID");
-                _Film_ID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Film_ID");
-                OnFilm_IDChanged();
-            }
-        }
-        private global::System.Int32 _Film_ID;
-        partial void OnFilm_IDChanging(global::System.Int32 value);
-        partial void OnFilm_IDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Salon_ID
-        {
-            get
-            {
-                return _Salon_ID;
-            }
-            set
-            {
-                OnSalon_IDChanging(value);
-                ReportPropertyChanging("Salon_ID");
-                _Salon_ID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Salon_ID");
-                OnSalon_IDChanged();
-            }
-        }
-        private global::System.Int32 _Salon_ID;
-        partial void OnSalon_IDChanging(global::System.Int32 value);
-        partial void OnSalon_IDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.TimeSpan Saat
-        {
-            get
-            {
-                return _Saat;
-            }
-            set
-            {
-                OnSaatChanging(value);
-                ReportPropertyChanging("Saat");
-                _Saat = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Saat");
-                OnSaatChanged();
-            }
-        }
-        private global::System.TimeSpan _Saat;
-        partial void OnSaatChanging(global::System.TimeSpan value);
-        partial void OnSaatChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Salon_Adı
-        {
-            get
-            {
-                return _Salon_Adı;
-            }
-            set
-            {
-                OnSalon_AdıChanging(value);
-                ReportPropertyChanging("Salon_Adı");
-                _Salon_Adı = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Salon_Adı");
-                OnSalon_AdıChanged();
-            }
-        }
-        private global::System.String _Salon_Adı;
-        partial void OnSalon_AdıChanging(global::System.String value);
-        partial void OnSalon_AdıChanged();
-
-        #endregion
     }
 
     #endregion

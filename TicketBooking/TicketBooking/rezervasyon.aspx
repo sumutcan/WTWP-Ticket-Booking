@@ -9,7 +9,9 @@
         ActiveStepIndex="0" FinishCompleteButtonText="Bitir" 
         FinishPreviousButtonText="Önceki" StartNextButtonText="Rezervasyona Başla" 
         StepNextButtonText="Devam" StepPreviousButtonText="Önceki" 
-        onfinishbuttonclick="wizardRezervasyon_FinishButtonClick">
+        onfinishbuttonclick="wizardRezervasyon_FinishButtonClick" 
+        onactivestepchanged="wizardRezervasyon_ActiveStepChanged" 
+        onnextbuttonclick="wizardRezervasyon_NextButtonClick">
     <WizardSteps>
         <asp:WizardStep runat="server" StepType="Start" title="Başlangıç">
                    <asp:Label ID="Label2" runat="server" ForeColor="#FF9999" 
@@ -64,12 +66,26 @@
             </asp:DropDownList>
         </asp:WizardStep>
         <asp:WizardStep runat="server" Title="Koltuk Seçimi">
+                            <table>
+                            <tr>
+                            <th><asp:Label ID="Label1" runat="server" ForeColor="#FF9999" 
+                Text="Salon seçiniz: "></asp:Label></th>
+            
+            <td>
+            <asp:DropDownList ID="ddlSalonlar" runat="server">
+            </asp:DropDownList></td>
+            </tr>
+            <tr>
+                   <th style="text-align:left">
                     <asp:Label ID="Label7" runat="server" ForeColor="#FF9999" 
-                Text="Seçili film için mevcut seansta boş olan koltuklar: "></asp:Label>
-            <br />
-            <br />
+                Text="Seçili salon için mevcut seansta boş olan koltuklar: "></asp:Label>
+            </th>
+            <td>
             <asp:DropDownList ID="ddlBosKoltuklar" runat="server">
             </asp:DropDownList>
+            </td>
+                </tr>
+            </table>
         </asp:WizardStep>
         <asp:WizardStep runat="server" Title="Ücretlendirme">
                     <asp:Label ID="Label8" runat="server" ForeColor="#FF9999" 

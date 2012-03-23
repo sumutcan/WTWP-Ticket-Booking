@@ -17,8 +17,9 @@ namespace TicketBooking
                 if (Session["LoggedUser"] == null)
                     throw new Exception("Bu işlem için önce giriş yapmalısınız.");
                 else
-                { 
-                    
+                {
+                    if (!IsPostBack)
+                        Session["RezervasyonHandler"] = new RezervasyonHandler();
                 }
             }
             catch (Exception ex)
@@ -31,25 +32,43 @@ namespace TicketBooking
 
         protected void wizardRezervasyon_FinishButtonClick(object sender, WizardNavigationEventArgs e)
         {
-            Rezervasyon yeniRezarvasyon = new Rezervasyon();
-            Seans yeniSeans = new Seans();
-
-            yeniSeans.Tarih = DateTime.Parse("23.04.2011");
-            yeniSeans.Saat = "15:00";
-            yeniSeans.Film = new Film(1,"The Artist");
-            yeniSeans.Salon = new Salon(1,"ad",50); 
-            
-            yeniRezarvasyon.Seans = yeniSeans;
-            yeniRezarvasyon.Kullanici = Session["LoggedUser"] as Kullanici;
-            yeniRezarvasyon.koltukEkle(new Koltuk(1, 'A', 5));
-            yeniRezarvasyon.RezervasyonTarihi = DateTime.Now;
-            yeniRezarvasyon.puanHesapla();
 
         }
 
         protected void calenderTarih_SelectionChanged(object sender, EventArgs e)
         {
             lblSeciliTarih.Text = calenderTarih.SelectedDate.ToShortDateString();
+        }
+
+        protected void wizardRezervasyon_NextButtonClick(object sender, WizardNavigationEventArgs e)
+        {
+
+        }
+
+        protected void wizardRezervasyon_ActiveStepChanged(object sender, EventArgs e)
+        {
+            RezervasyonHandler rHandler = Session["RezervasyonHandler"] as RezervasyonHandler;
+            switch (wizardRezervasyon.ActiveStepIndex)
+            { 
+                case 0:
+                    rHandler.rezervasyonYarat();
+                    break;
+                case 1:
+                    rHandler.filmYarat(Convert.ToInt32(ddlFilmler.SelectedValue),ddlFilmler.SelectedItem.Text); 
+                    break;
+                case 2:
+                    rHandler.tarihBelirle(calenderTarih.SelectedDate);
+                    break;
+                case 3:
+                    rHandler.seansBelirle(Convert.ToInt32(ddlSeanslar.SelectedValue),ddlSeanslar.SelectedItem.Text);
+                    break;
+                case 4:
+                    rHandler.salonBelirle(Convert.ToInt32(ddlSalonlar.SelectedValue),ddlSalonlar.SelectedItem.Text);
+                    break;
+
+            }
+
+            Session["RezervasyonHandler"] = rHandler;
         }
     }
 }

@@ -12,6 +12,33 @@
 public partial class loginControl {
     
     /// <summary>
+    /// pnlHata control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Panel pnlHata;
+    
+    /// <summary>
+    /// Div1 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+    
+    /// <summary>
+    /// spanHata control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.HtmlControls.HtmlGenericControl spanHata;
+    
+    /// <summary>
     /// multiviewLoginControl control.
     /// </summary>
     /// <remarks>
@@ -235,6 +262,24 @@ public partial class loginControl {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.TextBox txtPass;
+    
+    /// <summary>
+    /// Label7 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label7;
+    
+    /// <summary>
+    /// txtPassTekrar control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtPassTekrar;
     
     /// <summary>
     /// btnGonder control.

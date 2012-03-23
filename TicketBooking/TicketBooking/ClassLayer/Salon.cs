@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Collections;
+using TicketBooking.DataAccessLayer;
 
 namespace TicketBooking.ClassLayer
 {
@@ -38,12 +40,48 @@ namespace TicketBooking.ClassLayer
             set { aciklama = value; }
         }
 
+
+        private ArrayList bosKoltuklar;
+
+        public ArrayList BosKoltuklar
+        {
+            get { return bosKoltuklar; }
+            
+        }
+
+        public void bosKoltukEkle(Koltuk koltuk)
+        {
+            bosKoltuklar.Add(koltuk);
+        }
+
+        private Koltuk seciliKoltuk;
+
+        public Koltuk SeciliKoltuk
+        {
+            get { return seciliKoltuk; }
+            set { seciliKoltuk = value; }
+        }
+
+
         public Salon(int id, string ad, int kapasite)
         {
             // TODO: Complete member initialization
             this.id = id;
             this.ad = ad;
             this.kapasite = kapasite;
+        }
+
+        public Salon(int id, string ad)
+        {
+            // TODO: Complete member initialization
+            this.id = id;
+            this.ad = ad;
+        }
+
+
+        public ArrayList bosKoltuklariGetir(int seansID)
+        {
+            return RezervasyonDB.bosKoltuklariGetir(seansID);
         }
     }
 }

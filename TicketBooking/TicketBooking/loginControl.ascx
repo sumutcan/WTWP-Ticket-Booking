@@ -1,5 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="loginControl" Codebehind="loginControl.ascx.cs" %>
-<div style="border-width: thin; border-color: #C0C0C0; width: 189px; ">
+<div style="border-width: thin; color:White; font-family:Calibri; border-color: #C0C0C0; width: 189px; ">
+   <asp:Panel ID="pnlHata" runat="server" Visible="False">
+    <div id="Div1" runat="server" class="hata">
+    <span id="spanHata" runat="server"></span>
+    </div>
+    </asp:Panel>
     <asp:MultiView ID="multiviewLoginControl" runat="server" ActiveViewIndex="0">
     <asp:View ID="viewLogin" runat="server">
         <asp:Label ID="Label1" runat="server" Text="E-posta: " Font-Bold="True" 
@@ -60,11 +65,15 @@
             <br />
             <asp:Label ID="Label6" runat="server" Text="Şifre:"></asp:Label>
             <br />
-            <asp:TextBox ID="txtPass" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtPass" runat="server" TextMode="Password"></asp:TextBox>
+            <br />
+            <asp:Label ID="Label7" runat="server" Text="Şifre(Tekrar):"></asp:Label>
+            <br />
+            <asp:TextBox ID="txtPassTekrar" runat="server" TextMode="Password"></asp:TextBox>
             <br />
             <div style="text-align: right">
             <asp:Button ID="btnGonder" runat="server" style="text-align: right" 
-                Text="Gönder" onclick="Button1_Click" />
+                Text="Gönder" CssClass="btn" onclick="Button1_Click" />
                 </div>
         </asp:View>
     </asp:MultiView>

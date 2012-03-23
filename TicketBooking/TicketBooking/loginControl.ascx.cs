@@ -64,16 +64,28 @@ public partial class loginControl : System.Web.UI.UserControl
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Kullanici yeni = new Kullanici();
+        try
+        {
 
-        yeni.Ad = txtAd.Text;
-        yeni.Soyad = txtSoyad.Text;
-        yeni.Eposta = txtMail.Text;
-        yeni.Sifre = txtPass.Text;
-        yeni.Tip = false;
+            if (txtPass.Text != txtPassTekrar.Text)
+                throw new Exception("Girilen şifreler birbirini tutmuyor.");
 
-        Response.Write("<script>alert('"+ yeni.Kaydol() +"')</script>");
+            Kullanici yeni = new Kullanici();
 
-        basaDon();
+            yeni.Ad = txtAd.Text;
+            yeni.Soyad = txtSoyad.Text;
+            yeni.Eposta = txtMail.Text;
+            yeni.Sifre = txtPass.Text;
+            yeni.Tip = false;
+
+            Response.Write("<script>alert('" + yeni.Kaydol() + "')</script>");
+
+            basaDon();
+        }
+        catch (Exception ex)
+        {
+            pnlHata.Visible = true;
+            spanHata.InnerHtml = ex.Message;
+        }
     }
 }

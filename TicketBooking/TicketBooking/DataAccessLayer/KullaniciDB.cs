@@ -64,6 +64,7 @@ namespace TicketBooking.DataAccessLayer
             try
             {
                 cn.ConnectDB.KullaniciEkle(k.Tip, k.Eposta, k.Sifre, k.Ad, k.Soyad);
+                cn.ConnectDB.SaveChanges();
             }
             catch (Exception e)
             {
@@ -80,6 +81,7 @@ namespace TicketBooking.DataAccessLayer
             try
             {
                 cn.ConnectDB.KullaniciSil(kID);
+                cn.ConnectDB.SaveChanges();
             }
             catch (Exception e)
             {
@@ -96,6 +98,7 @@ namespace TicketBooking.DataAccessLayer
             try
             {
                 cn.ConnectDB.KullaniciGuncelle(kID,tip,eposta,sifre);
+                cn.ConnectDB.SaveChanges();
             }
             catch (Exception e)
             {

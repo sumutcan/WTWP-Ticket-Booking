@@ -38,6 +38,9 @@
       <HintPath>bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -71,20 +74,29 @@
     <Content Include="rezervasyon.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CINECLUP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CINECLUP.edmx</DependentUpon>
+    </Compile>
     <Compile Include="ClassLayer\Film.cs" />
     <Compile Include="ClassLayer\FilmTuru.cs" />
     <Compile Include="ClassLayer\Koltuk.cs" />
     <Compile Include="ClassLayer\Kullanici.cs" />
     <Compile Include="ClassLayer\Misc.cs" />
     <Compile Include="ClassLayer\Rezervasyon.cs" />
+    <Compile Include="ClassLayer\RezervasyonHandler.cs" />
     <Compile Include="ClassLayer\Salon.cs" />
     <Compile Include="ClassLayer\Seans.cs" />
+    <Compile Include="DataAccessLayer\RezervasyonDB.cs" />
+    <Compile Include="DBConnection.cs" />
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="headerHaberControl.ascx.designer.cs">
       <DependentUpon>headerHaberControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="DataAccessLayer\KullaniciDB.cs" />
     <Compile Include="loginControl.ascx.designer.cs">
       <DependentUpon>loginControl.ascx</DependentUpon>
     </Compile>
@@ -116,7 +128,12 @@
       <DependentUpon>rezervasyon.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EntityDeploy Include="CINECLUP.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CINECLUP.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="MasterUserPanel.master" />
   </ItemGroup>
