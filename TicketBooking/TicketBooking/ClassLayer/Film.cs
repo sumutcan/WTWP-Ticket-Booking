@@ -101,13 +101,13 @@ namespace TicketBooking.ClassLayer
 
         
 
-        public Dictionary<int, Seans> tumSeanslariGetir()
+        public ArrayList tumSaatleriGetir()
         {
-            Dictionary<int, Seans> tumSeanslar = new Dictionary<int, Seans>();
+            ArrayList tumSaatler = new ArrayList();
 
             foreach (FilminSeanslariniGoster_Result fsg in RezervasyonDB.filminSeanslariniGetir(this.id))
-                tumSeanslar.Add(fsg.Seans_ID,new Seans(fsg.Seans_ID,fsg.Saat,new Salon(fsg.Salon_ID,fsg.Salon_Adı)));
-            return tumSeanslar;
+                tumSaatler.Add(fsg.Saat);
+            return tumSaatler;
         }
 
         public DateTime VizyonTarihi

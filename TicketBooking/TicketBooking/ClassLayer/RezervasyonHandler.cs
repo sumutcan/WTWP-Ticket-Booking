@@ -11,6 +11,13 @@ namespace TicketBooking.ClassLayer
     {
         Rezervasyon yeniRezervasyon;
         Film secilenFilm;
+        TimeSpan secilenSaat;
+
+        public TimeSpan SecilenSaat
+        {
+            get { return secilenSaat; }
+            set { secilenSaat = value; }
+        }
 
         public Film SecilenFilm
         {
@@ -63,6 +70,16 @@ namespace TicketBooking.ClassLayer
         public Dictionary<int,Film> tumFilmleriGetir()
         {
             return tumFilmler;
+        }
+        public void saatBelirle(TimeSpan saat)
+        {
+            secilenSaat = saat;
+        }
+
+
+        public ArrayList saateGoreSalonGetir(TimeSpan saat)
+        {
+            return RezervasyonDB.saateGoreSalonGetir(saat);
         }
     }
 }

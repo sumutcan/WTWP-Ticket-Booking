@@ -87,14 +87,20 @@ namespace TicketBooking
                             
                             //filmin seanslarini cek
 
-                            Dictionary<int, Seans> tumSeanslar = rHandler.SecilenFilm.tumSeanslariGetir();
-                            foreach (int k in tumSeanslar.Keys)
-                                ddlSeanslar.Items.Add(new ListItem(tumSeanslar[k].Saat.ToString(), tumSeanslar[k].Id.ToString()));
+                            ArrayList tumSaatler = rHandler.SecilenFilm.tumSaatleriGetir();
+                            
+                            ddlSeanslar.Items.Clear();
+                            foreach (TimeSpan saat in tumSaatler)
+                                ddlSeanslar.Items.Add(saat.ToString());
 
                             break;
                         case 3:
-                            rHandler.seansBelirle(Convert.ToInt32(ddlSeanslar.SelectedValue),TimeSpan.Parse(ddlSeanslar.SelectedItem.Text));
-                            
+                            rHandler.saatBelirle(TimeSpan.Parse(ddlSeanslar.SelectedItem.Text));
+
+                            ddlSalonlar.Items.Clear();
+                            foreach (Salon s in rHandler.saateGoreSalonGetir(rHandler.SecilenSaat))
+                                ddlSalonlar.Items.Add(new ListItem(s.Ad,s.Id.ToString()));
+
                             break;
                         case 4:
                             rHandler.salonBelirle(Convert.ToInt32(ddlSalonlar.SelectedValue), ddlSalonlar.SelectedItem.Text);

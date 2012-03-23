@@ -32,5 +32,15 @@ namespace TicketBooking.DataAccessLayer
         {
             return new DBConnection().ConnectDB.FilminSeanslariniGoster(filmID);
         }
+
+        public static ArrayList saateGoreSalonGetir(TimeSpan saat)
+        {
+            ArrayList al = new ArrayList();
+
+            foreach (SALON salon in new DBConnection().ConnectDB.SaateGoreSalonlariGetir(saat)) 
+                al.Add(new Salon(salon.Salon_ID,salon.Salon_Adı));
+            
+            return al;
+        }
     }
 }
