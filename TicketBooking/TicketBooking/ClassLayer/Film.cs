@@ -82,10 +82,38 @@ namespace TicketBooking.ClassLayer
             this.Id = Id;
         }
 
+        public Film()
+        {
+        }
+
         public DateTime VizyonTarihi
         {
             get { return vizyonTarihi; }
             set { vizyonTarihi = value; }
+        }
+
+        public string afisURL;
+        public string bilgiURL;
+
+        public string AfisURL
+        {
+            get { return afisURL; }
+            set { afisURL = value; }
+        }
+
+        public void bilgiURLYarat()
+        {
+            afisURL = "http://www.imdb.com/find?q=";
+            afisURL += filmAdiEN;
+        }
+
+        public string BilgiURL
+        {
+            get {
+                bilgiURLYarat();
+                return bilgiURL;
+            }
+            set { bilgiURL = value; }
         }
     }
 }
