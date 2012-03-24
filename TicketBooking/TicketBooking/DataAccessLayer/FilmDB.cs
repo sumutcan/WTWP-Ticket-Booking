@@ -52,5 +52,26 @@ namespace TicketBooking.DataAccessLayer
 
             return gFilmler;
         }
+
+        public static ArrayList tumFilmleriCek()
+        {
+            DBConnection cn = new DBConnection();
+            IEnumerator<FILM> num = cn.ConnectDB.TumFilmleriCek().GetEnumerator();
+
+            ArrayList tFilmler = new ArrayList();
+
+            while (num.MoveNext())
+            {
+                Film film = new Film();
+                film.FilmAdiEN = num.Current.Film_Adı;
+                film.FilmAdiTR = num.Current.Film_Adı;
+                film.YapimYili = num.Current.Yapım_Yılı.ToString();
+                film.VizyonTarihi = num.Current.Ekleme_Tarihi;
+                film.AfisURL = num.Current.Afis_URL;
+                tFilmler.Add(film);
+            }
+
+            return tFilmler;
+        }
     }
 }

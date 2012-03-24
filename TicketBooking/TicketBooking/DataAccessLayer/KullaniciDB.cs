@@ -91,13 +91,13 @@ namespace TicketBooking.DataAccessLayer
             return kID +" id'li kullanıcı sistemden tamamen silinmiştir.";
         }
 
-        public static string KullaniciGuncelle(int kID,bool tip,string eposta,string sifre)
+        public static string KullaniciGuncelle(int kID,bool tip,string ad,string soyad,string eposta,string sifre)
         {
             DBConnection cn = new DBConnection();
 
             try
             {
-                cn.ConnectDB.KullaniciGuncelle(kID,tip,eposta,sifre);
+                cn.ConnectDB.KullaniciGuncelle(kID, tip, ad, soyad, eposta, sifre);
                 cn.ConnectDB.SaveChanges();
             }
             catch (Exception e)

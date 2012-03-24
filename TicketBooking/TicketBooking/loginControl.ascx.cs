@@ -88,4 +88,9 @@ public partial class loginControl : System.Web.UI.UserControl
             spanHata.InnerHtml = ex.Message;
         }
     }
+
+    protected void lnkProfil_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("profile.aspx");
+    }
 }
