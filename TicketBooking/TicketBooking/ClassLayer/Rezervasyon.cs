@@ -84,7 +84,7 @@ namespace TicketBooking.ClassLayer
 
         public void kaydet()
         {
-            RezervasyonDB.rezervasyonEkle(this);
+            this.id = RezervasyonDB.rezervasyonEkle(this);
         }
     }
 }

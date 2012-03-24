@@ -71,6 +71,7 @@ namespace TicketBooking.ClassLayer
         public ArrayList boskoltuklariGetir()
         {
             secilenSeans = new Seans(RezervasyonDB.tekSeansGetir(secilenFilm.Id,secilenSalon.Id));
+            secilenSeans.Saat = secilenSaat;
          
             return secilenSalon.bosKoltuklariGetir(secilenSeans.Id);
         }
