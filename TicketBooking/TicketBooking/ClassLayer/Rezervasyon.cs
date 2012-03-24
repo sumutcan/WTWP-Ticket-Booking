@@ -59,17 +59,13 @@ namespace TicketBooking.ClassLayer
             set { seciliKoltuk = value; }
         }
 
-        ArrayList koltuklar;
+       
 
-        public ArrayList Koltuklar
-        {
-            get { return koltuklar; }
-            
-        }
+
 
         public void koltukEkle (Koltuk k)
         {
-            koltuklar.Add(k);
+            seciliKoltuk = k;
         }
 
     }

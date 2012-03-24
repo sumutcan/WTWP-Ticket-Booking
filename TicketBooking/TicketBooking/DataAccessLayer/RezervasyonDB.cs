@@ -11,11 +11,11 @@ namespace TicketBooking.DataAccessLayer
 {
     public class RezervasyonDB
     {
-        public static ArrayList bosKoltuklariGetir(int seansID)
+        public static ArrayList bosKoltuklariGetir(int seansID, int salonID)
         {
             ArrayList al = new ArrayList();
 
-            foreach (KOLTUK koltuk in new DBConnection().ConnectDB.SeansaGoreBosKoltuklar(seansID))
+            foreach (KOLTUK koltuk in new DBConnection().ConnectDB.SeansaGoreBosKoltuklar(seansID,salonID))
                 al.Add(new Koltuk(koltuk.Koltuk_ID,Convert.ToChar(koltuk.Satır_No+64),koltuk.Sutun_No));
             return al;
         }
@@ -41,6 +41,11 @@ namespace TicketBooking.DataAccessLayer
                 al.Add(new Salon(salon.Salon_ID,salon.Salon_Adı));
             
             return al;
+        }
+
+        public static int tekSeansGetir(int filmID, int salonID)
+        {
+            return Convert.ToInt32(new DBConnection().ConnectDB.TekSeansGetir(filmID,salonID).First());
         }
     }
 }

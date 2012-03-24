@@ -98,14 +98,17 @@ namespace TicketBooking
                             rHandler.saatBelirle(TimeSpan.Parse(ddlSeanslar.SelectedItem.Text));
 
                             ddlSalonlar.Items.Clear();
+                            //en üste boş kayıt ekle
+                            ddlSalonlar.Items.Add("Salon Seçiniz");
                             foreach (Salon s in rHandler.saateGoreSalonGetir(rHandler.SecilenSaat))
                                 ddlSalonlar.Items.Add(new ListItem(s.Ad,s.Id.ToString()));
 
                             break;
                         case 4:
-                            rHandler.salonBelirle(Convert.ToInt32(ddlSalonlar.SelectedValue), ddlSalonlar.SelectedItem.Text);
+                            rHandler.seansOlustur();
+                            rHandler.koltukRezerveEt(Convert.ToInt32(ddlBosKoltuklar.SelectedValue));
                             break;
-
+                        
                     }
 
                     Session["RezervasyonHandler"] = rHandler;
@@ -126,14 +129,23 @@ namespace TicketBooking
 
         protected void ddlSalonlar_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            ArrayList bosKoltuklar = (Session["RezervasyonHandler"] as RezervasyonHandler).boskoltuklariGetir();
-            
-            if (bosKoltuklar != null)
+            ddlBosKoltuklar.Items.Clear();
+            if (ddlSalonlar.SelectedIndex != 0)
             {
-                foreach (Koltuk k in bosKoltuklar)
-                    ddlBosKoltuklar.Items.Add(new ListItem(k.ToString(),k.Id.ToString()));
+
+                RezervasyonHandler rHandler = Session["RezervasyonHandler"] as RezervasyonHandler;
+
+                rHandler.salonBelirle(Convert.ToInt32(ddlSalonlar.SelectedValue), ddlSalonlar.SelectedItem.Text);
+
+                ArrayList bosKoltuklar = rHandler.boskoltuklariGetir();
+                
+                if (bosKoltuklar != null)
+                {
+                    foreach (Koltuk k in bosKoltuklar)
+                        ddlBosKoltuklar.Items.Add(new ListItem(k.ToString(), k.Id.ToString()));
+                }
             }
+
         }
 
         protected void SideBarList_ItemDataBound(object sender, EventArgs e)

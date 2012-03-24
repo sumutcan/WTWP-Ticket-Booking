@@ -33,6 +33,7 @@ namespace TicketBooking.ClassLayer
             set { saat = value; }
         }
         Film film;
+        private int p;
         
         
 
@@ -57,6 +58,12 @@ namespace TicketBooking.ClassLayer
             this.id = id;
             this.saat = saat;
             this.salon = salon;
+        }
+
+        public Seans(int id)
+        {
+            // TODO: Complete member initialization
+            this.id = id;
         }
 
         public void filmEkle(Film secilenFilm)

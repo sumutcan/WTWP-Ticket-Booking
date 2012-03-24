@@ -52,20 +52,22 @@ namespace TicketBooking.ClassLayer
             yeniRezervasyon.RezervasyonTarihi = seciliTarih;
         }
 
-        public void seansBelirle(int id,TimeSpan saat)
+        public void seansOlustur()
         {
-            yeniRezervasyon.Seans = new Seans(id,saat);
+            yeniRezervasyon.Seans = secilenSeans;
             yeniRezervasyon.Seans.filmEkle(secilenFilm);
         }
 
         public void salonBelirle(int id, string ad)
         {
-            yeniRezervasyon.Seans.Salon = new Salon(id,ad);
+            secilenSalon = new Salon(id,ad);
             
         }
         public ArrayList boskoltuklariGetir()
         {
-            return yeniRezervasyon.Seans.Salon.bosKoltuklariGetir(yeniRezervasyon.Seans.Id);
+            secilenSeans = new Seans(RezervasyonDB.tekSeansGetir(secilenFilm.Id,secilenSalon.Id));
+         
+            return secilenSalon.bosKoltuklariGetir(secilenSeans.Id);
         }
         public Dictionary<int,Film> tumFilmleriGetir()
         {
@@ -80,6 +82,11 @@ namespace TicketBooking.ClassLayer
         public ArrayList saateGoreSalonGetir(TimeSpan saat)
         {
             return RezervasyonDB.saateGoreSalonGetir(saat);
+        }
+
+        public void koltukRezerveEt(int koltukID)
+        {
+            yeniRezervasyon.koltukEkle(new Koltuk(koltukID));
         }
     }
 }
