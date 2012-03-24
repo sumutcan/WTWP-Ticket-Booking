@@ -140,8 +140,8 @@ namespace TicketBooking.ClassLayer
 
         public void bilgiURLYarat()
         {
-            afisURL = "http://www.imdb.com/find?q=";
-            afisURL += filmAdiEN;
+            bilgiURL = "http://www.imdb.com/find?q=";
+            bilgiURL += filmAdiEN;
         }
 
         public string BilgiURL

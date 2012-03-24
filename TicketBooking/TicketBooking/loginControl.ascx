@@ -32,7 +32,8 @@
         <asp:View ID="viewHosgeldin" runat="server">
         Hoşgeldin,   <asp:Label ID="lblAdSoyad" runat="server" Text="adSoyad"></asp:Label>
         <div style="margin-top:5px;">
-            <div style="float:left;"><asp:LinkButton CssClass="lnk" ID="lnkProfil" runat="server">Profil</asp:LinkButton></div>
+            <div style="float:left;"><asp:LinkButton CssClass="lnk" ID="lnkProfil" 
+                    runat="server" onclick="lnkProfil_Click">Profil</asp:LinkButton></div>
             
             <div style="float:right;"><asp:LinkButton CssClass="lnk" ID="lnkCikisYap" 
                     runat="server" onclick="lnkCikisYap_Click">Çıkış Yap</asp:LinkButton></div>
