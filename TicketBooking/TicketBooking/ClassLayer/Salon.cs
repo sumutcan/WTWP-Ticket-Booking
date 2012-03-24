@@ -81,7 +81,7 @@ namespace TicketBooking.ClassLayer
 
         public ArrayList bosKoltuklariGetir(int seansID)
         {
-            return RezervasyonDB.bosKoltuklariGetir(seansID);
+            return RezervasyonDB.bosKoltuklariGetir(seansID, this.id);
         }
     }
 }

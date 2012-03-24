@@ -51,17 +51,21 @@ namespace TicketBooking.ClassLayer
             puan = 10;
         }
 
-        ArrayList koltuklar;
+        private Koltuk seciliKoltuk;
 
-        public ArrayList Koltuklar
+        public Koltuk SeciliKoltuk
         {
-            get { return koltuklar; }
-            
+            get { return seciliKoltuk; }
+            set { seciliKoltuk = value; }
         }
+
+       
+
+
 
         public void koltukEkle (Koltuk k)
         {
-            koltuklar.Add(k);
+            seciliKoltuk = k;
         }
 
     }

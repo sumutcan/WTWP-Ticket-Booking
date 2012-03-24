@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Collections;
+using TicketBooking.DataAccessLayer;
 
 namespace TicketBooking.ClassLayer
 {
@@ -72,14 +73,41 @@ namespace TicketBooking.ClassLayer
         }
 
         private DateTime vizyonTarihi;
-        private int p;
-        private string p_2;
+
+
+        private DateTime bitisTarihi;
+
+        public DateTime BitisTarihi
+        {
+            get { return bitisTarihi; }
+            set { bitisTarihi = value; }
+        }
 
         public Film(int Id, string filmAdiTR)
         {
             // TODO: Complete member initialization
             this.FilmAdiTR = filmAdiTR;
             this.Id = Id;
+        }
+
+        public Film(int id, string ad, DateTime vizyonTarihi, DateTime bitisTarihi)
+        {
+            // TODO: Complete member initialization
+            this.id = id;
+            this.filmAdiTR = ad;
+            this.vizyonTarihi = vizyonTarihi;
+            this.bitisTarihi = bitisTarihi;
+        }
+
+        
+
+        public ArrayList tumSaatleriGetir()
+        {
+            ArrayList tumSaatler = new ArrayList();
+
+            foreach (FilminSeanslariniGoster_Result fsg in RezervasyonDB.filminSeanslariniGetir(this.id))
+                tumSaatler.Add(fsg.Saat);
+            return tumSaatler;
         }
 
         public Film()
