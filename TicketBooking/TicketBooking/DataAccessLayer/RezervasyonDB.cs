@@ -50,7 +50,7 @@ namespace TicketBooking.DataAccessLayer
 
         public static void rezervasyonEkle()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
