@@ -96,7 +96,8 @@ namespace TicketBooking
                             break;
                         case 3:
                             rHandler.saatBelirle(TimeSpan.Parse(ddlSeanslar.SelectedItem.Text));
-
+                            ddlBosKoltuklar.Items.Clear();
+                            
                             ddlSalonlar.Items.Clear();
                             //en üste boş kayıt ekle
                             ddlSalonlar.Items.Add("Salon Seçiniz");

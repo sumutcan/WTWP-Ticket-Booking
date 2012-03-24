@@ -12,6 +12,8 @@ namespace TicketBooking.ClassLayer
         Rezervasyon yeniRezervasyon;
         Film secilenFilm;
         TimeSpan secilenSaat;
+        TicketGenerator tGenerator; 
+
 
         public TimeSpan SecilenSaat
         {
