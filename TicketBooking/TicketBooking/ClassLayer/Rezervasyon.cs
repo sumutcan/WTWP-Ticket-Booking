@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Collections;
+using TicketBooking.DataAccessLayer;
 
 namespace TicketBooking.ClassLayer
 {
@@ -52,8 +53,9 @@ namespace TicketBooking.ClassLayer
         }
 
         private Koltuk seciliKoltuk;
+        private double ucret;
 
-        public Koltuk SeciliKoltuk
+        public Koltuk Koltuk
         {
             get { return seciliKoltuk; }
             set { seciliKoltuk = value; }
@@ -68,5 +70,21 @@ namespace TicketBooking.ClassLayer
             seciliKoltuk = k;
         }
 
+
+        public void ucretlendir()
+        {
+            this.ucret = 10.0;
+
+            if (seans.Film.GetD3)
+                ucret += 3.0;
+
+        }
+
+        public double Ucret { get { return ucret; } }
+
+        public void kaydet()
+        {
+            RezervasyonDB.rezervasyonEkle();
+        }
     }
 }

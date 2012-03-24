@@ -78,7 +78,11 @@ namespace TicketBooking.ClassLayer
         {
             return KullaniciDB.KullaniciEkle(this);
         }
- 
+
+        public override string ToString()
+        {
+            return ad + " " + soyad; 
+        }
 
 
     }

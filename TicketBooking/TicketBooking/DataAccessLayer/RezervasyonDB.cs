@@ -23,7 +23,7 @@ namespace TicketBooking.DataAccessLayer
         {
             Dictionary<int, Film> dict = new Dictionary<int, Film>();
             foreach (FILM f in new DBConnection().ConnectDB.TumFilmleriCek())
-                dict.Add(f.FilmID,new Film(f.FilmID,f.Film_Adı,f.Ekleme_Tarihi,f.Bitis_Tarihi));
+                dict.Add(f.FilmID,new Film(f.FilmID,f.Film_Adı,f.D3,f.Ekleme_Tarihi,f.Bitis_Tarihi));
 
             return dict;
         }
@@ -46,6 +46,11 @@ namespace TicketBooking.DataAccessLayer
         public static int tekSeansGetir(int filmID, int salonID)
         {
             return Convert.ToInt32(new DBConnection().ConnectDB.TekSeansGetir(filmID,salonID).First());
+        }
+
+        public static void rezervasyonEkle()
+        {
+            
         }
     }
 }

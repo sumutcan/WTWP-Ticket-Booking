@@ -12,6 +12,8 @@ namespace TicketBooking.ClassLayer
         Rezervasyon yeniRezervasyon;
         Film secilenFilm;
         TimeSpan secilenSaat;
+        TicketGenerator tGenerator;
+
 
         public TimeSpan SecilenSaat
         {
@@ -56,6 +58,7 @@ namespace TicketBooking.ClassLayer
         {
             yeniRezervasyon.Seans = secilenSeans;
             yeniRezervasyon.Seans.filmEkle(secilenFilm);
+            yeniRezervasyon.Seans.Salon = secilenSalon;
         }
 
         public void salonBelirle(int id, string ad)
@@ -88,5 +91,25 @@ namespace TicketBooking.ClassLayer
         {
             yeniRezervasyon.koltukEkle(new Koltuk(koltukID));
         }
+
+        public string ucretBelirle()
+        {
+            yeniRezervasyon.ucretlendir();
+            return yeniRezervasyon.Ucret.ToString();
+
+        }
+
+        internal void biletOlustur()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void rezervasyonuBitir(Kullanici kullanici)
+        {
+            yeniRezervasyon.Kullanici = kullanici;
+            yeniRezervasyon.kaydet();
+        }
+
+        public Rezervasyon Rezervasyon { get { return yeniRezervasyon; } }
     }
 }

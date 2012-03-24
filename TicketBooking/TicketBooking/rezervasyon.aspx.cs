@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TicketBooking.ClassLayer;
 using System.Collections;
+using System.Globalization;
 
 namespace TicketBooking
 {
@@ -76,8 +77,8 @@ namespace TicketBooking
                             calenderTarih.SelectedDate = DateTime.Now;
                             break;
                         case 2:
-                            
-                            if (calenderTarih.SelectedDate < rHandler.SecilenFilm.VizyonTarihi || calenderTarih.SelectedDate > rHandler.SecilenFilm.BitisTarihi)
+
+                            if (DateTime.Parse(txtTarih.Text, CultureInfo.CreateSpecificCulture("en-US")) < rHandler.SecilenFilm.VizyonTarihi || DateTime.Parse(txtTarih.Text, CultureInfo.CreateSpecificCulture("en-US")) > rHandler.SecilenFilm.BitisTarihi)
                             {
                                 e.Cancel = true;
                                 throw new Exception("Seçtiğiniz tarihte film gösterimde değil.");
@@ -96,7 +97,8 @@ namespace TicketBooking
                             break;
                         case 3:
                             rHandler.saatBelirle(TimeSpan.Parse(ddlSeanslar.SelectedItem.Text));
-
+                            ddlBosKoltuklar.Items.Clear();
+                            
                             ddlSalonlar.Items.Clear();
                             //en üste boş kayıt ekle
                             ddlSalonlar.Items.Add("Salon Seçiniz");
@@ -107,6 +109,22 @@ namespace TicketBooking
                         case 4:
                             rHandler.seansOlustur();
                             rHandler.koltukRezerveEt(Convert.ToInt32(ddlBosKoltuklar.SelectedValue));
+                            lblUcret.Text = rHandler.ucretBelirle();
+                            break;
+                        case 5:
+                            rHandler.rezervasyonuBitir(Session["LoggedUser"] as Kullanici);
+                            rHandler.biletOlustur();
+                            
+                            //bilet kontrollerine gereken değerleri ata;
+                            imgBarkod.ImageUrl = "~/BarkodOlustur.aspx?ID=" + rHandler.Rezervasyon.Id;
+                            lblAdSoyad.Text = rHandler.Rezervasyon.Kullanici.ToString();
+                            lblFilm.Text = rHandler.Rezervasyon.Seans.Film.FilmAdiTR;
+                            lblSeans.Text = rHandler.Rezervasyon.Seans.Saat.ToString();
+                            lblSalon.Text = rHandler.Rezervasyon.Seans.Salon.ToString();
+                            lblKoltuk.Text = rHandler.Rezervasyon.Koltuk.ToString();
+
+
+
                             break;
                         
                     }
@@ -118,7 +136,7 @@ namespace TicketBooking
             {
                 pnlHata.Visible = true;
                 spanHata.InnerHtml = ex.Message;
-                
+                e.Cancel = true;
             }
         }
 

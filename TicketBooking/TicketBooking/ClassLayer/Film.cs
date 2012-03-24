@@ -90,10 +90,11 @@ namespace TicketBooking.ClassLayer
             this.Id = Id;
         }
 
-        public Film(int id, string ad, DateTime vizyonTarihi, DateTime bitisTarihi)
+        public Film(int id, string ad, bool D3,DateTime vizyonTarihi, DateTime bitisTarihi)
         {
             // TODO: Complete member initialization
             this.id = id;
+            this.D3 = D3;
             this.filmAdiTR = ad;
             this.vizyonTarihi = vizyonTarihi;
             this.bitisTarihi = bitisTarihi;
@@ -122,6 +123,14 @@ namespace TicketBooking.ClassLayer
 
         public string afisURL;
         public string bilgiURL;
+        
+        private bool D3;
+
+        public bool GetD3
+        {
+            get { return D3; }
+            set { D3 = value; }
+        }
 
         public string AfisURL
         {
