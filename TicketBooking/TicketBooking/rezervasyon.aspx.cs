@@ -116,13 +116,13 @@ namespace TicketBooking
                             rHandler.biletOlustur();
                             
                             //bilet kontrollerine gereken değerleri ata;
-                            imgBarkod.ImageUrl = "~/BarkodOlustur.aspx?ID=" + rHandler.Rezervasyon.Id;
-                            lblAdSoyad.Text = rHandler.Rezervasyon.Kullanici.ToString();
-                            lblFilm.Text = rHandler.Rezervasyon.Seans.Film.FilmAdiTR;
-                            lblSeans.Text = rHandler.Rezervasyon.Seans.Saat.ToString();
-                            lblSalon.Text = rHandler.Rezervasyon.Seans.Salon.ToString();
-                            lblKoltuk.Text = rHandler.Rezervasyon.Koltuk.ToString();
-
+                            imgBarkod.ImageUrl = "~/BarkodOlustur.aspx?ID=" + rHandler.Bilet.RezervasyonID;
+                            lblAdSoyad.Text = rHandler.Bilet.AdSoyad;
+                            lblFilm.Text = rHandler.Bilet.FilmAdi;
+                            lblSeans.Text = rHandler.Bilet.Saat.ToString();
+                            lblSalon.Text = rHandler.Bilet.SalonAdi;
+                            lblKoltuk.Text = rHandler.Bilet.KoltukAdi;
+                            lblBiletUcret.Text = rHandler.Bilet.Ucret.ToString() + " TL";
 
 
                             break;

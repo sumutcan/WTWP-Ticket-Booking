@@ -52,5 +52,17 @@ namespace TicketBooking.DataAccessLayer
         {
             return Convert.ToInt32 (new DBConnection().ConnectDB.RezervasyonEkle(rez.Kullanici.Id,rez.Seans.Id,rez.Koltuk.Id,rez.RezervasyonTarihi,rez.Ucret).First());
         }
+
+        public static string salonAdiGetir(int salonID)
+        {
+            return new DBConnection().ConnectDB.TekSalonAdiGetir(salonID).First();
+        }
+
+        public static Koltuk tekKoltukGetir(int koltukID)
+        {
+            TekKoltukGetir_Result tekKoltuk = new DBConnection().ConnectDB.TekKoltukGetir(koltukID).First();
+            
+            return new Koltuk(koltukID,Convert.ToChar(tekKoltuk.Satır_No+64),tekKoltuk.Sutun_No);
+        }
     }
 }

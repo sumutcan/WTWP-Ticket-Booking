@@ -15,6 +15,12 @@ namespace TicketBooking.ClassLayer
         TicketGenerator tGenerator;
         Bilet bilet;
 
+        public Bilet Bilet
+        {
+            get { return bilet; }
+            set { bilet = value; }
+        }
+
 
         public TimeSpan SecilenSaat
         {
