@@ -104,9 +104,10 @@ namespace TicketBooking.ClassLayer
             throw new NotImplementedException();
         }
 
-        internal void rezervasyonuBitir(Kullanici kullanici)
+        public void rezervasyonuBitir(Kullanici kullanici)
         {
-            throw new NotImplementedException();
+            yeniRezervasyon.Kullanici = kullanici;
+            yeniRezervasyon.kaydet();
         }
 
         public Rezervasyon Rezervasyon { get { return yeniRezervasyon; } }

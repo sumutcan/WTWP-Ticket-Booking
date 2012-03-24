@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Collections;
+using TicketBooking.DataAccessLayer;
 
 namespace TicketBooking.ClassLayer
 {
@@ -80,5 +81,10 @@ namespace TicketBooking.ClassLayer
         }
 
         public double Ucret { get { return ucret; } }
+
+        public void kaydet()
+        {
+            RezervasyonDB.rezervasyonEkle();
+        }
     }
 }

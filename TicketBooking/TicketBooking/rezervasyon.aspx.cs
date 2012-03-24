@@ -123,6 +123,8 @@ namespace TicketBooking
                             lblSalon.Text = rHandler.Rezervasyon.Seans.Salon.ToString();
                             lblKoltuk.Text = rHandler.Rezervasyon.Koltuk.ToString();
 
+
+
                             break;
                         
                     }

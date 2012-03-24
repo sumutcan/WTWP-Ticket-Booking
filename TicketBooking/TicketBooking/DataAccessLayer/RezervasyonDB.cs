@@ -47,5 +47,10 @@ namespace TicketBooking.DataAccessLayer
         {
             return Convert.ToInt32(new DBConnection().ConnectDB.TekSeansGetir(filmID,salonID).First());
         }
+
+        public static void rezervasyonEkle()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
