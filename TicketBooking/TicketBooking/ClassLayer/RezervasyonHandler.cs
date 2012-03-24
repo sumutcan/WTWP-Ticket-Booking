@@ -13,6 +13,7 @@ namespace TicketBooking.ClassLayer
         Film secilenFilm;
         TimeSpan secilenSaat;
         TicketGenerator tGenerator;
+        Bilet bilet;
 
 
         public TimeSpan SecilenSaat
@@ -34,6 +35,7 @@ namespace TicketBooking.ClassLayer
         public RezervasyonHandler()
         {
             tumFilmler = RezervasyonDB.tumFilmleriGetir();
+            tGenerator = new TicketGenerator();
             
         }
 
@@ -99,9 +101,9 @@ namespace TicketBooking.ClassLayer
 
         }
 
-        internal void biletOlustur()
+        public void biletOlustur()
         {
-            throw new NotImplementedException();
+            bilet = tGenerator.biletOlustur(yeniRezervasyon);
         }
 
         public void rezervasyonuBitir(Kullanici kullanici)

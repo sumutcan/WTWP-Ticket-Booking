@@ -7,6 +7,10 @@ namespace TicketBooking.ClassLayer
 {
     public class TicketGenerator
     {
-        
+
+        internal Bilet biletOlustur(Rezervasyon yeniRezervasyon)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

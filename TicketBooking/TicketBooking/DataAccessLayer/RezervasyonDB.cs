@@ -48,9 +48,9 @@ namespace TicketBooking.DataAccessLayer
             return Convert.ToInt32(new DBConnection().ConnectDB.TekSeansGetir(filmID,salonID).First());
         }
 
-        public static void rezervasyonEkle()
+        public static int rezervasyonEkle(Rezervasyon rez)
         {
-            
+            return Convert.ToInt32 (new DBConnection().ConnectDB.RezervasyonEkle(rez.Kullanici.Id,rez.Seans.Id,rez.Koltuk.Id,rez.RezervasyonTarihi,rez.Ucret).First());
         }
     }
 }

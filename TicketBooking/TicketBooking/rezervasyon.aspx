@@ -123,6 +123,8 @@
             <td><asp:Label runat="server" ID="lblSalon">salon</asp:Label></td>
             <th>Koltuk:</th>
             <td><asp:Label runat="server" ID="lblKoltuk">koltuk</asp:Label></td>
+            <th>Ucret:</th>
+            <td><asp:Label runat="server" ID="lblBiletUcret">ucret</asp:Label></td>
             </tr>
             </table>
             </div>
