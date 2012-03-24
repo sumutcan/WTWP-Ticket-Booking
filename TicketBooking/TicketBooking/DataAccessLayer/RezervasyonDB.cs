@@ -23,7 +23,7 @@ namespace TicketBooking.DataAccessLayer
         {
             Dictionary<int, Film> dict = new Dictionary<int, Film>();
             foreach (FILM f in new DBConnection().ConnectDB.TumFilmleriCek())
-                dict.Add(f.FilmID,new Film(f.FilmID,f.Film_Adı,f.Ekleme_Tarihi,f.Bitis_Tarihi));
+                dict.Add(f.FilmID,new Film(f.FilmID,f.Film_Adı,f.D3,f.Ekleme_Tarihi,f.Bitis_Tarihi));
 
             return dict;
         }

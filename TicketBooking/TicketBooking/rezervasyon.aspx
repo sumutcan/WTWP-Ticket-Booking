@@ -7,7 +7,7 @@
     </div>
     </asp:Panel>
     <asp:Wizard ID="wizardRezervasyon" runat="server" Height="203px" Width="560px" 
-        ActiveStepIndex="0" FinishCompleteButtonText="Bitir" 
+        ActiveStepIndex="6" FinishCompleteButtonText="Bitir" 
         FinishPreviousButtonText="Önceki" StartNextButtonText="Rezervasyona Başla" 
         StepNextButtonText="Devam" StepPreviousButtonText="Önceki" 
         onfinishbuttonclick="wizardRezervasyon_FinishButtonClick" 
@@ -35,7 +35,7 @@
                 Text="Rezervasyon tarihi:"></asp:Label>
                 </th>
                 <td style="background-color:Yellow">
-                <asp:TextBox BackColor="Wheat" runat="server" ID="txtTarih" Enabled="true" ReadOnly="false"></asp:TextBox>
+                <asp:TextBox BackColor="Wheat" runat="server" ID="txtTarih"></asp:TextBox>
                 <act:CalendarExtender ID="calenderTarih" TargetControlID="txtTarih" runat="server" 
                        FirstDayOfWeek="Monday" TodaysDateFormat="d.MMMM.yyyy"></act:CalendarExtender>
                        </td>
