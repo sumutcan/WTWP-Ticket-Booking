@@ -356,3 +356,48 @@ a:hover {
     vertical-align:middle;
     font-size:medium;
 }
+#tabloBilgiler th
+{
+    text-align:left;
+    width:80px;  
+}
+#bilgiler
+{
+    font-family:Segoe UI; 
+    font-size:small; 
+    color:White; 
+    margin-top:10px;
+}
+#biletAna
+{ 
+    height: 122px;
+    font-family: Segoe UI;
+    border-style:dashed;
+    border-color:White;
+    padding-left:3px;
+    padding-right:3px;
+}
+#biletAna
+{ 
+    height: 122px;
+}
+#logo
+{   
+    width:165px
+}
+#logoUst
+{
+    font-size:large; 
+    font-weight:bolder;
+}
+#logoAlt
+{
+    text-align:right; 
+    font-size:medium; 
+    
+}
+#barkod
+{
+   margin-left:250px;
+    height:47px;
+}

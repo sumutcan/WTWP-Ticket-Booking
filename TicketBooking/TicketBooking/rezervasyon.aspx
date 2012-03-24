@@ -6,7 +6,7 @@
     <span id="spanHata" runat="server"></span>
     </div>
     </asp:Panel>
-    <asp:Wizard ID="wizardRezervasyon" runat="server" Height="172px" Width="560px" 
+    <asp:Wizard ID="wizardRezervasyon" runat="server" Height="203px" Width="560px" 
         ActiveStepIndex="0" FinishCompleteButtonText="Bitir" 
         FinishPreviousButtonText="Önceki" StartNextButtonText="Rezervasyona Başla" 
         StepNextButtonText="Devam" StepPreviousButtonText="Önceki" 
@@ -96,14 +96,39 @@
             <asp:Label ID="Label12" runat="server" 
                 Text=" fiyatlar değişiklik gösterebilmektedir."></asp:Label>
         </asp:WizardStep>
-        <asp:WizardStep runat="server" Title="Bilet Onayı">
-                   <asp:Label ID="Label13" runat="server" ForeColor="#FF9999" 
-                Text="Lütfen e-posta adresinize girilen doğrulama kodunu giriniz:"></asp:Label>
-            <br />
-            <br />
-            <asp:TextBox ID="txtDogrulamaKodu" runat="server"></asp:TextBox>
-        </asp:WizardStep>
         <asp:WizardStep runat="server" StepType="Finish" Title="Bilet Önizleme">
+        <div id="biletAna">
+            <div id="logo">
+            <div id="logoUst">broadway</div>
+            <div id ="logoAlt">sinemaları...</div>
+            </div>
+            <div id="barkod">
+                <asp:Image ID="imgBarkod" runat="server" />
+                
+            </div>
+            <div id="bilgiler">
+            <table id="tabloBilgiler">
+            <tr>
+            <th>Ad Soyad:</th>
+            <td><asp:Label runat="server" ID="lblAdSoyad">AdSoyad</asp:Label></td>
+            </tr>
+            <tr>
+            <th>Film:</th>
+            <td><asp:Label runat="server" ID="lblFilm">filmAdi</asp:Label></td>
+            <th>Seans:</th>
+            <td><asp:Label runat="server" ID="lblSeans">seans</asp:Label></td>
+            </tr>
+            <tr>
+            <th>Salon:</th>
+            <td><asp:Label runat="server" ID="lblSalon">salon</asp:Label></td>
+            <th>Koltuk:</th>
+            <td><asp:Label runat="server" ID="lblKoltuk">koltuk</asp:Label></td>
+            </tr>
+            </table>
+            </div>
+
+        </div>
+        <div style="float:right; margin-top:5px; color:White;" class="lnk"><asp:HyperLink ID="lnkBiletYazdir" runat="server">Yazdır</asp:HyperLink></div>
         </asp:WizardStep>
         <asp:WizardStep runat="server" StepType="Complete" Title="Rezervasyon Alındı.">
                     <asp:Label ID="Label14" runat="server" 
