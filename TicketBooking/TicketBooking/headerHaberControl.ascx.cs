@@ -24,9 +24,13 @@ public partial class headerHaberControl : System.Web.UI.UserControl
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        Film gelecekProgram = FilmDB.gelecekProgramGetir();
-        film.Text = gelecekProgram.FilmAdiTR;
-        tarih.Text = gelecekProgram.VizyonTarihi.ToShortDateString();
+        try
+        {
+            Film gelecekProgram = FilmDB.gelecekProgramGetir();
+            film.Text = gelecekProgram.FilmAdiTR;
+            tarih.Text = gelecekProgram.VizyonTarihi.ToShortDateString();
+        }
+        catch { }
 
     }
 }

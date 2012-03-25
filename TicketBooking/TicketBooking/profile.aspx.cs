@@ -26,20 +26,24 @@ namespace TicketBooking
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["LoggedUser"] == null)
+            try
             {
-                Response.Redirect("Default.aspx");
-            }
-            else
-            {
-                if (!IsPostBack)
-                degerAta();
-            }
+                if (Session["LoggedUser"] == null)
+                {
+                    Response.Redirect("Default.aspx");
+                }
+                else
+                {
+                    if (!IsPostBack)
+                        degerAta();
+                }
 
-            RezervasyonHandler rHandler = new RezervasyonHandler();
-            List<Bilet> sonBiletler = rHandler.sonBiletleriGetir((Session["LoggedUser"] as Kullanici).Id);
-            lstSonRezervasyonlar.DataSource = sonBiletler;
-            lstSonRezervasyonlar.DataBind();
+                RezervasyonHandler rHandler = new RezervasyonHandler();
+                List<Bilet> sonBiletler = rHandler.sonBiletleriGetir((Session["LoggedUser"] as Kullanici).Id);
+                lstSonRezervasyonlar.DataSource = sonBiletler;
+                lstSonRezervasyonlar.DataBind();
+            }
+            catch { }
         }
 
         public void degerAta()
@@ -55,36 +59,39 @@ namespace TicketBooking
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Default.aspx");
+            Response.Redirect("Default.aspx",false);
         }
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (txtAd.Text == "" || txtSoyad.Text == "" || txtMail.Text == "" || txtSifre.Text == "" || txtSifre2.Text == "")
+            try
             {
-                Response.Write("<script>alert('Doldurulmamış alanlar mevcut.')</script>");
-            }
-            else if (txtSifre.Text != txtSifre2.Text)
-            {
-                Response.Write("<script>alert('Girmiş olduğunuz şifreler eşleşmiyor.')</script>");
-            }
-            else
-            {
-                Kullanici k = Session["LoggedUser"] as Kullanici;
-                k.Ad = txtAd.Text;
-                k.Soyad = txtSoyad.Text;
-                k.Eposta = txtMail.Text;
-                k.Sifre = txtSifre2.Text;
-                Session["LoggedUser"] = k;
+                if (txtAd.Text == "" || txtSoyad.Text == "" || txtMail.Text == "" || txtSifre.Text == "" || txtSifre2.Text == "")
+                {
+                    Response.Write("<script>alert('Doldurulmamış alanlar mevcut.')</script>");
+                }
+                else if (txtSifre.Text != txtSifre2.Text)
+                {
+                    Response.Write("<script>alert('Girmiş olduğunuz şifreler eşleşmiyor.')</script>");
+                }
+                else
+                {
+                    Kullanici k = Session["LoggedUser"] as Kullanici;
+                    k.Ad = txtAd.Text;
+                    k.Soyad = txtSoyad.Text;
+                    k.Eposta = txtMail.Text;
+                    k.Sifre = txtSifre2.Text;
+                    Session["LoggedUser"] = k;
 
-                Response.Write("<script>alert('"+ KullaniciDB.KullaniciGuncelle(k.Id,k.Tip,k.Ad,k.Soyad,k.Eposta,k.Sifre) +"')</script>");
+                    Response.Write("<script>alert('" + KullaniciDB.KullaniciGuncelle(k.Id, k.Tip, k.Ad, k.Soyad, k.Eposta, k.Sifre) + "')</script>");
 
-                Response.Redirect("Default.aspx");
-                
+                    Response.Redirect("Default.aspx");
 
+
+                }
             }
+            catch { }
         }
-
 
     }
 }

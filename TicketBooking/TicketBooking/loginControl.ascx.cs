@@ -34,20 +34,26 @@ public partial class loginControl : System.Web.UI.UserControl
 
     protected void btnGirisYap_Click(object sender, EventArgs e)
     {
-        Kullanici k = new Kullanici();
-        k.Eposta = txtEPosta.Text;
-        k.Sifre = txtSifre.Text;
-        Session["LoggedUser"] = k.girisYap();
-
-        if (Session["LoggedUser"] == null)
+        try
         {
-            Response.Write("<script>alert('Giriş başarısız ! \n Kullanıcı adı veya parola yanlış.')</script>");
-        }
-        else
-        Session["loginViewState"] = 1;
-        
-        Response.Redirect("~/Default.aspx", false);
+            Kullanici k = new Kullanici();
+            k.Eposta = txtEPosta.Text;
+            k.Sifre = txtSifre.Text;
+            Session["LoggedUser"] = k.girisYap();
 
+            if (Session["LoggedUser"] == null)
+            {
+                Response.Write("<script>alert('Giriş başarısız ! \n Kullanıcı adı veya parola yanlış.')</script>");
+            }
+            else
+                Session["loginViewState"] = 1;
+
+            Response.Redirect(Request.Url.ToString(), false);
+        }
+        catch (Exception ex) {
+            pnlHata.Visible = true;
+            spanHata.InnerHtml = ex.Message;
+        }
     }
 
 

@@ -33,11 +33,11 @@ namespace TicketBooking.DataAccessLayer
             return new DBConnection().ConnectDB.FilminSeanslariniGoster(filmID);
         }
 
-        public static ArrayList saateGoreSalonGetir(TimeSpan saat)
+        public static ArrayList saateGoreSalonGetir(TimeSpan saat, int filmID)
         {
             ArrayList al = new ArrayList();
 
-            foreach (SALON salon in new DBConnection().ConnectDB.SaateGoreSalonlariGetir(saat)) 
+            foreach (SALON salon in new DBConnection().ConnectDB.SaateGoreSalonlariGetir(saat,filmID))
                 al.Add(new Salon(salon.Salon_ID,salon.Salon_Adı));
             
             return al;

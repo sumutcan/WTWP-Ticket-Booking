@@ -27,10 +27,14 @@ namespace TicketBooking
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArrayList filmler = FilmDB.tumFilmleriCek();
+            try
+            {
+                ArrayList filmler = FilmDB.tumFilmleriCek();
 
                 Repeater1.DataSource = filmler;
-            Repeater1.DataBind();
+                Repeater1.DataBind();
+            }
+            catch { }
         }
     }
 }

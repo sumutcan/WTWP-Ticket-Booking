@@ -93,7 +93,7 @@ namespace TicketBooking.ClassLayer
 
         public ArrayList saateGoreSalonGetir(TimeSpan saat)
         {
-            return RezervasyonDB.saateGoreSalonGetir(saat);
+            return RezervasyonDB.saateGoreSalonGetir(saat,secilenFilm.Id);
         }
 
         public void koltukRezerveEt(int koltukID)
