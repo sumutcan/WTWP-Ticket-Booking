@@ -36,7 +36,7 @@
                     runat="server" onclick="lnkProfil_Click">Profil</asp:LinkButton>
                 <br />
                 <br />
-                <asp:HyperLink ID="hlnkAdmin" runat="server" NavigateUrl="admin.aspx" 
+                <asp:HyperLink ID="hlnkAdmin" runat="server" NavigateUrl="/Admin" 
                     Visible="False">Admin Paneli</asp:HyperLink>
             </div>
             

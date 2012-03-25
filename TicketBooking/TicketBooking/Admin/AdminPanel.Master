@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminPanel.master.cs" Inherits="TicketBooking.Admin.AdminPanel" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="act" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -116,6 +117,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+            <act:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></act:ToolkitScriptManager>
     <div>
            <div id="header">
             <!-- Header. Status part -->
@@ -160,6 +162,7 @@
             </div> <!-- End #subnav -->
         </div> <!-- End #header -->
         <div class="container_12">
+
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
@@ -170,7 +173,7 @@
         	<div class="container_12">
             	<div class="grid_12">
                 	<!-- You can change the copyright line for your own -->
-                	<p>&copy; 2012. <a href="#" >Umutcan Şimşek & Yiğitcan Şimşek</a></p>
+                	<p>&copy; 2012. <a href="#" >Umutcan Şimşek & Yiğitcan Şener</a></p>
         		</div>
             </div>
             <div style="clear:both;"></div>
