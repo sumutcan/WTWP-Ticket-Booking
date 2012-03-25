@@ -23,6 +23,8 @@ namespace TicketBooking.ClassLayer
 
         public double Ucret { get { return ucret; } set { ucret = value; } }
 
+        public string Tarih { get { return tarih; } set { tarih = value; } }
+
         string adSoyad;
         int rezervasyonID;
         string filmAdi;
@@ -30,5 +32,8 @@ namespace TicketBooking.ClassLayer
         string salonAdi;
         string koltukAdi;
         double ucret;
+        string tarih;
+
+        
     }
 }

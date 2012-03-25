@@ -11,11 +11,11 @@ namespace TicketBooking.DataAccessLayer
 {
     public class RezervasyonDB
     {
-        public static ArrayList bosKoltuklariGetir(int seansID, int salonID)
+        public static ArrayList bosKoltuklariGetir(int seansID, int salonID, DateTime secilenTarih)
         {
             ArrayList al = new ArrayList();
 
-            foreach (KOLTUK koltuk in new DBConnection().ConnectDB.SeansaGoreBosKoltuklar(seansID,salonID))
+            foreach (KOLTUK koltuk in new DBConnection().ConnectDB.SeansaGoreBosKoltuklar(seansID,salonID,secilenTarih))
                 al.Add(new Koltuk(koltuk.Koltuk_ID,Convert.ToChar(koltuk.Satır_No+64),koltuk.Sutun_No));
             return al;
         }

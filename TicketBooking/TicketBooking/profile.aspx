@@ -83,6 +83,8 @@
             <td><asp:Label runat="server" ID="lblFilm" Text="<%#Bind('FilmAdi') %>"></asp:Label></td>
             <th>Seans:</th>
             <td><asp:Label runat="server" ID="lblSeans" Text="<%#Bind('Saat') %>"></asp:Label></td>
+            <th>Tarih:</th>
+            <td><asp:Label runat="server" ID="lblTarih" Text="<%#Bind('Tarih') %>"></asp:Label></td>
             </tr>
             <tr>
             <th>Salon:</th>

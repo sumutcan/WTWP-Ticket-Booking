@@ -118,6 +118,8 @@
             <td><asp:Label runat="server" ID="lblFilm">filmAdi</asp:Label></td>
             <th>Seans:</th>
             <td><asp:Label runat="server" ID="lblSeans">seans</asp:Label></td>
+            <th>Tarih:</th>
+            <td><asp:Label runat="server" ID="lblTarih">tarih</asp:Label></td>
             </tr>
             <tr>
             <th>Salon:</th>

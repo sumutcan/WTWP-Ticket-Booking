@@ -19,6 +19,7 @@ namespace TicketBooking.ClassLayer
             b.Saat = yeniRezervasyon.Seans.Saat;
             b.SalonAdi = RezervasyonDB.salonAdiGetir(yeniRezervasyon.Seans.Salon.Id);
             b.KoltukAdi = RezervasyonDB.tekKoltukGetir(yeniRezervasyon.Koltuk.Id).ToString();
+            b.Tarih = yeniRezervasyon.RezervasyonTarihi.ToShortDateString();
             b.Ucret = yeniRezervasyon.Ucret;
             
 
@@ -39,6 +40,7 @@ namespace TicketBooking.ClassLayer
                 bil.RezervasyonID = b.Rez_ID;
                 bil.Saat = b.Saat;
                 bil.SalonAdi = b.Salon_Adı;
+                bil.Tarih = b.Tarih.ToShortDateString();
                 bil.Ucret = b.Ucret;
 
                 biletler.Add(bil);

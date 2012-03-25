@@ -96,7 +96,7 @@ namespace TicketBooking
                                 throw new Exception("Seçtiğiniz tarihte film gösterimde değil.");
                             }
 
-                            rHandler.tarihBelirle(Convert.ToDateTime(calenderTarih.SelectedDate));
+                            rHandler.tarihBelirle(Convert.ToDateTime(DateTime.Parse(txtTarih.Text, CultureInfo.CreateSpecificCulture("en-US"))));
                             
                             //filmin seanslarini cek
 
@@ -129,6 +129,7 @@ namespace TicketBooking
                         case 5:
                             rHandler.rezervasyonuBitir(Session["LoggedUser"] as Kullanici);
                             rHandler.biletOlustur();
+                            wizardRezervasyon.ActiveStep.AllowReturn = false;
                             
                             //bilet kontrollerine gereken değerleri ata;
                             imgBarkod.ImageUrl = "~/BarkodOlustur.aspx?ID=" + rHandler.Bilet.RezervasyonID;
@@ -137,6 +138,7 @@ namespace TicketBooking
                             lblSeans.Text = rHandler.Bilet.Saat.ToString();
                             lblSalon.Text = rHandler.Bilet.SalonAdi;
                             lblKoltuk.Text = rHandler.Bilet.KoltukAdi;
+                            lblTarih.Text = rHandler.Bilet.Tarih;
                             lblBiletUcret.Text = rHandler.Bilet.Ucret.ToString() + " TL";
 
 

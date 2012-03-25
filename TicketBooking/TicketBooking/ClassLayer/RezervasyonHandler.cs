@@ -79,7 +79,7 @@ namespace TicketBooking.ClassLayer
             secilenSeans = new Seans(RezervasyonDB.tekSeansGetir(secilenFilm.Id,secilenSalon.Id));
             secilenSeans.Saat = secilenSaat;
          
-            return secilenSalon.bosKoltuklariGetir(secilenSeans.Id);
+            return secilenSalon.bosKoltuklariGetir(secilenSeans.Id,yeniRezervasyon.RezervasyonTarihi);
         }
         public Dictionary<int,Film> tumFilmleriGetir()
         {
