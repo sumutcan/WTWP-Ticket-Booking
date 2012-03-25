@@ -13,5 +13,10 @@ namespace TicketBooking.Admin
         {
 
         }
+
+        protected void txtAfisURL_TextChanged(object sender, EventArgs e)
+        {
+            imgFilmAfisi.ImageUrl = "";
+        }
     }
 }

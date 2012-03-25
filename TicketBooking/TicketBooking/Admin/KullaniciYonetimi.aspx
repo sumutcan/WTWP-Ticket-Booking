@@ -90,14 +90,12 @@
                             </p>
                             <p>
                                 <label>Şifre:</label>
-                               <asp:TextBox ID="txtSifre" CssClass="input-short" runat="server" 
-                                    TextMode="Password"></asp:TextBox>
+                               <asp:TextBox ID="txtSifre" CssClass="input-short" runat="server" TextMode="Password"></asp:TextBox>
                                 
                             </p>
                             <p>
                                 <label>Şifre(Tekrar):</label>
-                               <asp:TextBox ID="txtSifreTekrar" CssClass="input-short" runat="server" 
-                                    TextMode="Password"></asp:TextBox>
+                               <asp:TextBox ID="txtSifreTekrar" CssClass="input-short" runat="server" TextMode="Password"></asp:TextBox>
                                 
                             </p>                                                        
                             <p>
