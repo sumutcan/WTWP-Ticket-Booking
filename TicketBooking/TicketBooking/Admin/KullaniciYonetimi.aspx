@@ -102,7 +102,7 @@
                             </p>                                                        
                             <p>
                                 <label>Yetki:</label>
-                                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="input-short">
+                                    <asp:DropDownList ID="ddlYetki" runat="server" CssClass="input-short">
                                     </asp:DropDownList>
 
                             </p>
