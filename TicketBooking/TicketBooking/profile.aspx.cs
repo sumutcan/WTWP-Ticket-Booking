@@ -25,7 +25,8 @@ namespace TicketBooking
 
             RezervasyonHandler rHandler = new RezervasyonHandler();
             List<Bilet> sonBiletler = rHandler.sonBiletleriGetir((Session["LoggedUser"] as Kullanici).Id);
-            
+            lstSonRezervasyonlar.DataSource = sonBiletler;
+            lstSonRezervasyonlar.DataBind();
         }
 
         public void degerAta()
