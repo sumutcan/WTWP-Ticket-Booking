@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-
+    <h2>Profil Bilgileri</h2>
     <br />
 
     <asp:Label ID="lblAd" runat="server" Text="Ad:   " ForeColor="#CCCCCC"></asp:Label>
@@ -39,6 +39,15 @@
     <br />
     <br />
         <div style="text-align: center">
+    <div>
+    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="#">Son rezervasyonları göster</asp:HyperLink>
+        <br />
+        <asp:ListView ID="ListView1" runat="server">
+        </asp:ListView>
+    </div>
+    <br />
+    <br />
+    <div style="text-align: center">
         <asp:Button ID="btnCancel" runat="server" Text="İptal" 
             onclick="btnCancel_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

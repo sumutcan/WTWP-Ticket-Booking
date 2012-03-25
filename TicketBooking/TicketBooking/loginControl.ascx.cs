@@ -29,6 +29,9 @@ public partial class loginControl : System.Web.UI.UserControl
         {
             lblAdSoyad.Text = (Session["LoggedUser"] as Kullanici).Ad + " " + (Session["LoggedUser"] as Kullanici).Soyad;
             multiviewLoginControl.ActiveViewIndex = Convert.ToInt32(Session["loginViewState"]);
+
+            if ((Session["LoggedUser"] as Kullanici).Tip)
+                hlnkAdmin.Visible = true;
         }
     }
 
@@ -47,7 +50,6 @@ public partial class loginControl : System.Web.UI.UserControl
             }
             else
                 Session["loginViewState"] = 1;
-
             Response.Redirect(Request.Url.ToString(), false);
         }
         catch (Exception ex) {

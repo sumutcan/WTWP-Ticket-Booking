@@ -78,10 +78,22 @@ namespace TicketBooking.ClassLayer
             this.ad = ad;
         }
 
+        public Salon()
+        {
+        }
+
 
         public ArrayList bosKoltuklariGetir(int seansID,DateTime secilenTarih)
         {
             return RezervasyonDB.bosKoltuklariGetir(seansID, this.id,secilenTarih);
+        }
+
+        public string eklenmeTarihi;
+
+        public string EklenmeTarihi
+        {
+            get { return eklenmeTarihi; }
+            set { eklenmeTarihi = value; }
         }
     }
 }
