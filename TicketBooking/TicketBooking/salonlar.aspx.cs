@@ -18,7 +18,7 @@ namespace TicketBooking
 
             for (int i = 0; i < salonlar.Count; i++)
             {
-                if((salonlar[i] as Salon).Aciklama == "")
+                if((salonlar[i] as Salon).Aciklama == null)
                     (salonlar[i] as Salon).Aciklama = " ";
             }
 
