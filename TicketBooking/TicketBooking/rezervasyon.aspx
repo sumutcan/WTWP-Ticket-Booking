@@ -7,7 +7,7 @@
     </div>
     </asp:Panel>
     <asp:Wizard ID="wizardRezervasyon" runat="server" Height="203px" Width="560px" 
-        ActiveStepIndex="6" FinishCompleteButtonText="Bitir" 
+        ActiveStepIndex="0" FinishCompleteButtonText="Bitir" 
         FinishPreviousButtonText="Önceki" StartNextButtonText="Rezervasyona Başla" 
         StepNextButtonText="Devam" StepPreviousButtonText="Önceki" 
         onfinishbuttonclick="wizardRezervasyon_FinishButtonClick" 

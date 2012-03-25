@@ -31,7 +31,7 @@
 			<li class="current_page_item"><a href="Default.aspx">Anasayfa</a></li>
 			<li><a href="rezervasyon.aspx">Rezervasyon</a></li>
 			<li><a href="filmler.aspx">Filmler</a></li>
-			<li><a href="#">Salonlar</a></li>
+			<li><a href="salonlar.aspx">Salonlar</a></li>
             <li><a href="#">Hakkında</a></li>
 		</ul>
 	</div>

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterUserPanel.master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="TicketBooking.WebForm2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div>
-
+    <h2>Profil Bilgileri</h2>
     <br />
 
     <asp:Label ID="lblAd" runat="server" Text="Ad:   " ForeColor="#CCCCCC"></asp:Label>
