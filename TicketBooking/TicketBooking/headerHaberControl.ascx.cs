@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TicketBooking.DataAccessLayer;
+using TicketBooking.ClassLayer;
 
 public partial class headerHaberControl : System.Web.UI.UserControl
 {
@@ -22,6 +24,9 @@ public partial class headerHaberControl : System.Web.UI.UserControl
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        Film gelecekProgram = FilmDB.gelecekProgramGetir();
+        film.Text = gelecekProgram.FilmAdiTR;
+        tarih.Text = gelecekProgram.VizyonTarihi.ToShortDateString();
 
     }
 }

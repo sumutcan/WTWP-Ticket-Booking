@@ -37,7 +37,7 @@
     <div id="header" class="container" style="border-bottom-style: dotted; border-width: thin; border-color: #FFFFFF">
 	                
     <div id="logo">
-		<h1><a href="#">broadway </a></h1>
+		<h1><a href="Default.aspx">broadway </a></h1>
 		<p>sinemaları...</p>
 	</div>
 	<div id="temaSec">
