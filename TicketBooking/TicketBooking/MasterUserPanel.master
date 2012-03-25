@@ -56,7 +56,7 @@
     <p>
         &nbsp;</p>
     <asp:Panel ID="pnlVizyondekilerHeader" runat="server">
-    <h1>Vizyondakiler... | <asp:Label ID="lblAc" runat="server" Text="Aç"></asp:Label></h1>
+    <h1 style="cursor:pointer;">Vizyondakiler... | <asp:Label ID="lblAc" runat="server" Text="Aç"></asp:Label></h1>
     </asp:Panel>
    
 	
@@ -71,7 +71,7 @@
     </asp:Panel>
      <act:CollapsiblePanelExtender ID="pnlVizyondakilerCollapse" runat="server" TargetControlID="pnlVizyondakiler" CollapsedText="Aç" ExpandedText="Kapat" EnableViewState="False" CollapseControlID="pnlVizyondekilerHeader" ExpandControlID="pnlVizyondekilerHeader" TextLabelID="lblAc" AutoCollapse="False" Collapsed="True"> </act:CollapsiblePanelExtender>
     <asp:Panel ID="pnlCokYakindaHeader" runat="server">
-    <h1>Çok yakında... | <asp:Label ID="lblYakinda" runat="server" Text="Aç"></asp:Label></h1>
+    <h1 style="cursor:pointer;">Çok yakında... | <asp:Label ID="lblYakinda" runat="server" Text="Aç"></asp:Label></h1>
     </asp:Panel>
      <asp:Panel ID="pnlCokYakinda" runat="server" >
 	<ul id="gallery">

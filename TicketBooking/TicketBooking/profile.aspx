@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterUserPanel.master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="TicketBooking.WebForm2" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="act" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
 
@@ -44,8 +46,10 @@
             onclick="btnConfirm_Click" />
     </div>
     <div>
-    <asp:HyperLink class="lnk" ID="HyperLink1" runat="server" NavigateUrl="#">Son rezervasyonları göster</asp:HyperLink>
+    <asp:Panel runat="server" ID="toggleLstPanel"><div class="lnk" style="background-color:Maroon; cursor:pointer;">Son rezervasyonları  
+        <asp:Label ID="lblLstGosterGizle" runat="server" Text="göstergizle"></asp:Label></div></asp:Panel>
         <br />
+        <asp:Panel runat="server" ID="pnlLst">
         <asp:ListView ID="lstSonRezervasyonlar" runat="server">
         <LayoutTemplate>
             <asp:PlaceHolder runat="server" id="itemPlaceHolder"></asp:PlaceHolder>
@@ -96,6 +100,10 @@
             <a href="#" onclick=$('<%#Eval("RezervasyonID","#biletAna_{0}") %>').jqprint(); class="lnk">Yazdır</a> </div>
         </ItemTemplate>
         </asp:ListView>
+        </asp:Panel>
+        <act:CollapsiblePanelExtender runat="server" CollapseControlID="toggleLstPanel" 
+            Collapsed="True" CollapsedText="göster" ExpandControlID="toggleLstPanel" 
+            ExpandedText="gizle" TargetControlID="pnlLst" TextLabelID="lbllstGosterGizle"></act:CollapsiblePanelExtender>
     </div>
     <br />
     <br />

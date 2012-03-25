@@ -121,13 +121,31 @@ namespace TicketBooking {
         protected global::System.Web.UI.WebControls.Button btnConfirm;
         
         /// <summary>
-        /// HyperLink1 control.
+        /// toggleLstPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.Panel toggleLstPanel;
+        
+        /// <summary>
+        /// lblLstGosterGizle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLstGosterGizle;
+        
+        /// <summary>
+        /// pnlLst control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlLst;
         
         /// <summary>
         /// lstSonRezervasyonlar control.
