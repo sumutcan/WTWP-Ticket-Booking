@@ -25,5 +25,27 @@ namespace TicketBooking.ClassLayer
             return b;
 
         }
+
+        public List<Bilet> biletOlustur(int kullaniciID)
+        {
+            List<Bilet> biletler = new List<Bilet>();
+
+            foreach (BiletCek_Result b in RezervasyonDB.biletleriGetir(kullaniciID))
+            {
+                Bilet bil = new Bilet();
+                bil.AdSoyad = b.Ad + " " + b.Soyad;
+                bil.FilmAdi = b.Film_Adı;
+                bil.KoltukAdi = new Koltuk(0,Convert.ToChar(64+b.Satır_No),b.Sutun_No).ToString();
+                bil.RezervasyonID = b.Rez_ID;
+                bil.Saat = b.Saat;
+                bil.SalonAdi = b.Salon_Adı;
+                bil.Ucret = b.Ucret;
+
+                biletler.Add(bil);
+                
+            }
+            
+            return biletler;
+        }
     }
 }

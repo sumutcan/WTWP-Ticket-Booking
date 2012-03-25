@@ -22,6 +22,10 @@ namespace TicketBooking
                 if (!IsPostBack)
                 degerAta();
             }
+
+            RezervasyonHandler rHandler = new RezervasyonHandler();
+            List<Bilet> sonBiletler = rHandler.sonBiletleriGetir((Session["LoggedUser"] as Kullanici).Id);
+            
         }
 
         public void degerAta()

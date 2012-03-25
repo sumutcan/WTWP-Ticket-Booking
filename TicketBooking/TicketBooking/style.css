@@ -55,6 +55,12 @@ a {
 
 a:hover {
 }
+hr
+{
+    border-width:thin;
+    border-style:dashed;
+    border-color:White;
+}
 
 #wrapper {
 	background: url(images/img02.jpg) no-repeat center 115px;

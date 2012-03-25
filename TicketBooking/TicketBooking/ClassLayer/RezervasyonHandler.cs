@@ -120,5 +120,10 @@ namespace TicketBooking.ClassLayer
         }
 
         public Rezervasyon Rezervasyon { get { return yeniRezervasyon; } }
+
+        public List<Bilet> sonBiletleriGetir(int kullaniciID)
+        {
+            return tGenerator.biletOlustur(kullaniciID);
+        }
     }
 }

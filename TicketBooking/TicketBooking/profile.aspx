@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterUserPanel.master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="TicketBooking.WebForm2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div>
+    <div>
 
     <br />
 
@@ -37,9 +37,56 @@
     <br />
     <br />
     <div>
-    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="#">Son rezervasyonları göster</asp:HyperLink>
+    <asp:HyperLink class="lnk" ID="HyperLink1" runat="server" NavigateUrl="#">Son rezervasyonları göster</asp:HyperLink>
         <br />
-        <asp:ListView ID="ListView1" runat="server">
+        <asp:ListView ID="lstSonRezervasyonlar" runat="server">
+        <LayoutTemplate>
+            <asp:PlaceHolder runat="server" id="itemPlaceHolder"></asp:PlaceHolder>
+
+        
+        </LayoutTemplate>
+
+        <ItemSeparatorTemplate>
+        <hr />
+        </ItemSeparatorTemplate>
+
+        <ItemTemplate>
+                <div id="biletAna" runat="server">
+            <div id="logo">
+            <div id="logoUst">broadway</div>
+            <div id ="logoAlt">sinemaları...</div>
+            </div>
+            <div id="barkod">
+                <asp:Image ID="imgBarkod" runat="server" />
+                
+            </div>
+            <div id="bilgiler">
+            <table id="tabloBilgiler">
+            <tr>
+            <th>Ad Soyad:</th>
+            <td><asp:Label runat="server" ID="lblAdSoyad">AdSoyad</asp:Label></td>
+            </tr>
+            <tr>
+            <th>Film:</th>
+            <td><asp:Label runat="server" ID="lblFilm">filmAdi</asp:Label></td>
+            <th>Seans:</th>
+            <td><asp:Label runat="server" ID="lblSeans">seans</asp:Label></td>
+            </tr>
+            <tr>
+            <th>Salon:</th>
+            <td><asp:Label runat="server" ID="lblSalon">salon</asp:Label></td>
+            <th>Koltuk:</th>
+            <td><asp:Label runat="server" ID="lblKoltuk">koltuk</asp:Label></td>
+            <th>Ucret:</th>
+            <td><asp:Label runat="server" ID="lblBiletUcret">ucret</asp:Label></td>
+            </tr>
+            </table>
+            </div>
+
+        </div>
+<%--                <div style="text-align:right; margin-top:5px; color:White;" class="btn">
+            <a href="#" onclick=$('#biletAna').jqprint(); class="lnk">Yazdır</a> </div>--%>
+        </ItemTemplate>
         </asp:ListView>
     </div>
     <br />

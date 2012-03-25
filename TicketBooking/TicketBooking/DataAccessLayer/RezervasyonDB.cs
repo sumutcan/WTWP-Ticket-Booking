@@ -64,5 +64,10 @@ namespace TicketBooking.DataAccessLayer
             
             return new Koltuk(koltukID,Convert.ToChar(tekKoltuk.Satır_No+64),tekKoltuk.Sutun_No);
         }
+
+        public static ObjectResult<BiletCek_Result> biletleriGetir(int kullaniciID)
+        {
+            return new DBConnection().ConnectDB.BiletCek(kullaniciID);
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace TicketBooking
 
         protected void wizardRezervasyon_FinishButtonClick(object sender, WizardNavigationEventArgs e)
         {
-
+            Session["RezervasyonHandler"] = null;
         }
 
         //protected void calenderTarih_SelectionChanged(object sender, EventArgs e)
