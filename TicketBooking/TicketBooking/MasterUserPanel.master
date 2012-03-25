@@ -16,6 +16,20 @@
     <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
     <script type="text/javascript" src="jquery-1.6.2.min.js"></script>
     <script type="text/javascript" src="jquery.poptrox-0.1.js"></script>
+    <script type="text/javascript" src="jquery.jqprint-0.3.js"></script>
+    
+<%--    <script type="text/javascript">       
+    
+     function printDiv(divName) {
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }</script>--%>
 </head>
 <body>
     <form id="form1" runat="server">

@@ -97,6 +97,7 @@
                 Text=" fiyatlar değişiklik gösterebilmektedir."></asp:Label>
         </asp:WizardStep>
         <asp:WizardStep runat="server" StepType="Finish" Title="Bilet Önizleme">
+        
         <div id="biletAna">
             <div id="logo">
             <div id="logoUst">broadway</div>
@@ -130,7 +131,9 @@
             </div>
 
         </div>
-        <div style="float:right; margin-top:5px; color:White;" class="lnk"><asp:HyperLink ID="lnkBiletYazdir" runat="server">Yazdır</asp:HyperLink></div>
+        
+        <div style="float:right; margin-top:5px; color:White;" class="btn">
+            <a href="#" onclick=$('#biletAna').jqprint(); class="lnk">Yazdır</a> </div>
         </asp:WizardStep>
         <asp:WizardStep runat="server" StepType="Complete" Title="Rezervasyon Alındı.">
                     <asp:Label ID="Label14" runat="server" 
