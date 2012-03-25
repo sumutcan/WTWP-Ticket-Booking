@@ -8,6 +8,19 @@ using TicketBooking.ClassLayer;
 
 public partial class loginControl : System.Web.UI.UserControl
 {
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        if (Session["tema"] != null)
+        {
+            switch (Session["tema"].ToString())
+            {
+                case "Maroon":
+                    Page.Theme = "Maroon";
+                    break;
+            }
+        }
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["LoggedUser"] == null)

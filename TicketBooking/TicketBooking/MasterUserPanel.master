@@ -40,7 +40,16 @@
 		<h1><a href="#">broadway </a></h1>
 		<p>sinemaları...</p>
 	</div>
-	<div id="menu">
+	<div id="temaSec">
+    <table>
+    <tr>
+    <th>Tema:</th>
+    <td><asp:LinkButton CssClass="lnk" ID="lnkTemaSiyah" runat="server" onclick="lnkTemaSiyah_Click">Siyah</asp:LinkButton></td>
+    <td><asp:LinkButton CssClass="lnk" ID="lnkTemaKahve" runat="server" onclick="lnkTemaKahve_Click">Kahve</asp:LinkButton></td>    
+    </tr>
+    </table>
+    </div>
+    <div id="menu">
 		<ul>
 			<li class="current_page_item"><a href="Default.aspx">Anasayfa</a></li>
 			<li><a href="rezervasyon.aspx">Rezervasyon</a></li>

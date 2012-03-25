@@ -30,6 +30,24 @@ public partial class MasterUserPanel {
     protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
     
     /// <summary>
+    /// lnkTemaSiyah control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.LinkButton lnkTemaSiyah;
+    
+    /// <summary>
+    /// lnkTemaKahve control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.LinkButton lnkTemaKahve;
+    
+    /// <summary>
     /// pnlVizyondekilerHeader control.
     /// </summary>
     /// <remarks>

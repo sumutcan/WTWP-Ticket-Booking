@@ -8,8 +8,8 @@ Released for free under a Creative Commons Attribution 3.0 License
 body {
 	margin: 0;
 	padding: 0;
-	background: #000000;
-	font-family: Arial, Helvetica, sans-serif;
+	background: Maroon;
+	font-family: Trebuchet MS;
 	font-size: 12px;
 	color: #414141;
 }
@@ -18,6 +18,7 @@ h1, h2, h3 {
 	margin: 0;
 	padding: 0;
 	font-weight: normal;
+	color:Orange;
 }
 
 h1 {
@@ -29,12 +30,12 @@ h2 {
 	padding: 0px 0px 20px 0px;
 	letter-spacing: -2px;
 	font-size: 2.8em;
-	color: #FFFFFF;
+	color:Orange;
 }
 
 h3 {
 	font-size: 1.6em;
-	color:#ffffff;
+	color:Orange;
 }
 
 p, ul, ol {
@@ -87,7 +88,7 @@ hr
 	width: 300px;
 	margin: 0;
 	padding: 0;
-	color: #FFFFFF;
+	color: Orange;
 }
 
 #logo h1, #logo p {
@@ -181,7 +182,7 @@ hr
 	height: 26px;
 	border: none;
 	background: #2E458A;
-	color: #FFFFFF;
+	color: Orange;
 }
 
 /* Menu */
@@ -215,10 +216,10 @@ hr
 	text-decoration: none;
 	text-align: center;
 	text-transform: uppercase;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Trebuchet MS;
 	font-size: 14px;
 	font-weight: bold;
-	color: #FFFFFF;
+	color: Orange;
 	border: none;
 }
 
@@ -295,7 +296,7 @@ hr
 {
 	position: relative;
 	padding: 1em 1em 3em 1em;
-	background: #ffffff;
+	background: Orange;
 }
 
 #poptrox_popup .loader
@@ -321,7 +322,7 @@ hr
 }
 #poptrox h1
 {
-    color:#ffffff;
+    color:Orange;
 }
 
 #footer {
@@ -339,7 +340,7 @@ hr
 }
 .lnk
 {
-    font-family:Calibri;
+    font-family:Trebuchet MS;
     font-weight:bold;
     color:White;
     text-decoration:underline;
@@ -355,7 +356,7 @@ hr
     background-color:#F5A6C6;
     height:25px;
     font-family:Calibri;
-    color: Maroon;
+    color: Olive;
     font-weight:bold;
     width:auto;
     text-align:center;
@@ -371,7 +372,7 @@ hr
 {
     font-family:Segoe UI; 
     font-size:small; 
-    color:White; 
+    color:Orange; 
     margin-top:10px;
 }
 #biletAna
@@ -379,7 +380,7 @@ hr
     height: 122px;
     font-family: Segoe UI;
     border-style:dashed;
-    border-color:White;
+    border-color:Orange;
     padding-left:3px;
     padding-right:3px;
 }
@@ -409,8 +410,8 @@ hr
 }
 #temaSec
 {
-    color:White;
-    font-family:Segoe UI;
+    color:Orange;
+    font-family:Trebuchet MS;
     font-size:small;
     margin-left:775px;
     width:116px;

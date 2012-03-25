@@ -51,7 +51,7 @@ namespace TicketBooking.ClassLayer
             //sc.DeliveryMethod = SmtpDeliveryMethod.Network;
             //sc.EnableSsl = true;
 
-            sc.Port = 25;
+            sc.Port = 587;
         }
     }
 }
