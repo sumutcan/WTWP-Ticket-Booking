@@ -23,7 +23,7 @@ namespace TicketBooking.ClassLayer
             set { x = value; }
         }
         private int y;
-        private int koltukID;
+       
 
         public Koltuk(int id, char x, int y)
         {
@@ -33,10 +33,10 @@ namespace TicketBooking.ClassLayer
             this.y = y;
         }
 
-        public Koltuk(int koltukID)
+        public Koltuk(int id)
         {
             // TODO: Complete member initialization
-            this.koltukID = koltukID;
+            this.id = id;
         }
 
         public int Y

@@ -13,6 +13,13 @@ namespace TicketBooking.ClassLayer
         Film secilenFilm;
         TimeSpan secilenSaat;
         TicketGenerator tGenerator;
+        Bilet bilet;
+
+        public Bilet Bilet
+        {
+            get { return bilet; }
+            set { bilet = value; }
+        }
 
 
         public TimeSpan SecilenSaat
@@ -34,6 +41,7 @@ namespace TicketBooking.ClassLayer
         public RezervasyonHandler()
         {
             tumFilmler = RezervasyonDB.tumFilmleriGetir();
+            tGenerator = new TicketGenerator();
             
         }
 
@@ -69,8 +77,9 @@ namespace TicketBooking.ClassLayer
         public ArrayList boskoltuklariGetir()
         {
             secilenSeans = new Seans(RezervasyonDB.tekSeansGetir(secilenFilm.Id,secilenSalon.Id));
+            secilenSeans.Saat = secilenSaat;
          
-            return secilenSalon.bosKoltuklariGetir(secilenSeans.Id);
+            return secilenSalon.bosKoltuklariGetir(secilenSeans.Id,yeniRezervasyon.RezervasyonTarihi);
         }
         public Dictionary<int,Film> tumFilmleriGetir()
         {
@@ -84,7 +93,7 @@ namespace TicketBooking.ClassLayer
 
         public ArrayList saateGoreSalonGetir(TimeSpan saat)
         {
-            return RezervasyonDB.saateGoreSalonGetir(saat);
+            return RezervasyonDB.saateGoreSalonGetir(saat,secilenFilm.Id);
         }
 
         public void koltukRezerveEt(int koltukID)
@@ -99,9 +108,9 @@ namespace TicketBooking.ClassLayer
 
         }
 
-        internal void biletOlustur()
+        public void biletOlustur()
         {
-            throw new NotImplementedException();
+            bilet = tGenerator.biletOlustur(yeniRezervasyon);
         }
 
         public void rezervasyonuBitir(Kullanici kullanici)
@@ -111,5 +120,10 @@ namespace TicketBooking.ClassLayer
         }
 
         public Rezervasyon Rezervasyon { get { return yeniRezervasyon; } }
+
+        public List<Bilet> sonBiletleriGetir(int kullaniciID)
+        {
+            return tGenerator.biletOlustur(kullaniciID);
+        }
     }
 }

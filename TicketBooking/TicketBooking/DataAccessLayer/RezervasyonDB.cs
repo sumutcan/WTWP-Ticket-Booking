@@ -11,11 +11,11 @@ namespace TicketBooking.DataAccessLayer
 {
     public class RezervasyonDB
     {
-        public static ArrayList bosKoltuklariGetir(int seansID, int salonID)
+        public static ArrayList bosKoltuklariGetir(int seansID, int salonID, DateTime secilenTarih)
         {
             ArrayList al = new ArrayList();
 
-            foreach (KOLTUK koltuk in new DBConnection().ConnectDB.SeansaGoreBosKoltuklar(seansID,salonID))
+            foreach (KOLTUK koltuk in new DBConnection().ConnectDB.SeansaGoreBosKoltuklar(seansID,salonID,secilenTarih))
                 al.Add(new Koltuk(koltuk.Koltuk_ID,Convert.ToChar(koltuk.Satır_No+64),koltuk.Sutun_No));
             return al;
         }
@@ -33,11 +33,11 @@ namespace TicketBooking.DataAccessLayer
             return new DBConnection().ConnectDB.FilminSeanslariniGoster(filmID);
         }
 
-        public static ArrayList saateGoreSalonGetir(TimeSpan saat)
+        public static ArrayList saateGoreSalonGetir(TimeSpan saat, int filmID)
         {
             ArrayList al = new ArrayList();
 
-            foreach (SALON salon in new DBConnection().ConnectDB.SaateGoreSalonlariGetir(saat)) 
+            foreach (SALON salon in new DBConnection().ConnectDB.SaateGoreSalonlariGetir(saat,filmID))
                 al.Add(new Salon(salon.Salon_ID,salon.Salon_Adı));
             
             return al;
@@ -48,9 +48,26 @@ namespace TicketBooking.DataAccessLayer
             return Convert.ToInt32(new DBConnection().ConnectDB.TekSeansGetir(filmID,salonID).First());
         }
 
-        public static void rezervasyonEkle()
+        public static int rezervasyonEkle(Rezervasyon rez)
         {
+            return Convert.ToInt32 (new DBConnection().ConnectDB.RezervasyonEkle(rez.Kullanici.Id,rez.Seans.Id,rez.Koltuk.Id,rez.RezervasyonTarihi,rez.Ucret).First());
+        }
+
+        public static string salonAdiGetir(int salonID)
+        {
+            return new DBConnection().ConnectDB.TekSalonAdiGetir(salonID).First();
+        }
+
+        public static Koltuk tekKoltukGetir(int koltukID)
+        {
+            TekKoltukGetir_Result tekKoltuk = new DBConnection().ConnectDB.TekKoltukGetir(koltukID).First();
             
+            return new Koltuk(koltukID,Convert.ToChar(tekKoltuk.Satır_No+64),tekKoltuk.Sutun_No);
+        }
+
+        public static ObjectResult<BiletCek_Result> biletleriGetir(int kullaniciID)
+        {
+            return new DBConnection().ConnectDB.BiletCek(kullaniciID);
         }
     }
 }

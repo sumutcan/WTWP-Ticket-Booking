@@ -83,9 +83,9 @@ namespace TicketBooking.ClassLayer
         }
 
 
-        public ArrayList bosKoltuklariGetir(int seansID)
+        public ArrayList bosKoltuklariGetir(int seansID,DateTime secilenTarih)
         {
-            return RezervasyonDB.bosKoltuklariGetir(seansID, this.id);
+            return RezervasyonDB.bosKoltuklariGetir(seansID, this.id,secilenTarih);
         }
 
         public string eklenmeTarihi;

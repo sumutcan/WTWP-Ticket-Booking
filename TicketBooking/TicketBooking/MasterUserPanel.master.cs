@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Collections;
 using TicketBooking.DataAccessLayer;
 using TicketBooking.ClassLayer;
+using System.Text;
 
 public partial class MasterUserPanel : System.Web.UI.MasterPage
 {
@@ -45,5 +46,18 @@ public partial class MasterUserPanel : System.Web.UI.MasterPage
             Image8.ImageUrl = (gelecek[3] as Film).AfisURL;
         }
         catch { }
+    }
+
+    protected void lnkTemaKahve_Click(object sender, EventArgs e)
+    {
+        Session["tema"] = "Maroon";
+        Response.Redirect(Request.Url.ToString(),false);
+
+    }
+
+    protected void lnkTemaSiyah_Click(object sender, EventArgs e)
+    {
+        Session["tema"] = null;
+        Response.Redirect(Request.Url.ToString(), false);
     }
 }

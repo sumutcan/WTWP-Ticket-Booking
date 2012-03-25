@@ -229,6 +229,15 @@ namespace TicketBooking {
         protected global::System.Web.UI.WebControls.Label lblSeans;
         
         /// <summary>
+        /// lblTarih control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTarih;
+        
+        /// <summary>
         /// lblSalon control.
         /// </summary>
         /// <remarks>
@@ -247,13 +256,13 @@ namespace TicketBooking {
         protected global::System.Web.UI.WebControls.Label lblKoltuk;
         
         /// <summary>
-        /// lnkBiletYazdir control.
+        /// lblBiletUcret control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkBiletYazdir;
+        protected global::System.Web.UI.WebControls.Label lblBiletUcret;
         
         /// <summary>
         /// Label14 control.

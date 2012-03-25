@@ -115,6 +115,13 @@ namespace TicketBooking.ClassLayer
         {
         }
 
+        public Film(string filmAdi, DateTime eklenmeTarihi)
+        {
+            // TODO: Complete member initialization
+            this.FilmAdiTR = filmAdi;
+            this.vizyonTarihi = eklenmeTarihi;
+        }
+
         public DateTime VizyonTarihi
         {
             get { return vizyonTarihi; }
@@ -125,6 +132,7 @@ namespace TicketBooking.ClassLayer
         public string bilgiURL;
         
         private bool D3;
+
 
         public bool GetD3
         {

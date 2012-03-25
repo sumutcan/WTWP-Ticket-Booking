@@ -97,6 +97,7 @@
                 Text=" fiyatlar değişiklik gösterebilmektedir."></asp:Label>
         </asp:WizardStep>
         <asp:WizardStep runat="server" StepType="Finish" Title="Bilet Önizleme">
+        
         <div id="biletAna">
             <div id="logo">
             <div id="logoUst">broadway</div>
@@ -117,18 +118,24 @@
             <td><asp:Label runat="server" ID="lblFilm">filmAdi</asp:Label></td>
             <th>Seans:</th>
             <td><asp:Label runat="server" ID="lblSeans">seans</asp:Label></td>
+            <th>Tarih:</th>
+            <td><asp:Label runat="server" ID="lblTarih">tarih</asp:Label></td>
             </tr>
             <tr>
             <th>Salon:</th>
             <td><asp:Label runat="server" ID="lblSalon">salon</asp:Label></td>
             <th>Koltuk:</th>
             <td><asp:Label runat="server" ID="lblKoltuk">koltuk</asp:Label></td>
+            <th>Ucret:</th>
+            <td><asp:Label runat="server" ID="lblBiletUcret">ucret</asp:Label></td>
             </tr>
             </table>
             </div>
 
         </div>
-        <div style="float:right; margin-top:5px; color:White;" class="lnk"><asp:HyperLink ID="lnkBiletYazdir" runat="server">Yazdır</asp:HyperLink></div>
+        
+        <div style="float:right; margin-top:5px; color:White;" class="btn">
+            <a href="#" onclick=$('#biletAna').jqprint(); class="lnk">Yazdır</a> </div>
         </asp:WizardStep>
         <asp:WizardStep runat="server" StepType="Complete" Title="Rezervasyon Alındı.">
                     <asp:Label ID="Label14" runat="server" 

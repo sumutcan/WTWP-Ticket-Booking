@@ -19,7 +19,7 @@ namespace TicketBooking
                 Response.ContentType = "image/jpeg";
 
 
-                BarcodeLib.Barcode.DoEncode(BarcodeLib.TYPE.CODE128, "5", false, 140, 47).Save(Response.OutputStream,System.Drawing.Imaging.ImageFormat.Jpeg);
+                BarcodeLib.Barcode.DoEncode(BarcodeLib.TYPE.CODE128, ID, false, 140, 47).Save(Response.OutputStream,System.Drawing.Imaging.ImageFormat.Jpeg);
             }
             
         }

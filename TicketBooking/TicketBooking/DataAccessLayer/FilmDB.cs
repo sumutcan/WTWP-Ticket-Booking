@@ -5,6 +5,7 @@ using System.Web;
 using System.Collections;
 using DataLayer;
 using TicketBooking.ClassLayer;
+using System.Data.Objects;
 
 namespace TicketBooking.DataAccessLayer
 {
@@ -72,6 +73,12 @@ namespace TicketBooking.DataAccessLayer
             }
 
             return tFilmler;
+        }
+
+        public static Film gelecekProgramGetir()
+        {
+            GelecekProgramGetir_Result f = new DBConnection().ConnectDB.GelecekProgramGetir().First();
+            return new Film(f.Film_Adı, f.Ekleme_Tarihi);
         }
     }
 }

@@ -12,6 +12,19 @@ namespace TicketBooking
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            if (Session["tema"] != null)
+            {
+                switch (Session["tema"].ToString())
+                {
+                    case "Maroon":
+                        Page.Theme = "Maroon";
+                        break;
+                }
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -38,13 +51,10 @@ namespace TicketBooking
 
         protected void wizardRezervasyon_FinishButtonClick(object sender, WizardNavigationEventArgs e)
         {
-
+            Session["RezervasyonHandler"] = null;
         }
 
-        //protected void calenderTarih_SelectionChanged(object sender, EventArgs e)
-        //{
-        //    lblSeciliTarih.Text = calenderTarih.SelectedDate.ToShortDateString();
-        //}
+
 
         protected void wizardRezervasyon_NextButtonClick(object sender, WizardNavigationEventArgs e)
         {
@@ -56,19 +66,21 @@ namespace TicketBooking
                 {
                     RezervasyonHandler rHandler = Session["RezervasyonHandler"] as RezervasyonHandler;
 
-                    //tum filmleri cek
-                    Dictionary<int, Film> tumFilmler = rHandler.tumFilmleriGetir();
-                    ddlFilmler.Items.Clear();
-                    foreach (int k in tumFilmler.Keys)
-                    {
-                        ddlFilmler.Items.Add(new ListItem(tumFilmler[k].FilmAdiTR, tumFilmler[k].Id.ToString()));
-                    }
+
                     
                     //filminTumSeanslarınıCek
                     switch (wizardRezervasyon.ActiveStepIndex)
                     {
                         case 0:
                             rHandler.rezervasyonYarat();
+                            //tum filmleri cek
+                            Dictionary<int, Film> tumFilmler = rHandler.tumFilmleriGetir();
+                            ddlFilmler.Items.Clear();
+                            foreach (int k in tumFilmler.Keys)
+                            {
+                                ddlFilmler.Items.Add(new ListItem(tumFilmler[k].FilmAdiTR, tumFilmler[k].Id.ToString()));
+                            }
+                            
                             break;
                         case 1:
                             rHandler.filmYarat(Convert.ToInt32(ddlFilmler.SelectedValue));
@@ -84,7 +96,7 @@ namespace TicketBooking
                                 throw new Exception("Seçtiğiniz tarihte film gösterimde değil.");
                             }
 
-                            rHandler.tarihBelirle(Convert.ToDateTime(calenderTarih.SelectedDate));
+                            rHandler.tarihBelirle(Convert.ToDateTime(DateTime.Parse(txtTarih.Text, CultureInfo.CreateSpecificCulture("en-US"))));
                             
                             //filmin seanslarini cek
 
@@ -93,6 +105,9 @@ namespace TicketBooking
                             ddlSeanslar.Items.Clear();
                             foreach (TimeSpan saat in tumSaatler)
                                 ddlSeanslar.Items.Add(saat.ToString());
+
+                            if (ddlSeanslar.Items.Count == 0)
+                                throw new Exception("Bu film için seans girilmemiş.");
 
                             break;
                         case 3:
@@ -114,15 +129,17 @@ namespace TicketBooking
                         case 5:
                             rHandler.rezervasyonuBitir(Session["LoggedUser"] as Kullanici);
                             rHandler.biletOlustur();
+                            wizardRezervasyon.ActiveStep.AllowReturn = false;
                             
                             //bilet kontrollerine gereken değerleri ata;
-                            imgBarkod.ImageUrl = "~/BarkodOlustur.aspx?ID=" + rHandler.Rezervasyon.Id;
-                            lblAdSoyad.Text = rHandler.Rezervasyon.Kullanici.ToString();
-                            lblFilm.Text = rHandler.Rezervasyon.Seans.Film.FilmAdiTR;
-                            lblSeans.Text = rHandler.Rezervasyon.Seans.Saat.ToString();
-                            lblSalon.Text = rHandler.Rezervasyon.Seans.Salon.ToString();
-                            lblKoltuk.Text = rHandler.Rezervasyon.Koltuk.ToString();
-
+                            imgBarkod.ImageUrl = "~/BarkodOlustur.aspx?ID=" + rHandler.Bilet.RezervasyonID;
+                            lblAdSoyad.Text = rHandler.Bilet.AdSoyad;
+                            lblFilm.Text = rHandler.Bilet.FilmAdi;
+                            lblSeans.Text = rHandler.Bilet.Saat.ToString();
+                            lblSalon.Text = rHandler.Bilet.SalonAdi;
+                            lblKoltuk.Text = rHandler.Bilet.KoltukAdi;
+                            lblTarih.Text = rHandler.Bilet.Tarih;
+                            lblBiletUcret.Text = rHandler.Bilet.Ucret.ToString() + " TL";
 
 
                             break;
@@ -147,23 +164,31 @@ namespace TicketBooking
 
         protected void ddlSalonlar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ddlBosKoltuklar.Items.Clear();
-            if (ddlSalonlar.SelectedIndex != 0)
+            try
             {
-
-                RezervasyonHandler rHandler = Session["RezervasyonHandler"] as RezervasyonHandler;
-
-                rHandler.salonBelirle(Convert.ToInt32(ddlSalonlar.SelectedValue), ddlSalonlar.SelectedItem.Text);
-
-                ArrayList bosKoltuklar = rHandler.boskoltuklariGetir();
-                
-                if (bosKoltuklar != null)
+                ddlBosKoltuklar.Items.Clear();
+                if (ddlSalonlar.SelectedIndex != 0)
                 {
-                    foreach (Koltuk k in bosKoltuklar)
-                        ddlBosKoltuklar.Items.Add(new ListItem(k.ToString(), k.Id.ToString()));
+
+                    RezervasyonHandler rHandler = Session["RezervasyonHandler"] as RezervasyonHandler;
+
+                    rHandler.salonBelirle(Convert.ToInt32(ddlSalonlar.SelectedValue), ddlSalonlar.SelectedItem.Text);
+
+                    ArrayList bosKoltuklar = rHandler.boskoltuklariGetir();
+
+                    if (bosKoltuklar != null)
+                    {
+                        foreach (Koltuk k in bosKoltuklar)
+                            ddlBosKoltuklar.Items.Add(new ListItem(k.ToString(), k.Id.ToString()));
+                    }
                 }
             }
-
+            catch (Exception ex)
+            {
+                pnlHata.Visible = true;
+                spanHata.InnerHtml = ex.Message;
+                
+            }
         }
 
         protected void SideBarList_ItemDataBound(object sender, EventArgs e)

@@ -8,6 +8,19 @@ using TicketBooking.ClassLayer;
 
 public partial class loginControl : System.Web.UI.UserControl
 {
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        if (Session["tema"] != null)
+        {
+            switch (Session["tema"].ToString())
+            {
+                case "Maroon":
+                    Page.Theme = "Maroon";
+                    break;
+            }
+        }
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["LoggedUser"] == null)
@@ -24,20 +37,25 @@ public partial class loginControl : System.Web.UI.UserControl
 
     protected void btnGirisYap_Click(object sender, EventArgs e)
     {
-        Kullanici k = new Kullanici();
-        k.Eposta = txtEPosta.Text;
-        k.Sifre = txtSifre.Text;
-        Session["LoggedUser"] = k.girisYap();
-
-        if (Session["LoggedUser"] == null)
+        try
         {
-            Response.Write("<script>alert('Giriş başarısız ! \n Kullanıcı adı veya parola yanlış.')</script>");
+            Kullanici k = new Kullanici();
+            k.Eposta = txtEPosta.Text;
+            k.Sifre = txtSifre.Text;
+            Session["LoggedUser"] = k.girisYap();
+
+            if (Session["LoggedUser"] == null)
+            {
+                Response.Write("<script>alert('Giriş başarısız ! \n Kullanıcı adı veya parola yanlış.')</script>");
+            }
+            else
+                Session["loginViewState"] = 1;
+            Response.Redirect(Request.Url.ToString(), false);
         }
-        else
-        Session["loginViewState"] = 1;
-
-        Response.Redirect(HttpContext.Current.Request.RawUrl);
-
+        catch (Exception ex) {
+            pnlHata.Visible = true;
+            spanHata.InnerHtml = ex.Message;
+        }
     }
 
 

@@ -55,6 +55,12 @@ a {
 
 a:hover {
 }
+hr
+{
+    border-width:thin;
+    border-style:dashed;
+    border-color:White;
+}
 
 #wrapper {
 	background: url(images/img02.jpg) no-repeat center 115px;
@@ -379,7 +385,7 @@ a:hover {
 }
 #biletAna
 { 
-    height: 122px;
+    height: 127px;
 }
 #logo
 {   
@@ -400,4 +406,15 @@ a:hover {
 {
    margin-left:250px;
     height:47px;
+}
+#temaSec
+{
+    color:White;
+    font-family:Segoe UI;
+    font-size:small;
+    margin-left:775px;
+    width:116px;
+    
+    top: 33px;
+    left: 50px;
 }

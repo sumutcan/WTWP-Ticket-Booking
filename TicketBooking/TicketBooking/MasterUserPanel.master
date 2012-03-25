@@ -16,6 +16,20 @@
     <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
     <script type="text/javascript" src="jquery-1.6.2.min.js"></script>
     <script type="text/javascript" src="jquery.poptrox-0.1.js"></script>
+    <script type="text/javascript" src="jquery.jqprint-0.3.js"></script>
+    
+<%--    <script type="text/javascript">       
+    
+     function printDiv(divName) {
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }</script>--%>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -23,10 +37,19 @@
     <div id="header" class="container" style="border-bottom-style: dotted; border-width: thin; border-color: #FFFFFF">
 	                
     <div id="logo">
-		<h1><a href="#">broadway </a></h1>
+		<h1><a href="Default.aspx">broadway </a></h1>
 		<p>sinemaları...</p>
 	</div>
-	<div id="menu">
+	<div id="temaSec">
+    <table>
+    <tr>
+    <th>Tema:</th>
+    <td><asp:LinkButton CssClass="lnk" ID="lnkTemaSiyah" runat="server" onclick="lnkTemaSiyah_Click">Siyah</asp:LinkButton></td>
+    <td><asp:LinkButton CssClass="lnk" ID="lnkTemaKahve" runat="server" onclick="lnkTemaKahve_Click">Kahve</asp:LinkButton></td>    
+    </tr>
+    </table>
+    </div>
+    <div id="menu">
 		<ul>
 			<li class="current_page_item"><a href="Default.aspx">Anasayfa</a></li>
 			<li><a href="rezervasyon.aspx">Rezervasyon</a></li>
@@ -42,7 +65,7 @@
     <p>
         &nbsp;</p>
     <asp:Panel ID="pnlVizyondekilerHeader" runat="server">
-    <h1>Vizyondakiler... | <asp:Label ID="lblAc" runat="server" Text="Aç"></asp:Label></h1>
+    <h1 style="cursor:pointer;">Vizyondakiler... | <asp:Label ID="lblAc" runat="server" Text="Aç"></asp:Label></h1>
     </asp:Panel>
    
 	
@@ -57,7 +80,7 @@
     </asp:Panel>
      <act:CollapsiblePanelExtender ID="pnlVizyondakilerCollapse" runat="server" TargetControlID="pnlVizyondakiler" CollapsedText="Aç" ExpandedText="Kapat" EnableViewState="False" CollapseControlID="pnlVizyondekilerHeader" ExpandControlID="pnlVizyondekilerHeader" TextLabelID="lblAc" AutoCollapse="False" Collapsed="True"> </act:CollapsiblePanelExtender>
     <asp:Panel ID="pnlCokYakindaHeader" runat="server">
-    <h1>Çok yakında... | <asp:Label ID="lblYakinda" runat="server" Text="Aç"></asp:Label></h1>
+    <h1 style="cursor:pointer;">Çok yakında... | <asp:Label ID="lblYakinda" runat="server" Text="Aç"></asp:Label></h1>
     </asp:Panel>
      <asp:Panel ID="pnlCokYakinda" runat="server" >
 	<ul id="gallery">
