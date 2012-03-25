@@ -16,7 +16,7 @@ namespace TicketBooking.Admin
 
         protected void txtAfisURL_TextChanged(object sender, EventArgs e)
         {
-            imgFilmAfisi.ImageUrl = "http://ia.media-imdb.com/images/M/MV5BMzg2NTc5OTUwOF5BMl5BanBnXkFtZTYwNDA1NDY2._V1._SY317_CR1,0,214,317_.jpg";
+            imgFilmAfisi.ImageUrl = txtAfisURL.Text;
         }
     }
 }
