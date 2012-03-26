@@ -117,16 +117,23 @@ namespace TicketBooking.DataAccessLayer
 
             ArrayList kullanicilar = new ArrayList();
 
-            while (num.MoveNext())
+            try
             {
-                Kullanici kullanici = new Kullanici();
-                kullanici.Id = num.Current.Kullanici_ID;
-                kullanici.Ad = num.Current.Ad;
-                kullanici.Soyad = num.Current.Soyad;
-                kullanici.Sifre = num.Current.Sifre;
-                kullanici.Tip = num.Current.Kullanici_Tipi;
-                kullanici.Eposta = num.Current.Eposta;
-                kullanicilar.Add(kullanici);
+                while (num.MoveNext())
+                {
+                    Kullanici kullanici = new Kullanici();
+                    kullanici.Id = num.Current.Kullanici_ID;
+                    kullanici.Ad = num.Current.Ad;
+                    kullanici.Soyad = num.Current.Soyad;
+                    kullanici.Sifre = num.Current.Sifre;
+                    kullanici.Tip = num.Current.Kullanici_Tipi;
+                    kullanici.Eposta = num.Current.Eposta;
+                    kullanicilar.Add(kullanici);
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
 
             return kullanicilar;
