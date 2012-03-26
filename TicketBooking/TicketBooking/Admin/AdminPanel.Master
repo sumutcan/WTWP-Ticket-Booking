@@ -127,7 +127,7 @@
 					&nbsp;
                     </div>
                     <div class="grid_4">
-                        <a href="" id="logout">
+                        <a href="../Default.aspx" id="logout">
                         Çıkış
                         </a>
                     </div>
