@@ -114,4 +114,28 @@ public partial class loginControl : System.Web.UI.UserControl
     {
         Response.Redirect("profile.aspx");
     }
+
+    protected void btnSifreGonder_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Kullanici dummy = new Kullanici();
+            dummy.Eposta = txtEpostaSifremiUnuttum.Text;
+            dummy.sifremiUnuttum();
+            Session["loginViewState"] = 0;
+            Response.Redirect(Request.Url.ToString(), false);
+            throw new Exception("Şifreniz sıfırlandı ve mail adresinize yollandı.");
+        }
+        catch (Exception ex)
+        {
+            pnlHata.Visible = true;
+            spanHata.InnerHtml = ex.Message;
+        }
+    }
+
+    protected void lnkGeriDon_Click(object sender, EventArgs e)
+    {
+        Session["loginViewState"] = 0;
+        Response.Redirect(Request.Url.ToString(),false);
+    }
 }

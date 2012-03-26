@@ -45,11 +45,11 @@ namespace TicketBooking.ClassLayer
         private Misc()
         {
             sc = new SmtpClient();
-            sc.Credentials = new NetworkCredential("", "");
-            sc.Host = "mail.ege.edu.tr";
+            sc.Credentials = new NetworkCredential("broadway.sinema@gmail.com", "broadway123");
+            sc.Host = "smtp.gmail.com";
             sc.Timeout = 20000;
-            //sc.DeliveryMethod = SmtpDeliveryMethod.Network;
-            //sc.EnableSsl = true;
+            sc.DeliveryMethod = SmtpDeliveryMethod.Network;
+            sc.EnableSsl = true;
 
             sc.Port = 587;
         }
