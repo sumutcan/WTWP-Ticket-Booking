@@ -67,5 +67,20 @@ namespace TicketBooking
                 KullaniciDB.KullaniciGuncelle(k.Id,k.Tip,k.Ad,k.Soyad,k.Eposta,k.Sifre);
             }
         }
+
+        protected void btnAra_Click(object sender, EventArgs e)
+        {
+            if (txtArama.Text == "")
+                Response.Write("<script>alert('Aranacak kelimeyi giriniz.')</script>");
+            else
+            {
+                if (KullaniciDB.kullaniciAraGenel(txtArama.Text) != null)
+                {
+                    lstKullanicilar.Items.Clear();
+                    lstKullanicilar.DataSource = KullaniciDB.kullaniciAraGenel(txtArama.Text);
+                    lstKullanicilar.DataBind();
+                }
+            }
+        }
     }
 }

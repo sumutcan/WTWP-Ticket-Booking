@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<h2>Kullanıcı Yönetimi</h2>
+    <h2>Kullanıcı Yönetimi</h2>
                <div class="module">
                      <h2><span>Arama</span></h2>
                         
@@ -10,7 +10,8 @@
                          
                             <fieldset>
                                 <asp:TextBox ID="txtArama" runat="server" CssClass="input-short"></asp:TextBox>&nbsp;&nbsp;<asp:Button
-                                    ID="btnAra" runat="server" Text="Kullanıcı Ara" CssClass="submit-green" />
+                                    ID="btnAra" runat="server" Text="Kullanıcı Ara" CssClass="submit-green" 
+                                    onclick="btnAra_Click" />
                             </fieldset>
                      </div>
                 </div> <!-- module -->

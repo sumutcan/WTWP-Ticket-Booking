@@ -132,5 +132,33 @@ namespace TicketBooking.DataAccessLayer
             return kullanicilar;
         }
 
+        public static ArrayList kullaniciAraGenel(string s)
+        {
+            DBConnection cn = new DBConnection();
+            IEnumerator<KULLANICI> num = cn.ConnectDB.KullaniciAraGenel(s).GetEnumerator();
+
+            ArrayList kullanicilar = new ArrayList();
+            try
+            {
+                while (num.MoveNext())
+                {
+                    Kullanici kullanici = new Kullanici();
+                    kullanici.Id = num.Current.Kullanici_ID;
+                    kullanici.Ad = num.Current.Ad;
+                    kullanici.Soyad = num.Current.Soyad;
+                    kullanici.Sifre = num.Current.Sifre;
+                    kullanici.Tip = num.Current.Kullanici_Tipi;
+                    kullanici.Eposta = num.Current.Eposta;
+                    kullanicilar.Add(kullanici);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return kullanicilar;
+        }
+
     }
 }
