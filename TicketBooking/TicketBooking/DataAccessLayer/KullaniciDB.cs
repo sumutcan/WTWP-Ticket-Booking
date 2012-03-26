@@ -160,5 +160,11 @@ namespace TicketBooking.DataAccessLayer
             return kullanicilar;
         }
 
+
+        public static void SifreSifirla(string eposta, string sifre)
+        {
+            DBConnection db = new DBConnection();
+            db.ConnectDB.KullaniciSifreSifirla(eposta, sifre);
+        }
     }
 }

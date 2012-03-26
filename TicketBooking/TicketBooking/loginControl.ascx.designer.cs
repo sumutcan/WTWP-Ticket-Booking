@@ -174,6 +174,15 @@ public partial class loginControl {
     protected global::System.Web.UI.WebControls.View viewSifremiUnuttum;
     
     /// <summary>
+    /// Label8 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label8;
+    
+    /// <summary>
     /// txtEpostaSifremiUnuttum control.
     /// </summary>
     /// <remarks>
@@ -190,6 +199,15 @@ public partial class loginControl {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Button btnSifreGonder;
+    
+    /// <summary>
+    /// lnkGeriDon control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.LinkButton lnkGeriDon;
     
     /// <summary>
     /// ViewKaydol control.

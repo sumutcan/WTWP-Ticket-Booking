@@ -48,11 +48,16 @@
       
         <asp:View ID="viewSifremiUnuttum" runat="server">
         <div>
+
         <div style="text-align: center">
+            <asp:Label ID="Label8" runat="server" Text="E-posta"></asp:Label>
             <asp:TextBox runat="server" ID="txtEpostaSifremiUnuttum"></asp:TextBox></div>
         <div style="text-align: right"><asp:Button ID="btnSifreGonder" 
-                CssClass="btn" runat="server" Text="Şifre Gönder" style="text-align: right" /></div>
-            
+                CssClass="btn" runat="server" Text="Şifre Gönder" 
+                style="text-align: right" onclick="btnSifreGonder_Click" /></div>
+
+            <asp:LinkButton style="text-align:right;" ID="lnkGeriDon" CssClass="lnk" 
+                runat="server" onclick="lnkGeriDon_Click">Dön bebeğim</asp:LinkButton>
         </div>
         
     </asp:View>

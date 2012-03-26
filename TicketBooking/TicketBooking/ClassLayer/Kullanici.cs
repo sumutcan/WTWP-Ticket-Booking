@@ -61,7 +61,7 @@ namespace TicketBooking.ClassLayer
             return KullaniciDB.GirisSorgula(this.eposta, this.sifre);
         }
 
-        public void sifremiUnuttum(string eposta)
+        public void sifremiUnuttum()
         {
             string yeniSifre = FormsAuthentication.HashPasswordForStoringInConfigFile(DateTime.Now.Ticks.ToString(),"md5").Substring(0,6);
 
@@ -71,6 +71,8 @@ namespace TicketBooking.ClassLayer
                             "Yeni şifreniz: "+yeniSifre+"<p>"+
                             "Broadway Sinemaları";
 
+            KullaniciDB.SifreSifirla(eposta,FormsAuthentication.HashPasswordForStoringInConfigFile(yeniSifre,"md5"));
+            
             Misc.getInstance().mailgonder(eposta,"Yeni şifre",mesaj);
         }
 
