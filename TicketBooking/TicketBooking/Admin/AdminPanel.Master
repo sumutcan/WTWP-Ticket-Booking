@@ -142,10 +142,11 @@
                         <div id="logo">
                             <ul id="nav">
                                 <li id="current"><a href="">Anasayfa</a></li>
-                                <li><a href="">Filmler</a></li>
-                                <li><a href="">Salonlar</a></li>
-                                <li><a href="">Kullanıcılar</a></li>
-                                <li><a href="">Rezervasyonlar</a></li>
+                                <li><a href="FilmYonetimi.aspx">Filmler</a></li>
+                                <li><a href="SeansYonetimi.aspx">Seanslar</a></li>
+                                <li><a href="SalonYonetimi.aspx">Salonlar</a></li>
+                                <li><a href="KullaniciYonetimi.aspx">Kullanıcılar</a></li>
+                                <li><a href="RezervasyonYonetimi.aspx">Rezervasyonlar</a></li>
                             </ul>
                         </div><!-- End. #Logo -->
                     </div><!-- End. .grid_12-->
