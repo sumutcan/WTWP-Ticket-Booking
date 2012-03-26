@@ -12,8 +12,10 @@ namespace TicketBooking
 {
     public partial class KullaniciYonetimi : System.Web.UI.Page
     {
+        bool ekle_guncelle;
         protected void Page_Load(object sender, EventArgs e)
         {
+            ekle_guncelle = false;
             ddlYetki.Items.Add(new ListItem("Admin","true"));
             ddlYetki.Items.Add(new ListItem("Kullanici", "false"));
             if (!IsPostBack)
@@ -25,6 +27,7 @@ namespace TicketBooking
                     }
                     else if (Request.QueryString["Pid"] == "1")
                     {
+                        ekle_guncelle = true;
                         ArrayList kullanici = new ArrayList();
                         kullanici = KullaniciDB.kullaniciAra(Convert.ToInt32(Request.QueryString["ID"]));
                         Kullanici k = kullanici[0] as Kullanici;
@@ -64,7 +67,20 @@ namespace TicketBooking
                 k.Eposta = txtEposta.Text;
                 k.Sifre = txtSifreTekrar.Text;
                 k.Tip = Convert.ToBoolean(ddlYetki.SelectedItem.Value);
-                KullaniciDB.KullaniciGuncelle(k.Id,k.Tip,k.Ad,k.Soyad,k.Eposta,k.Sifre);
+
+                if (ekle_guncelle == true)
+                {
+                    KullaniciDB.KullaniciGuncelle(k.Id, k.Tip, k.Ad, k.Soyad, k.Eposta, k.Sifre);
+                    ekle_guncelle = false;
+                }
+                else
+                {
+                    KullaniciDB.KullaniciEkle(k);
+                }
+
+                lstKullanicilar.Items.Clear();
+                lstKullanicilar.DataSource = KullaniciDB.kullaniciAraGenel(txtArama.Text);
+                lstKullanicilar.DataBind();
             }
         }
 

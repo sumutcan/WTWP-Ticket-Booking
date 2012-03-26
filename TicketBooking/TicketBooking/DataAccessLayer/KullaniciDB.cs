@@ -120,6 +120,8 @@ namespace TicketBooking.DataAccessLayer
 
                 
 
+            try
+            {
                 while (num.MoveNext())
                 {
                     Kullanici kullanici = new Kullanici();
@@ -130,6 +132,11 @@ namespace TicketBooking.DataAccessLayer
                     kullanici.Tip = num.Current.Kullanici_Tipi;
                     kullanici.Eposta = num.Current.Eposta;
                     kullanicilar.Add(kullanici);
+                }
+            }
+            catch (Exception ex)
+            {
+
                 }
 
                 
