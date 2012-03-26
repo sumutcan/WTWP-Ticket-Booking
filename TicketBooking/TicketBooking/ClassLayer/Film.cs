@@ -17,6 +17,13 @@ namespace TicketBooking.ClassLayer
             set { id = value; }
         }
 
+        private bool altDub;
+
+        public bool AltDub
+        {
+            get { return altDub; }
+            set { altDub = value; }
+        }
 
         private string filmAdiTR;
 
@@ -159,6 +166,14 @@ namespace TicketBooking.ClassLayer
                 return bilgiURL;
             }
             set { bilgiURL = value; }
+        }
+
+        private bool geldiMi;
+
+        public bool GeldiMi
+        {
+            get { return geldiMi; }
+            set { geldiMi = value; }
         }
     }
 }

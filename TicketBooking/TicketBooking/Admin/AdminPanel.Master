@@ -141,7 +141,7 @@
                     <div class="grid_12">
                         <div id="logo">
                             <ul id="nav">
-                                <li id="current"><a href="">Anasayfa</a></li>
+                                <li id="current"><a href="Default.aspx">Anasayfa</a></li>
                                 <li><a href="FilmYonetimi.aspx">Filmler</a></li>
                                 <li><a href="SeansYonetimi.aspx">Seanslar</a></li>
                                 <li><a href="SalonYonetimi.aspx">Salonlar</a></li>
