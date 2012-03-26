@@ -29,7 +29,7 @@
                                     <th style="width:20%">Ad</th>
                                     <th style="width:21%">Soyad</th>
                                     <th style="width:13%">E-Posta</th>
-                                    <th style="width:13%">Yetki</th>
+                                    <th style="width:13%">Admin/User</th>
                                     
                                     <th style="width:15%"></th>
                                 </tr>
@@ -39,7 +39,6 @@
                                </tbody>
                                </table>
                              </LayoutTemplate>
-                               
 
                                 <ItemSeparatorTemplate>
                                         <hr />
@@ -48,15 +47,14 @@
                              <ItemTemplate>
                                                             <tr>
                                     <td class="align-center"><%#Eval("Id") %></td>
-                                    <td><a href="">Don Quixote</a></td>
-                                    <td>Cervantes</td>
-                                    <td>adventure</td>
-                                    <td>992</td>
+                                    <td><%#Eval("ad") %></td>
+                                    <td><%#Eval("soyad") %></td>
+                                    <td><%#Eval("eposta") %></td>
+                                    <td><%#Eval("tip") %></td>
                                  
                                     <td>
-                                    	<input type="checkbox" />
-                                        <a href=""><img src="pencil.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif" width="16" height="16" alt="edit" /></a>
-                                        <a href=""><img src="bin.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif" width="16" height="16" alt="delete" /></a>
+                                        <a href='<%#Eval("Id","KullaniciYonetimi.aspx?ID={0}&Pid=1")%>'><img src="pencil.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif" width="16" height="16" alt="edit" /></a>
+                                        <a href='<%#Eval("Id","KullaniciYonetimi.aspx?ID={0}&Pid=0")%>'><img src="bin.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif" width="16" height="16" alt="delete" /></a>
                                     </td>
                                 </tr>
                              
@@ -108,7 +106,8 @@
                             
                             
                             <fieldset>
-                                <asp:Button ID="btnKullaniciKaydet" CssClass="submit-green" runat="server" Text="Kaydet" /> 
+                                <asp:Button ID="btnKullaniciKaydet" CssClass="submit-green" runat="server" 
+                                    Text="Kaydet" onclick="btnKullaniciKaydet_Click" /> 
                        
                             </fieldset>
                     

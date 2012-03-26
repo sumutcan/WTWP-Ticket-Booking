@@ -69,5 +69,36 @@ namespace TicketBooking.DataAccessLayer
         {
             return new DBConnection().ConnectDB.BiletCek(kullaniciID);
         }
+
+        public static int toplamRezervasyonSayisi()
+        {
+            return Convert.ToInt32( new DBConnection().ConnectDB.ToplamRezerveBiletSayisi().First());
+        }
+
+        public static ArrayList sonBesRezervasyonuGetir()
+        {
+            ArrayList al = new ArrayList();
+
+            foreach (SonBesRezervasyonuGetir_Result sonBes in new DBConnection().ConnectDB.SonBesRezervasyonuGetir())
+            {
+                Bilet b1 = new Bilet();
+                b1.AdSoyad = sonBes.Ad + " " + sonBes.Soyad;
+                b1.FilmAdi = sonBes.Film_Adı;
+                b1.KoltukAdi = Convert.ToChar(sonBes.Satır_No + 64).ToString() + sonBes.Sutun_No;
+                b1.SalonAdi = sonBes.Salon_Adı;
+                b1.Tarih = sonBes.Tarih.ToString().Substring(0, 10);
+                b1.Saat = sonBes.Saat;
+                b1.RezervasyonID = sonBes.Rez_ID;
+                b1.Ucret = sonBes.Ucret;
+                al.Add(b1);
+            }
+
+            return al;
+        }
+
+        public static void rezervasyonSilID(int rezID)
+        {
+            new DBConnection().ConnectDB.RezervasyonSilID(rezID);
+        }
     }
 }

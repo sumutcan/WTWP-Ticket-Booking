@@ -45,12 +45,24 @@
                          <div class="module-body">
                              <asp:ListView ID="lstBugununSonRezervasyonlari" runat="server">
                              <LayoutTemplate>
-                                
-                                <asp:PlaceHolder runat="server" id="itemPlaceHolder"></asp:PlaceHolder>
-                                
+                                <table id="myTable" class="tablesorter">
+                                                      	<thead>
+                                <tr>
+                                    <th style="width:7%">ID</th>
+                                    <th style="width:18%">Ad Soyad</th>
+                                    <th style="width:19%">Film</th>
+                                    <th style="width:12%">Salon</th>
+                                    <th style="width:9%">Koltuk</th>
+                                    <th style="width:12%">Tarih</th>
+                                    <th style="width:7%">Saat</th>
+                                    <th style="width:5%"></th>
 
-                                
-                             
+                                </tr>
+                            </thead>
+                              <tbody>
+                                <asp:PlaceHolder runat="server" id="itemPlaceHolder"></asp:PlaceHolder>
+                               </tbody>
+                               </table>
                              </LayoutTemplate>
                              
                                 <ItemSeparatorTemplate>
@@ -58,7 +70,20 @@
                                 </ItemSeparatorTemplate>
 
                              <ItemTemplate>
-                             <a href="" class="removable">images</a>
+                                                            <tr>
+                                    <td class="align-center"><%#Eval("RezervasyonID") %></td>
+                                    <td><%#Eval("AdSoyad") %></a></td>
+                                    <td><%#Eval("FilmAdi") %></td>
+                                    <td><%#Eval("SalonAdi") %></td>
+                                    <td><%#Eval("KoltukAdi") %></td>
+                                    <td><%#Eval("Tarih") %></td>
+                                    <td><%#Eval("Saat") %></td>
+                                 
+                                    <td>
+                                        <a href='<%#Eval("RezervasyonID","Default.aspx?ID={0}&Pid=0")%>'><img src="bin.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif" width="16" height="16" alt="delete" /></a>
+                                    </td>
+                                </tr>
+                             
                              
                              </ItemTemplate>
                              </asp:ListView>

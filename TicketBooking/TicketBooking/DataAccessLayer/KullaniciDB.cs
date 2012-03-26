@@ -11,7 +11,7 @@ namespace TicketBooking.DataAccessLayer
     public class KullaniciDB
     {
 
-        public static ArrayList TumKullanicilariCek(string aranan, int kriter)
+        public static ArrayList TumKullanicilariCek()
         {
             DBConnection cn = new DBConnection();
             IEnumerator<KULLANICI> num = cn.ConnectDB.TumKullanicilariCek().GetEnumerator();
@@ -26,6 +26,7 @@ namespace TicketBooking.DataAccessLayer
                 kullanici.Soyad = num.Current.Soyad;
                 kullanici.Sifre = num.Current.Sifre;
                 kullanici.Tip = num.Current.Kullanici_Tipi;
+                kullanici.Eposta = num.Current.Eposta;
                 kullanicilar.Add(kullanici);
             }
 
@@ -47,6 +48,7 @@ namespace TicketBooking.DataAccessLayer
                 kullanici.Soyad = num.Current.Soyad;
                 kullanici.Sifre = num.Current.Sifre;
                 kullanici.Tip = num.Current.Kullanici_Tipi;
+                kullanici.Eposta = num.Current.Eposta;
                 kullanicilar.Add(kullanici);
             }
 
@@ -106,6 +108,28 @@ namespace TicketBooking.DataAccessLayer
             }
 
             return "Güncelleme işlemi başarıyla gerçekleşti.";
+        }
+
+        public static ArrayList kullaniciAra(int id)
+        {
+            DBConnection cn = new DBConnection();
+            IEnumerator<KULLANICI> num = cn.ConnectDB.KullaniciAra(0,id.ToString()).GetEnumerator();
+
+            ArrayList kullanicilar = new ArrayList();
+
+            while (num.MoveNext())
+            {
+                Kullanici kullanici = new Kullanici();
+                kullanici.Id = num.Current.Kullanici_ID;
+                kullanici.Ad = num.Current.Ad;
+                kullanici.Soyad = num.Current.Soyad;
+                kullanici.Sifre = num.Current.Sifre;
+                kullanici.Tip = num.Current.Kullanici_Tipi;
+                kullanici.Eposta = num.Current.Eposta;
+                kullanicilar.Add(kullanici);
+            }
+
+            return kullanicilar;
         }
 
     }
