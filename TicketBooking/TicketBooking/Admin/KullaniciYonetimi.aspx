@@ -99,7 +99,8 @@
                             </p>                                                        
                             <p>
                                 <label>Yetki:</label>
-                                    <asp:DropDownList ID="ddlYetki" runat="server" CssClass="input-short">
+                                    <asp:DropDownList ID="ddlYetki" runat="server" CssClass="input-short" 
+                                    AutoPostBack="True" onselectedindexchanged="ddlYetki_SelectedIndexChanged">
                                     </asp:DropDownList>
 
                             </p>

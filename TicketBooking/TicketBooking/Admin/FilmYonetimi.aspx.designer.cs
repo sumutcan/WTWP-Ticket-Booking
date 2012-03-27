@@ -130,6 +130,15 @@ namespace TicketBooking.Admin {
         protected global::System.Web.UI.WebControls.CheckBox chk3D;
         
         /// <summary>
+        /// chkGeldiMi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkGeldiMi;
+        
+        /// <summary>
         /// txtAfisURL control.
         /// </summary>
         /// <remarks>
@@ -137,6 +146,15 @@ namespace TicketBooking.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAfisURL;
+        
+        /// <summary>
+        /// txtYil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtYil;
         
         /// <summary>
         /// ddlAltyaziDublaj control.

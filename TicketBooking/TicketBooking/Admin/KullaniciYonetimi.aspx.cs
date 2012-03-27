@@ -12,45 +12,61 @@ namespace TicketBooking
 {
     public partial class KullaniciYonetimi : System.Web.UI.Page
     {
-        bool ekle_guncelle;
         protected void Page_Load(object sender, EventArgs e)
         {
-            ekle_guncelle = false;
-            ddlYetki.Items.Add(new ListItem("Admin","true"));
-            ddlYetki.Items.Add(new ListItem("Kullanici", "false"));
-            if (!IsPostBack)
+            try
             {
-                if (Request.QueryString["ID"] != null)
-                    if (Request.QueryString["Pid"] == "0")
+                if (Session["LoggedUser"] == null)
+                {
+                    Response.Redirect("../Default.aspx");
+                }
+                else if ((Session["LoggedUser"] as Kullanici).Tip == false)
+                {
+                    Response.Redirect("../Default.aspx");
+                }
+                else
+                {
+                    if (!IsPostBack)
                     {
-                        KullaniciDB.KullaniciSil(Convert.ToInt32(Request.QueryString["ID"]));
-                    }
-                    else if (Request.QueryString["Pid"] == "1")
-                    {
-                        ekle_guncelle = true;
-                        ArrayList kullanici = new ArrayList();
-                        kullanici = KullaniciDB.kullaniciAra(Convert.ToInt32(Request.QueryString["ID"]));
-                        Kullanici k = kullanici[0] as Kullanici;
+                        ddlYetki.Items.Clear();
+                        ddlYetki.Items.Add(new ListItem("Admin", "true"));
+                        ddlYetki.Items.Add(new ListItem("Kullanici", "false"));
 
-                        txtAd.Text = k.Ad;
-                        txtSoyad.Text = k.Soyad;
-                        txtEposta.Text = k.Eposta;
-                        txtSifre.Text = null;
-                        txtSifreTekrar.Text = null;
+                        if (Request.QueryString["ID"] != null)
+                            if (Request.QueryString["Pid"] == "0")
+                            {
+                                KullaniciDB.KullaniciSil(Convert.ToInt32(Request.QueryString["ID"]));
+                            }
+                            else if (Request.QueryString["Pid"] == "1")
+                            {
+                                ArrayList kullanici = new ArrayList();
+                                kullanici = KullaniciDB.kullaniciAra(Convert.ToInt32(Request.QueryString["ID"]));
+                                Kullanici k = kullanici[0] as Kullanici;
 
-                        if (k.Tip == true)
-                            ddlYetki.SelectedIndex = 0;
-                        else ddlYetki.SelectedIndex = 1;
+                                txtAd.Text = k.Ad;
+                                txtSoyad.Text = k.Soyad;
+                                txtEposta.Text = k.Eposta;
+                                txtSifre.Text = null;
+                                txtSifreTekrar.Text = null;
+                                Session["UserPass"] = k.Sifre;
+
+                                if (k.Tip == true)
+                                    ddlYetki.SelectedIndex = 0;
+                                else ddlYetki.SelectedIndex = 1;
+                            }
                     }
+                    lstKullanicilar.Items.Clear();
+                    lstKullanicilar.DataSource = KullaniciDB.TumKullanicilariCek();
+                    lstKullanicilar.DataBind();
+                }
             }
-            lstKullanicilar.Items.Clear();
-            lstKullanicilar.DataSource = KullaniciDB.TumKullanicilariCek();
-            lstKullanicilar.DataBind();
+            catch { }
+            
         }
 
         protected void btnKullaniciKaydet_Click(object sender, EventArgs e)
         {
-            if (txtAd.Text == "" || txtSoyad.Text == "" || txtEposta.Text == "" || txtSifre.Text == "" || txtSifreTekrar.Text == "")
+            if (txtAd.Text == "" || txtSoyad.Text == "" || txtEposta.Text == "")
             {
                 Response.Write("<script>alert('Doldurulmamış alanlar mevcut.')</script>");
             }
@@ -65,22 +81,33 @@ namespace TicketBooking
                 k.Ad = txtAd.Text;
                 k.Soyad = txtSoyad.Text;
                 k.Eposta = txtEposta.Text;
-                k.Sifre = txtSifreTekrar.Text;
+                ddlYetki.SelectedIndex = Convert.ToInt32(Session["SelectedIndex"]);
                 k.Tip = Convert.ToBoolean(ddlYetki.SelectedItem.Value);
 
-                if (ekle_guncelle == true)
+                if (Request.QueryString["Pid"] == "1")
                 {
-                    KullaniciDB.KullaniciGuncelle(k.Id, k.Tip, k.Ad, k.Soyad, k.Eposta, k.Sifre);
-                    ekle_guncelle = false;
+                    if (txtSifre.Text == "")
+                        k.Sifre = Session["UserPass"].ToString();
+                    else
+                        k.Sifre = txtSifreTekrar.Text;
+
+                        KullaniciDB.KullaniciGuncelle(k.Id, k.Tip, k.Ad, k.Soyad, k.Eposta, k.Sifre);
+                        Response.Redirect("KullaniciYonetimi.aspx");
                     pnlBasarili.Visible = true;
                     spanBasarili.InnerHtml = "Kullanıcı başarıyla güncellendi.";
                 }
                 else
                 {
-                    KullaniciDB.KullaniciEkle(k);
+                    if (txtSifre.Text == "")
+                        Response.Write("<script>alert('Şifre alanlari doldurulmamış.')</script>");
+                    else
+                    {
+                        k.Sifre = txtSifreTekrar.Text;
+                        KullaniciDB.KullaniciEkle(k);
                     pnlBasarili.Visible = true;
                     spanBasarili.InnerHtml = "Kullanıcı başarıyla eklendi.";
 
+                    }
                 }
 
                 lstKullanicilar.Items.Clear();
@@ -92,7 +119,7 @@ namespace TicketBooking
         protected void btnAra_Click(object sender, EventArgs e)
         {
             if (txtArama.Text == "")
-                Response.Write("<script>alert('Aranacak kelimeyi giriniz.')</script>");
+                Response.Redirect("KullaniciYonetimi.aspx");
             else
             {
                 if (KullaniciDB.kullaniciAraGenel(txtArama.Text) != null)
@@ -102,6 +129,11 @@ namespace TicketBooking
                     lstKullanicilar.DataBind();
                 }
             }
+        }
+
+        protected void ddlYetki_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["SelectedIndex"] = ddlYetki.SelectedIndex.ToString();
         }
     }
 }

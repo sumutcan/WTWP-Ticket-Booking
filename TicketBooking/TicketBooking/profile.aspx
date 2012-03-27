@@ -67,7 +67,6 @@
         </LayoutTemplate>
 
         <ItemSeparatorTemplate>
-        <hr />
         </ItemSeparatorTemplate>
 
         <ItemTemplate>

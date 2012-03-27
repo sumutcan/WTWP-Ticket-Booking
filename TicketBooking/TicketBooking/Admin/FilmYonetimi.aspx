@@ -12,7 +12,8 @@
                          
                             <fieldset>
                                 <asp:TextBox ID="txtArama" runat="server" CssClass="input-short"></asp:TextBox>&nbsp;&nbsp;<asp:Button
-                                    ID="btnAra" runat="server" Text="Film Ara" CssClass="submit-green" />
+                                    ID="btnAra" runat="server" Text="Film Ara" CssClass="submit-green" 
+                                    onclick="btnAra_Click" />
                             </fieldset>
                      </div>
                 </div> <!-- module -->
@@ -51,17 +52,16 @@
 
                              <ItemTemplate>
                                                             <tr>
-                                    <td class="align-center">1</td>
-                                    <td><a href="">Don Quixote</a></td>
-                                    <td>992</td>
-                                    <td>Cervantes</td>
-                                    <td>adventure</td>
-                                    <td>992</td>
-                                    <td>992</td>
+                                    <td class="align-center"><%#Eval("id") %></td>
+                                    <td><%#Eval("FilmAdiEN")%></a></td>
+                                    <td><%#Eval("YapimYili")%></td>
+                                    <td><%#Eval("VizyonTarihi")%></td>
+                                    <td><%#Eval("BitisTarihi")%></td>
+                                    <td><%#Eval("AltDub")%></td>
+                                    <td><%#Eval("GetD3")%></td>
                                     <td>
-                                    	<input type="checkbox" />
-                                        <a href=""><img src="pencil.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif" width="16" height="16" alt="edit" /></a>
-                                        <a href=""><img src="bin.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif" width="16" height="16" alt="delete" /></a>
+                                        <a href='<%#Eval("id","FilmYonetimi.aspx?ID={0}&Pid=1")%>'><img src="pencil.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif" width="16" height="16" alt="edit" /></a>
+                                        <a href='<%#Eval("id","FilmYonetimi.aspx?ID={0}&Pid=0")%>'><img src="bin.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif" width="16" height="16" alt="delete" /></a>
                                     </td>
                                 </tr>
                              
@@ -102,7 +102,12 @@
                                     <asp:CheckBox ID="chk3D" Text="3D?" runat="server" />
                                     
                                 </p>
+                            <p>
                                
+                                    <asp:CheckBox ID="chkGeldiMi" Text="Geldi Mi?" runat="server" />
+                                    
+                                </p>
+  
                             
                             
                             <p>
@@ -111,10 +116,20 @@
                                     AutoPostBack="True" ontextchanged="txtAfisURL_TextChanged"></asp:TextBox>
                                 
                             </p>
+
+                            
+                            <p>
+                                <label>Yapım Yılı:</label>
+                               <asp:TextBox ID="txtYil" CssClass="input-long" runat="server" 
+                                    ></asp:TextBox>
+                                
+                            </p>
                                                    
                             <p>
                                 <label>Altyazı/Dublaj:</label>
-                                    <asp:DropDownList ID="ddlAltyaziDublaj" runat="server" CssClass="input-short">
+                                    <asp:DropDownList ID="ddlAltyaziDublaj" runat="server" 
+                                    CssClass="input-short" AutoPostBack="True" 
+                                    onselectedindexchanged="ddlAltyaziDublaj_SelectedIndexChanged">
                                     </asp:DropDownList>
 
                             </p>
@@ -122,7 +137,8 @@
                             
                             
                             <fieldset>
-                                <asp:Button ID="btnKullaniciKaydet" CssClass="submit-green" runat="server" Text="Kaydet" /> 
+                                <asp:Button ID="btnKullaniciKaydet" CssClass="submit-green" runat="server" 
+                                    Text="Kaydet" onclick="btnKullaniciKaydet_Click" /> 
                        
                             </fieldset>
                     
