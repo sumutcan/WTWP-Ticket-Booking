@@ -41,13 +41,13 @@
                              <ItemTemplate>
                                                             <tr>
                                     <td class="align-center"><%#Eval("Id") %></td>
-                                    <td><a href="">Don Quixote</a></td>
-                                    <td>992</td>
-                                    <td>Cervantes</td>
+                                    <td><a href=""><%#Eval("Salon.Ad") %></a></td>
+                                    <td><%#Eval("Film.FilmAdiTR") %></td>
+                                    <td><%#Eval("Saat") %></td>
                                     <td>
                                     	
-                                        <a href=""><img src="pencil.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif" width="16" height="16" alt="edit" /></a>
-                                        <a href=""><img src="bin.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif" width="16" height="16" alt="delete" /></a>
+                                        <a href='<%#Eval("Id","SeansYonetimi.aspx?ID={0}&Pid=1")%>'><img src="pencil.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif" width="16" height="16" alt="edit" /></a>
+                                        <a href='<%#Eval("Id","SeansYonetimi.aspx?ID={0}&Pid=0")%>'><img src="bin.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif" width="16" height="16" alt="delete" /></a>
                                     </td>
                                 </tr>
                              
