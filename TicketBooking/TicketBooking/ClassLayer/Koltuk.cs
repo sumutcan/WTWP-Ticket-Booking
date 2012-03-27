@@ -25,6 +25,14 @@ namespace TicketBooking.ClassLayer
         private int y;
        
 
+        public Koltuk(int a,int id, char x, int y)
+        {
+            // TODO: Complete member initialization
+            this.salonID = id;
+            this.x = x;
+            this.y = y;
+        }
+
         public Koltuk(int id, char x, int y)
         {
             // TODO: Complete member initialization
@@ -50,6 +58,12 @@ namespace TicketBooking.ClassLayer
             return X + Y.ToString();
         }
 
+        private int salonID;
 
+        public int SalonID
+        {
+            get { return salonID; }
+            set { salonID = value; }
+        }
     }
 }
