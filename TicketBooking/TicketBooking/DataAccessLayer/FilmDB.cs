@@ -177,5 +177,56 @@ namespace TicketBooking.DataAccessLayer
             return aramaSonuclari;
         }
 
+        public static ArrayList filmAraID(int filmID)
+        {
+            DBConnection cn = new DBConnection();
+            IEnumerator<FILM> num = cn.ConnectDB.FilmAraID(filmID).GetEnumerator();
+
+            ArrayList aramaSonuclari = new ArrayList();
+
+            while (num.MoveNext())
+            {
+                Film film = new Film();
+                film.Id = num.Current.FilmID;
+                film.FilmAdiEN = num.Current.Film_Adı;
+                film.FilmAdiTR = num.Current.Film_Adı;
+                film.YapimYili = num.Current.Yapım_Yılı.ToString();
+                film.VizyonTarihi = num.Current.Ekleme_Tarihi;
+                film.AfisURL = num.Current.Afis_URL;
+                film.BitisTarihi = num.Current.Bitis_Tarihi;
+                film.AltDub = num.Current.A_D;
+                film.GetD3 = num.Current.D3;
+                film.GeldiMi = num.Current.GeldiMi;
+                aramaSonuclari.Add(film);
+            }
+
+            return aramaSonuclari;
+        }
+
+        public static ArrayList filmAraGenel(string filmAdi)
+        {
+            DBConnection cn = new DBConnection();
+            IEnumerator<FILM> num = cn.ConnectDB.FilmAraGenel(filmAdi).GetEnumerator();
+
+            ArrayList aramaSonuclari = new ArrayList();
+
+            while (num.MoveNext())
+            {
+                Film film = new Film();
+                film.Id = num.Current.FilmID;
+                film.FilmAdiEN = num.Current.Film_Adı;
+                film.FilmAdiTR = num.Current.Film_Adı;
+                film.YapimYili = num.Current.Yapım_Yılı.ToString();
+                film.VizyonTarihi = num.Current.Ekleme_Tarihi;
+                film.AfisURL = num.Current.Afis_URL;
+                film.BitisTarihi = num.Current.Bitis_Tarihi;
+                film.AltDub = num.Current.A_D;
+                film.GetD3 = num.Current.D3;
+                film.GeldiMi = num.Current.GeldiMi;
+                aramaSonuclari.Add(film);
+            }
+
+            return aramaSonuclari;
+        }
     }
 }

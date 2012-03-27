@@ -13,20 +13,35 @@ namespace TicketBooking.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblAdSoyad.Text = (Session["LoggedUser"] as Kullanici).Ad + " " + (Session["LoggedUser"] as Kullanici).Soyad;
-
-            lblToplamRezervasyon.Text = RezervasyonDB.toplamRezervasyonSayisi().ToString();
-
-            if(!IsPostBack)
+            try
             {
-            if(Request.QueryString["ID"] != null)
-                if (Request.QueryString["Pid"] == "0")
+                if (Session["LoggedUser"] == null)
                 {
-                    RezervasyonDB.rezervasyonSilID(Convert.ToInt32( Request.QueryString["ID"]));
+                    Response.Redirect("../Default.aspx");
+                }
+                else if ((Session["LoggedUser"] as Kullanici).Tip == false)
+                {
+                    Response.Redirect("../Default.aspx");
+                }
+                else
+                {
+                    lblAdSoyad.Text = (Session["LoggedUser"] as Kullanici).Ad + " " + (Session["LoggedUser"] as Kullanici).Soyad;
+
+                    lblToplamRezervasyon.Text = RezervasyonDB.toplamRezervasyonSayisi().ToString();
+
+                    if (!IsPostBack)
+                    {
+                        if (Request.QueryString["ID"] != null)
+                            if (Request.QueryString["Pid"] == "0")
+                            {
+                                RezervasyonDB.rezervasyonSilID(Convert.ToInt32(Request.QueryString["ID"]));
+                            }
+                    }
+
+                    lvDoldur();
                 }
             }
-
-            lvDoldur();
+            catch { }
         }
 
         private void lvDoldur()

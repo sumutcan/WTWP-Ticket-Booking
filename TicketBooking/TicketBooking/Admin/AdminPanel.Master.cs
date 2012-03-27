@@ -12,18 +12,7 @@ namespace TicketBooking.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                if (Session["LoggedUser"] == null)
-                {
-                    Response.Redirect("../Default.aspx");
-                }
-                else if ((Session["LoggedUser"] as Kullanici).Tip == false)
-                {
-                    Response.Redirect("../Default.aspx");
-                }
-            }
-            catch { }
+            
         }
     }
 }
