@@ -43,5 +43,19 @@ namespace TicketBooking.DataAccessLayer
 
             return s;
         }
+
+        public static void seansEkle(Seans s)
+        {
+            DBConnection db = new DBConnection();
+            db.ConnectDB.SeansEkle(s.Film.Id,s.Salon.Id,s.Saat);
+            db.ConnectDB.SaveChanges();
+        }
+
+        public static void seansGuncelle(Seans s)
+        {
+            DBConnection db = new DBConnection();
+            db.ConnectDB.SeansGuncelle(s.Id,s.Film.Id, s.Salon.Id, s.Saat);
+            db.ConnectDB.SaveChanges();
+        }
     }
 }

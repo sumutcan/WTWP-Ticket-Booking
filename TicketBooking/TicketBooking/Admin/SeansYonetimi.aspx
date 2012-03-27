@@ -16,6 +16,7 @@
 
                              <asp:ListView ID="lstSeanslar" runat="server">
                              <LayoutTemplate>
+                                 
                                 <table id="myTable" class="tablesorter">
                                                       	<thead>
                                 <tr>
@@ -95,6 +96,7 @@
                                     Text="Kaydet" onclick="btnSeansKaydet_Click" /> 
                        
                             </fieldset>
+                            <asp:HiddenField ID="guncelle" runat="server" />
                     
                      </div> <!-- End .module-body -->
 
