@@ -47,8 +47,8 @@ namespace TicketBooking.ClassLayer
             set 
             { 
                saat = value;
-               h = value.Hours.ToString();
-               min = value.Minutes.ToString();
+               h = value.Hours.ToString("D2");
+               min = value.Minutes.ToString("D2");
             }
         }
         Film film;

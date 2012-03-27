@@ -32,5 +32,16 @@ namespace TicketBooking.DataAccessLayer
             }
             return al;
         }
+
+        public static Seans tekSeansCek(int seansID)
+        {
+            TekSeansCek_Result seans = new DBConnection().ConnectDB.TekSeansCek(seansID).First();
+            Seans s = new Seans(seansID);
+            s.Film.Id = seans.FilmID;
+            s.Salon.Id = seans.Salon_ID;
+            s.Saat = seans.Saat;
+
+            return s;
+        }
     }
 }

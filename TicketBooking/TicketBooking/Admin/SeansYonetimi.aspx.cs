@@ -37,7 +37,11 @@ namespace TicketBooking.Admin
                         else if (Request.QueryString["Pid"] == "1")
                         {
                             ekle_guncelle = true;
-                            //guncelle komutları gelecek. verilerin txtboxlara yazdırılması
+                            Seans seans = SeansDB.tekSeansCek(Convert.ToInt32(Request.QueryString["ID"]));
+                            ddlFilmler.SelectedValue = seans.Film.Id.ToString();
+                            ddlSalonlar.SelectedValue = seans.Salon.Id.ToString();
+                            txtSaat.Text = seans.H;
+                            txtDakika.Text = seans.Min;
 
                         }
                 }
