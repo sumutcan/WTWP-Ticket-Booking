@@ -13,24 +13,6 @@ namespace TicketBooking.Admin {
     public partial class SeansYonetimi {
         
         /// <summary>
-        /// txtArama control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtArama;
-        
-        /// <summary>
-        /// btnAra control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAra;
-        
-        /// <summary>
         /// pnlBasarili control.
         /// </summary>
         /// <remarks>
@@ -121,12 +103,12 @@ namespace TicketBooking.Admin {
         protected global::AjaxControlToolkit.FilteredTextBoxExtender Filteredtextboxextender1;
         
         /// <summary>
-        /// btnSalonKaydet control.
+        /// btnSeansKaydet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSalonKaydet;
+        protected global::System.Web.UI.WebControls.Button btnSeansKaydet;
     }
 }

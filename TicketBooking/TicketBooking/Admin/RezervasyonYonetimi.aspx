@@ -17,7 +17,7 @@
                 <asp:Panel runat="server" ID="pnlBasarili" Visible="false" EnableViewState="false"><span class="notification n-success" runat="server" id="spanBasarili">Başarılı işlemde buranın innerhtmli değişecek</span></asp:Panel>
                 <asp:Panel runat="server" ID="pnlHata" Visible="false" EnableViewState="false"><span class="notification n-error" runat="server" id="span1">Hatalı işlemde buranın innerhtmli değişecek</span></asp:Panel>
                 <div class="module">
-                <h2><span>Filmler</span></h2>
+                <h2><span>Rezervasyonlar</span></h2>
                  <div class="module-table-body">
 
                              <asp:ListView ID="lstRezervasyonlar" runat="server">
@@ -44,22 +44,21 @@
                                
 
                                 <ItemSeparatorTemplate>
-                                        <hr />
+                                        
                                 </ItemSeparatorTemplate>
 
                              <ItemTemplate>
                                                             <tr>
-                                    <td class="align-center">1</td>
-                                    <td><a href="">Don Quixote</a></td>
-                                    <td>992</td>
-                                    <td>Cervantes</td>
-                                    <td>adventure</td>
-                                    <td>992</td>
-                                    <td>992</td>
+                                    <td class="align-center"><%#Eval("RezervasyonID") %></td>
+                                    <td><%#Eval("AdSoyad") %></a></td>
+                                    <td><%#Eval("FilmAdi") %></td>
+                                    <td><%#Eval("SalonAdi") %></td>
+                                    <td><%#Eval("KoltukAdi") %></td>
+                                    <td><%#Eval("Tarih") %></td>
+                                    <td><%#Eval("Saat") %></td>
+                                 
                                     <td>
-                                    	<input type="checkbox" />
-                                        <a href=""><img src="pencil.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif" width="16" height="16" alt="edit" /></a>
-                                        <a href=""><img src="bin.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif" width="16" height="16" alt="delete" /></a>
+                                        <a href='<%#Eval("RezervasyonID","Default.aspx?ID={0}&Pid=0")%>'><img src="bin.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif" width="16" height="16" alt="delete" /></a>
                                     </td>
                                 </tr>
                              

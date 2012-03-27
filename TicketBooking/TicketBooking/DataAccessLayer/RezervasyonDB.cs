@@ -100,5 +100,26 @@ namespace TicketBooking.DataAccessLayer
         {
             new DBConnection().ConnectDB.RezervasyonSilID(rezID);
         }
+
+        public static object tumRezervasyonlariGetir()
+        {
+            ArrayList al = new ArrayList();
+
+            foreach (TumRezervasyonlariGetir_Result sonBes in new DBConnection().ConnectDB.TumRezervasyonlariGetir())
+            {
+                Bilet b1 = new Bilet();
+                b1.AdSoyad = sonBes.Ad + " " + sonBes.Soyad;
+                b1.FilmAdi = sonBes.Film_Adı;
+                b1.KoltukAdi = Convert.ToChar(sonBes.Satır_No + 64).ToString() + sonBes.Sutun_No;
+                b1.SalonAdi = sonBes.Salon_Adı;
+                b1.Tarih = sonBes.Tarih.ToString().Substring(0, 10);
+                b1.Saat = sonBes.Saat;
+                b1.RezervasyonID = sonBes.Rez_ID;
+                b1.Ucret = sonBes.Ucret;
+                al.Add(b1);
+            }
+
+            return al;
+        }
     }
 }

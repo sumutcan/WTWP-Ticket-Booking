@@ -72,10 +72,15 @@ namespace TicketBooking
                 {
                     KullaniciDB.KullaniciGuncelle(k.Id, k.Tip, k.Ad, k.Soyad, k.Eposta, k.Sifre);
                     ekle_guncelle = false;
+                    pnlBasarili.Visible = true;
+                    spanBasarili.InnerHtml = "Kullanıcı başarıyla güncellendi.";
                 }
                 else
                 {
                     KullaniciDB.KullaniciEkle(k);
+                    pnlBasarili.Visible = true;
+                    spanBasarili.InnerHtml = "Kullanıcı başarıyla eklendi.";
+
                 }
 
                 lstKullanicilar.Items.Clear();
