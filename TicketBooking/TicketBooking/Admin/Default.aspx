@@ -10,12 +10,12 @@
                 </a>
                 
                 <a href="FilmYonetimi.aspx" class="dashboard-module">
-                	<img src="Crystal_Clear_file.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/Crystal_Clear_file.gif" width="64" height="64" alt="edit" />
+                	<img src="Crystal_Clear_file.png" tppabs="http://www.xooom.pl/work/magicadmin/images/Crystal_Clear_file.gif" width="64" height="64" alt="edit" />
                 	<span>Filmler</span>
                 </a>
                 
                 <a href="SalonYonetimi.aspx" class="dashboard-module">
-                	<img src="Crystal_Clear_files.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/Crystal_Clear_files.gif" width="64" height="64" alt="edit" />
+                	<img src="Crystal_Clear_files.png" tppabs="http://www.xooom.pl/work/magicadmin/images/Crystal_Clear_files.gif" width="64" height="64" alt="edit" />
                 	<span>Salonlar</span>
                 </a>
                 
