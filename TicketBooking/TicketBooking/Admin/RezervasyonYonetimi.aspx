@@ -58,7 +58,7 @@
                                     <td><%#Eval("Saat") %></td>
                                  
                                     <td>
-                                        <a href='<%#Eval("RezervasyonID","Default.aspx?ID={0}&Pid=0")%>'><img src="bin.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif" width="16" height="16" alt="delete" /></a>
+                                        <a href='<%#Eval("RezervasyonID","RezervasyonYonetimi.aspx?ID={0}&Pid=0")%>'><img src="bin.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif" width="16" height="16" alt="delete" /></a>
                                     </td>
                                 </tr>
                              
