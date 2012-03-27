@@ -112,10 +112,13 @@ namespace TicketBooking.DataAccessLayer
 
         public static ArrayList kullaniciAra(int id)
         {
-            DBConnection cn = new DBConnection();
-            IEnumerator<KULLANICI> num = cn.ConnectDB.KullaniciAra(0,id.ToString()).GetEnumerator();
-
             ArrayList kullanicilar = new ArrayList();
+            try
+            {
+                DBConnection cn = new DBConnection();
+                IEnumerator<KULLANICI> num = cn.ConnectDB.KullaniciAra(0, id.ToString()).GetEnumerator();
+
+                
 
             try
             {
@@ -134,9 +137,16 @@ namespace TicketBooking.DataAccessLayer
             catch (Exception ex)
             {
 
-            }
+                }
 
+                
+            }
+            catch 
+            { 
+                
+            }
             return kullanicilar;
+            
         }
 
         public static ArrayList kullaniciAraGenel(string s)

@@ -93,6 +93,8 @@ namespace TicketBooking
 
                         KullaniciDB.KullaniciGuncelle(k.Id, k.Tip, k.Ad, k.Soyad, k.Eposta, k.Sifre);
                         Response.Redirect("KullaniciYonetimi.aspx");
+                    pnlBasarili.Visible = true;
+                    spanBasarili.InnerHtml = "Kullanıcı başarıyla güncellendi.";
                 }
                 else
                 {
@@ -102,6 +104,9 @@ namespace TicketBooking
                     {
                         k.Sifre = txtSifreTekrar.Text;
                         KullaniciDB.KullaniciEkle(k);
+                    pnlBasarili.Visible = true;
+                    spanBasarili.InnerHtml = "Kullanıcı başarıyla eklendi.";
+
                     }
                 }
 

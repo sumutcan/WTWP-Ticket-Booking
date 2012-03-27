@@ -100,6 +100,8 @@ public partial class loginControl : System.Web.UI.UserControl
             yeni.Tip = false;
 
             Response.Write("<script>alert('" + yeni.Kaydol() + "')</script>");
+            pnlHata.Visible = true;
+            spanHata.InnerHtml = "Kaydedildi.";
 
             basaDon();
         }

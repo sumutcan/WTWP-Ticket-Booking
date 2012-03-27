@@ -26,14 +26,33 @@ namespace TicketBooking.ClassLayer
         
 
         TimeSpan saat;
+        string h;
+
+        public string H
+        {
+            get { return h; }
+            set { h = value; }
+        }
+        string min;
+
+        public string Min
+        {
+            get { return min; }
+            set { min = value; }
+        }
 
         public TimeSpan Saat
         {
             get { return saat; }
-            set { saat = value; }
+            set 
+            { 
+               saat = value;
+               h = value.Hours.ToString("D2");
+               min = value.Minutes.ToString("D2");
+            }
         }
         Film film;
-        private int p;
+
         
         
 
@@ -64,6 +83,8 @@ namespace TicketBooking.ClassLayer
         {
             // TODO: Complete member initialization
             this.id = id;
+            salon = new Salon();
+            film = new Film();
         }
 
         public void filmEkle(Film secilenFilm)
